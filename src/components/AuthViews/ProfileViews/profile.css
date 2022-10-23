@@ -1,0 +1,124 @@
+.profile_background {
+    min-height:100vh;
+    background: linear-gradient(356deg,white 73%, rgba(0, 0, 0, 0.409) 73.1%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.Profile_picture_section {
+    display: flex;
+    flex-direction: column;
+}
+.outer_profile_container {
+    height:65%;
+    width: 65%;
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    border-radius: 50px;
+    gap:75px;
+    position: relative;
+}
+.Connect_title_bar {
+    margin-bottom: 10px;
+}
+.About_Me_Edit_Button:hover, .add_social_button:hover {
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.4);
+    padding:0px;
+}
+.top_profile_container {
+    display:flex;
+    justify-content:flex-start;
+    align-items:flex-end;
+    gap:20%;
+}
+.description_box {
+    width:100%;
+}
+.profile_username {
+    font-size: 4rem;
+} 
+.social_options {
+    display: flex;
+    align-items: center;
+}
+.college_affiliation_bar {
+    border-bottom-style: none;
+    padding:10px 0;
+    caret-color: black;
+}
+.college_submit_checkmark_button:hover {
+    color:green;
+    cursor:pointer;
+}
+@media(min-width:1675px) {
+    .profile_page_description{
+        width:65%;
+    }
+    .outer_profile_container{
+        width:50%;
+    }
+}
+@media(max-width:1450px) {
+    .outer_profile_container{
+        width:70%;
+        gap:25px;
+    }
+    .top_profile_container{
+        align-items: flex-end;
+        gap:10%;
+    }
+    .profile_sidebox_container{
+        margin-top: 25%;
+    }
+    .description_box {
+        width:100%;
+    }  
+}
+@media (max-width:1281px) {
+    .outer_profile_container {
+        position: unset;
+    }
+
+}
+@media(max-width:954px) {
+    .outer_profile_container{
+        width:90%;
+    }
+    /* .profile_sidebox_listItems {
+        padding: 0 !important;
+    } */
+    .profile_sidebox_container{
+        margin-top: 15%;
+    }
+   
+}
+@media (max-width:678px) {
+    .profile_sidebox_container{
+        display: none;
+    } 
+    .outer_profile_container {
+        width:100%;
+    }
+    .top_profile_container{
+        justify-content: center;
+    }
+    .Profile_picture_section{
+        align-items: center;
+    } 
+    .profile_background {
+        background: white;
+    }
+    .profile_username {
+        font-size: 3rem;
+    }  
+}
+@media (max-width:322px) {
+    .outer_profile_container {
+        padding: 5px;
+    }
+} 
+

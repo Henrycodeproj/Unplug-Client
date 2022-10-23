@@ -1,0 +1,30 @@
+.signup_label {
+    display:flex;
+    flex-direction: column;
+    margin: 15px 0px;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 900;
+    color:rgb(85, 128, 227)
+}
+.signup_username{
+    color:white;
+}
+.signup_sideimage_logo {
+    max-width: 50%;
+}
+@media (max-width:999px) {
+    .signup_sideimage_logo {
+        display:none
+    }
+    .signup-container{
+        margin:1rem;
+    }
+}
+@media(max-width:281px) {
+    .signup-container{
+        margin:.2rem;
+    }
+    .signup-title {
+        font-size: 1rem;
+    }
+}

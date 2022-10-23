@@ -1,0 +1,45 @@
+.attending_avatars {
+    cursor: pointer;
+    position: relative;
+    margin-left: -8px;
+    border-style: solid;
+    border-color: white;
+    width:35px !important;
+    height:35px !important;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.remaining_users_avatar {
+    position: relative;
+    margin-left:-8px;
+    border-style: solid;
+    border-color: white;
+    width:35px !important;
+    height:35px !important;
+}
+.remaining_users_container {
+    display:flex;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(128, 128, 128, 0.352);
+    border-bottom-width: 1px;
+}
+.remaining_users_search_bar_container {
+    border-radius:5px;
+    border-style: solid;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 10px;
+}
+.remaining_users_search_bar {
+    border-style: none;
+    font-size:1rem;
+    caret-color: black;
+}
+.remaining_users_container {
+    display: flex;
+    cursor: pointer;
+}
+.attending_lists{
+    display: flex;
+}

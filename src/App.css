@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,700;1,900&display=swap');
+body {
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+    font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg clip-path='url(%26quot%3b%23SvgjsClipPath1094%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%2332325d'%3e%3c/rect%3e%3ccircle r='19.18' cx='1020.58' cy='194.14' fill='url(%23SvgjsLinearGradient1095)'%3e%3c/circle%3e%3ccircle r='26.8' cx='18.39' cy='163.29' fill='url(%23SvgjsLinearGradient1096)'%3e%3c/circle%3e%3ccircle r='16.48' cx='1202.55' cy='261.36' fill='url(%23SvgjsLinearGradient1097)'%3e%3c/circle%3e%3ccircle r='24.89' cx='1134.29' cy='199.38' fill='url(%23SvgjsLinearGradient1098)'%3e%3c/circle%3e%3ccircle r='44.055' cx='178.04' cy='117.65' fill='url(%23SvgjsLinearGradient1099)'%3e%3c/circle%3e%3ccircle r='21.395' cx='1031.22' cy='391.98' fill='url(%23SvgjsLinearGradient1100)'%3e%3c/circle%3e%3ccircle r='52.665' cx='418.91' cy='140.44' fill='%2343468b'%3e%3c/circle%3e%3ccircle r='52.395' cx='793.85' cy='319.18' fill='url(%23SvgjsLinearGradient1101)'%3e%3c/circle%3e%3c/g%3e%3cdefs%3e%3cclipPath id='SvgjsClipPath1094'%3e%3crect width='1440' height='560' x='0' y='0'%3e%3c/rect%3e%3c/clipPath%3e%3clinearGradient x1='982.22' y1='194.14' x2='1058.94' y2='194.14' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1095'%3e%3cstop stop-color='%23e298de' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23484687' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='-35.21' y1='163.29' x2='71.99000000000001' y2='163.29' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1096'%3e%3cstop stop-color='%2332325d' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23424488' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='1169.59' y1='261.36' x2='1235.51' y2='261.36' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1097'%3e%3cstop stop-color='%2384b6e0' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23464a8f' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='1084.51' y1='199.38' x2='1184.07' y2='199.38' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1098'%3e%3cstop stop-color='%23e298de' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23484687' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='89.92999999999999' y1='117.65' x2='266.15' y2='117.65' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1099'%3e%3cstop stop-color='%23e298de' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23484687' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='988.4300000000001' y1='391.98' x2='1074.01' y2='391.98' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1100'%3e%3cstop stop-color='%2384b6e0' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23464a8f' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3clinearGradient x1='689.0600000000001' y1='319.18' x2='898.6400000000001' y2='319.18' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1101'%3e%3cstop stop-color='%23e298de' offset='0.1'%3e%3c/stop%3e%3cstop stop-color='%23484687' offset='0.9'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+}
+h1, h2, h3, h4, h5, h6{
+  margin:0;
+}
+ul{
+  padding:0;
+  margin:0;
+  list-style: none;
+}
+.class{
+  display:flex;
+  align-items: center;
+  flex-direction: row;
+  margin:10px 0;
+  background:none;
+  border-style: none;
+  border-bottom-style: solid;
+  border-color: rgb(129, 129, 129);
+  border-bottom-width: 1px;
+  caret-color: white;
+  height:25px;
+  width:100%;
+}
+.aaa{
+  text-align: center;
+}
+h3{
+  margin:5px 0px;
+  color:rgb(198, 196, 196);
+}
+p{
+  margin:0;
+  padding:0;
+}
+.form-errors{
+  color:rgba(182, 0, 0, 0.719);
+  color:rgba(151, 2, 2, 0.856);
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.signup{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height:inherit;
+  width: inherit;
+}
+main{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height:94vh;
+}
+.signup-container{
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-sizing: border-box;
+  background:#ffffff38;
+  width:450px;
+  padding:30px;
+  border-style: solid;
+  border-radius: 15px;
+  font-family: 'Mulish', sans-serif;
+}
+.unplug_logo{
+  max-height: 100%;
+  cursor: pointer;
+}
+.test{
+  position: absolute;
+}
+.signup-title{
+  margin:5px 5px !important;
+  padding:5px;
+  color:rgb(198, 196, 196);
+  color:White;
+  display:inline;
+  cursor:pointer;
+  font-size:25px;
+}
+.login_input {
+  color:white;
+}
+.requirement-warning{
+  display:flex;
+  align-items: center;
+  color:red;
+}
+.password-checkmark{
+  font-size:1.2rem !important;
+  margin-left:5px;
+}
+.landing-wrapper{
+  width:100%;
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.login-signup-link{
+  font-weight: bolder;
+  cursor:pointer;
+}
+.login-forms{
+  display:flex;
+  flex-direction: column;
+}
+.cheker{
+  display:flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.login-username-container, .login-password-container{
+  display:flex;
+  flex-direction: column;
+  margin:20px 0px;
+}
+input{
+  background:none;
+  border-style: none;
+  border-bottom-style: solid;
+  border-color: rgb(129, 129, 129);
+  border-bottom-width: 1px;
+  font-size:30px;
+  caret-color: white;
+  height:25px;
+  width:100%;
+}
+input:focus{
+  outline:none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+  background-color: transparent !important;
+}
+/* input, select, textarea{
+  color: white;
+} */
+.space{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-section{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.submit-section-login{
+  /* display:flex;
+  justify-content: space-between;
+  align-items: center; */
+  margin:30px 0;
+}
+.expired{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100vh;
+}

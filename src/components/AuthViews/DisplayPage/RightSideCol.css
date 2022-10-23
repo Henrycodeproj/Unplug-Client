@@ -1,0 +1,101 @@
+.right_sidebar {
+    background-color: rgb(215, 215, 215);
+    max-width: 25%;
+    min-width: 25%;
+    border-radius: 5px !important;
+}
+.right_column_wrapper {
+    display:flex;
+    justify-content: center;
+    padding:1rem;
+    flex-direction: column;
+}
+.recent_message_avatars {
+    display:flex;
+    flex-direction: column-reverse;
+    margin-bottom: 10px;
+}
+.recent_message_container {
+    margin-top: 10px;
+    padding:10px;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+.recent_message_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 17px;
+}
+.profile_image_name_container {
+    display:flex;
+    align-items: center;
+}
+.recent_message_users {
+    margin-bottom: 5px;
+}
+.recent_chatusers_online{
+    position: relative;
+    min-width: 7px;
+    max-width: 7px;
+    min-height: 7px;
+    max-height: 7px;
+    border-radius: 50%;
+    color:rgb(0, 128, 0);
+    background-color: green;
+    border-style: solid;
+    top:-10px;
+    left:25px;
+    border-style: solid;
+    border-color: rgb(232, 231, 231);
+    margin:0;
+}
+.recent_message_online{
+    position: relative;
+    min-width: 7px;
+    max-width: 7px;
+    min-height: 7px;
+    max-height: 7px;
+    border-radius: 50%;
+    color:rgb(0, 128, 0);
+    background-color: green;
+    border-style: solid;
+    top:-10px;
+    left:25px;
+    border-style: solid;
+    border-color: rgb(232, 231, 231);
+    margin:0;
+    animation: online-pulse 2s infinite;
+}
+.recent_message_names {
+    text-transform: capitalize;
+    color:black;
+    font-weight: 600;
+    margin:0
+}
+.popular_container{
+    padding:10px;
+}
+.popular_post_container{
+    margin: 20px 0;
+    display:flex;
+    justify-content: space-between;
+}
+@keyframes online-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(2, 171, 2, 0.516);
+    }
+    
+    70% {
+      box-shadow: 0 0 0 7px rgba(0, 128, 0, 0);
+    }
+    
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
+    }
+}
+@media (max-width:920px){
+    .right_sidebar{
+        display:none;
+    }
+}

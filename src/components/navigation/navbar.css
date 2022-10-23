@@ -1,0 +1,63 @@
+.faker1 {
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+nav{
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #a821a142;
+    background:rgba(86, 67, 172, 0.667);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+.Notifications_container{
+  min-width: 250px;
+  max-height:250px;
+  overflow: scroll;
+}
+.profile_section {
+    display:flex;
+    padding:0;
+    margin:0;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+.profile_menu_icon{
+    padding:5px;
+    background-color: rgba(128, 128, 128, 0.32);
+    border-radius: 50%;
+}
+.notification_bell {
+    font-size: 2em !important;
+    cursor:pointer;
+    border-radius:50%;
+    color:#bbb5b5;
+    background: rgba(128, 128, 128, 0.393);
+}
+.notification_bell:hover{
+    animation: notification-pulse 2s infinite;
+}
+@keyframes notification-pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(128, 128, 128, 0.393);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(128, 128, 128, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(128, 128, 128, 0);
+    }
+  }
+@media (max-width:768px){
+  .unplug_logo {
+    max-height: 50px;
+  }
+}

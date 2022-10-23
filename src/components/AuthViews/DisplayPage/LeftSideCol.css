@@ -1,0 +1,102 @@
+.leftside_profile_card {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    color:White;
+    align-items: center;
+    height:100px;
+    flex-wrap: wrap;
+}
+.leftside_profile_card_name {
+    margin-left:10px;
+}
+.css-o4b71y-MuiAccordionSummary-content {
+    align-items: center !important;
+}
+.left_sidebar {
+    display:flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width:auto;
+    min-width: 25%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.side_header {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.tester {
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+.leftsidebar_online {
+    position: relative;
+    min-width: 7px;
+    max-width: 7px;
+    min-height: 7px;
+    max-height: 7px;
+    border-radius: 50%;
+    color:rgb(0, 128, 0);
+    background-color: green;
+    border-style: solid;
+    top:20px;
+    right:20px;
+    border-style: solid;
+    border-color: rgb(232, 231, 231);
+    animation: leftsidebar-online-pulse 2s infinite;
+}
+.leftsidebar_menuItems:hover, .MuiAccordion-gutters:hover {
+    background-color: rgba(165, 165, 165, 0.228) !important;
+    border-radius: 5px;
+}
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded {
+    background:none !important;
+} 
+.expand_icon {
+    border-radius: 50% !important;
+}
+.MuiAccordion-region, .Mui-expanded {
+    background-color: rgba(165, 165, 165, 0.228) !important;
+} 
+@keyframes leftsidebar-online-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(2, 171, 2, 0.516);
+    }
+    
+    70% {
+      box-shadow: 0 0 0 7px rgba(0, 128, 0, 0);
+    }
+    
+    100% {
+      box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
+    }
+}
+@media (max-width:940px) {
+    .expand_icon {
+        display:none !important;
+    }
+}
+@media (max-width:786px){
+    .list_item_text {
+        display:none !important;
+    }
+    .leftsidebar_menuItems {
+        justify-content: center !important;
+    }
+    .MuiListItemIcon-root{
+        min-width: none;
+    }
+    .css-o4b71y-MuiAccordionSummary-content{
+        justify-content: center !important;
+    }
+}
+@media (max-width:502px) {
+    .left_sidebar {
+        display:none;
+    }
+}

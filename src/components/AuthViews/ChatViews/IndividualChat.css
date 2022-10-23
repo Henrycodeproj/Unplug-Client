@@ -1,0 +1,96 @@
+.otherUser_message_wrapper{
+    display: flex;
+    gap:5px;
+    align-items: center;
+    margin: 5px 0;
+}
+.chat_box_wrapper {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px;
+    border-bottom-style:solid;
+    border-bottom-color: rgba(128, 128, 128, 0.276);
+}
+.currentUser_message_wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap:5px;
+    margin: 5px 0;
+}
+.currentUser_message{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 5px 10px;
+    background-color: #469bf0;
+    background-color: rgb(253, 234, 129);
+    font-weight: 500;
+    word-break: break-all;
+}
+.otherUser_message {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px 10px;
+    background-color: #edacf8d3;
+    font-weight: 500;
+    word-break: break-all;
+}
+.input_messages{
+    caret-color: gray;
+    border-radius: 10px;
+    padding:5px;
+    border-style: none;
+    word-wrap: break-word;
+    font-size: 1.2rem;
+    width:100%;
+}
+.input_messages::placeholder{
+    color:rgba(0, 0, 0, 0.607);
+}
+.message-out::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+}
+.message-out::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+}
+.active_newchat_bell{
+    cursor: pointer;
+}
+.active_newchat_bell:hover{
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+.currentUser_messsage_container{
+    width:80%;
+    display: flex;
+    justify-content: flex-end;
+    gap:10px;
+}
+.otherUser_messsage_container{
+    width:80%;
+    display: flex;
+    gap:10px;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -1px) rotate(-1deg); }
+    20% { transform: translate(-1px, 0px) rotate(1deg); }
+    30% { transform: translate(1px, 1px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 1px) rotate(-1deg); }
+    60% { transform: translate(-1px, 1px) rotate(0deg); }
+    70% { transform: translate(1px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 1px) rotate(0deg); }
+    100% { transform: translate(1px, -1px) rotate(-1deg); }
+  }
+@media (max-width:920px){
+    .chat_tabs{
+        display: none;
+    }
+}
