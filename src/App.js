@@ -1,15 +1,15 @@
 import './App.css';
-import  { Signup } from './components/homepage/Signup';
-import { Navbar } from './components/navigation/navbar'
-import { Errorpage } from './components/config/ErrorPage';
+import  { Signup } from './components/homepage/Signup.jsx';
+import { Navbar } from './components/navigation/navbar.jsx'
+import { Errorpage } from './components/config/ErrorPage.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AppContext} from './components/Contexts/appContext';
-import { ExpiredVerification } from "./components/config/ExpiredVerified";
-import { Confirmation } from "./components/config/ConfirmationPage";
-import { UserAuthentication } from './components/config/userAuth';
-import { Profile } from "./components/AuthViews/ProfileViews/profile";
-import { Display } from './components/AuthViews/DisplayPage/Display';
-import { NotFound } from "./components/config/NotFound";
+import { AppContext} from './components/Contexts/appContext.jsx';
+import { ExpiredVerification } from "./components/config/ExpiredVerified.jsx";
+import { Confirmation } from "./components/config/ConfirmationPage.jsx";
+import { UserAuthentication } from './components/config/userAuth.jsx';
+import { Profile } from "./components/AuthViews/ProfileViews/profile.jsx";
+import { Display } from './components/AuthViews/DisplayPage/Display.jsx';
+import { NotFound } from "./components/config/NotFound.jsx";
 
 function App() {
   return (
