@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node src/App.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,15 +45,8 @@
       "last 1 safari version"
     ]
   },
-  "description": "��#\u0000 \u0000u\u0000n\u0000p\u0000l\u0000u\u0000g\u0000-\u0000c\u0000l\u0000i\u0000e\u0000n\u0000t\u0000\r\u0000 \u0000",
-  "main": "App.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Henrycodeproj/unplug-client.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Henrycodeproj/unplug-client/issues"
+  "engines":{
+    "node":"v16.14.2",
+    "npm" :"8.5.0"
   }
 }
