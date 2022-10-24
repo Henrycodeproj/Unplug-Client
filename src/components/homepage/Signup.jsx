@@ -61,8 +61,9 @@ export const Signup = () =>{
 
         //axios to send information if goes through checks
         if ((Object.keys(valid).length === 0 && Object.keys(formErrors).length === 0 && Object.keys(confirm).length === 0)){
-          await axios.post('https://tender-glasses-bat.cyclic.app/createUser', newUser)
+          await axios.post('https://tender-glasses-bat.cyclic.app/createuser', newUser)
         .then(response => {
+          console.log(response)
           if (response.status === 201){
             setCreatedAccount(true)
           }
