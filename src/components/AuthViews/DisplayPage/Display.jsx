@@ -36,7 +36,7 @@ export const Display = () =>{
     },[])
 
     useEffect (()=>{
-        const URL = `http://localhost:3001/posts/amount/${lastPostIndex}/`
+        const URL = `https://tender-glasses-bat.cyclic.app/posts/amount/${lastPostIndex}/`
         axios.get(URL, {
             headers:{
                 "authorization":localStorage.getItem("Token")
@@ -50,7 +50,7 @@ export const Display = () =>{
 
         if (e.target.clientHeight + e.target.scrollTop + 1 >= e.target.scrollHeight) {
 
-            const URL = `http://localhost:3001/posts/getamount/${lastPostIndex}`
+            const URL = `https://tender-glasses-bat.cyclic.app/posts/getamount/${lastPostIndex}`
             const newResults = await axios.get(URL, {
                 headers:{
                     "authorization":localStorage.getItem("Token")
@@ -64,7 +64,7 @@ export const Display = () =>{
     
     const likeHandler = (postID) => {
         const data = {user:user.id}
-        const URL = `http://localhost:3001/posts/likes/${postID}/${lastPostIndex}`
+        const URL = `https://tender-glasses-bat.cyclic.app/posts/likes/${postID}/${lastPostIndex}`
         axios.patch(URL, data, {
             headers: {
                 "authorization":localStorage.getItem("Token")
