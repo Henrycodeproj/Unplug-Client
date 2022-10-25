@@ -22,7 +22,7 @@ export const SendMessageProfile = ({viewedUser, sendMessage, setSendMessage, mes
         };  
         const sendMessageHandler = async () => {
             handleClose()
-            const Url = "http://localhost:3001/message/send"
+            const Url = "https://tender-glasses-bat.cyclic.app/message/send"
             const data = {
               chatId: currentPostConvoID,
               message: message,
