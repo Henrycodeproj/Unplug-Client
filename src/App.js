@@ -17,7 +17,7 @@ function App() {
       <AppContext>
        <Navbar/>
         <Routes>
-          <Route path="/unplug-client" element ={<Signup/>}/>
+          <Route exact path="/" element ={<Signup/>}/>
           <Route element = {<UserAuthentication/>}>
               <Route path="/display" element = {<Display/>}/>
               <Route path="/#/profile/:userId" element = {<Profile/>}/>
