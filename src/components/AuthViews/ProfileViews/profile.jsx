@@ -62,7 +62,9 @@ export const Profile = ()=> {
 
     const submitDescription = async () => {
       const url = `https://tender-glasses-bat.cyclic.app/user/update/description/${user.id}`
-      const data = {description: userDescription}
+      const data = {
+        description: userDescription
+      }
       const response = await axios.patch(url, data, {
         headers:{
           "authorization": localStorage.getItem("Token")
@@ -75,7 +77,9 @@ export const Profile = ()=> {
     const submitAffliliationHandler = async (event) => {
       if (event.key === "Enter" && affiliation) {
         const url = `https://tender-glasses-bat.cyclic.app/user/update/college/${user.id}`
-        const data = { affiliation: affiliation }
+        const data = {
+           affiliation: affiliation
+        }
         const response = await axios.patch(url, data, {
           headers:{
             "authorization": localStorage.getItem("Token")
@@ -131,7 +135,7 @@ export const Profile = ()=> {
 
     const sendMessageHandler = async () => {
       setSendMessage(true)
-      const Url = "http://localhost:3001/conversation/create"
+      const Url = "https://tender-glasses-bat.cyclic.app/conversation/create"
       const data = {user1:user.id, user2:viewedUser._id}
       const newConvoId = await axios.post(Url, data, {
         headers:{
