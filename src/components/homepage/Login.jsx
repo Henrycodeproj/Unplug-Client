@@ -32,9 +32,7 @@ export const Login = ({setOption, option, active, inactive}) => {
       setLoginLoading(true)
       e.preventDefault()
       const Url = 'https://tender-glasses-bat.cyclic.app/login'
-      axios.post(Url, loginInfo,{
-        //withCredentials:false,
-      })
+      axios.post(Url, loginInfo)
       .then(res => {
         console.log(res, 'res')
         if (res.data.accessToken){
@@ -43,7 +41,7 @@ export const Login = ({setOption, option, active, inactive}) => {
           localStorage.setItem("User", JSON.stringify(res.data.user))
           setUser(JSON.parse(localStorage.getItem("User")))
           setLoginLoading(false)
-          navigateTo("/#/display")
+          navigateTo("/display")
         }
       }).catch(error =>{
         console.log(error.response.data.message)

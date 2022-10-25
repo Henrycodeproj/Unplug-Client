@@ -2,7 +2,7 @@ import './App.css';
 import  { Signup } from './components/homepage/Signup.jsx';
 import { Navbar } from './components/navigation/navbar.jsx'
 import { Errorpage } from './components/config/ErrorPage.jsx';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppContext} from './components/Contexts/appContext.jsx';
 import { ExpiredVerification } from "./components/config/ExpiredVerified.jsx";
 import { Confirmation } from "./components/config/ConfirmationPage.jsx";
@@ -13,18 +13,18 @@ import { NotFound } from "./components/config/NotFound.jsx";
 
 function App() {
   return (
-    <Router basename='/unplug-client'>
+    <Router>
       <AppContext>
        <Navbar/>
         <Routes >
           <Route path="/" element ={<Signup/>}/>
           <Route element = {<UserAuthentication/>}>
-              <Route basename="/unplug-client" path="/display" element = {<Display/>}/>
-              <Route path="/#/profile/:userId" element = {<Profile/>}/>
+              <Route path="/display" element = {<Display/>}/>
+              <Route path="/profile/:userId" element = {<Profile/>}/>
           </Route>
-          <Route path = "/#/invalid/expired/" element = {<ExpiredVerification/>}/>
-          <Route path = "/#/valid" element = {<Confirmation/>}/>
-          <Route path = "/#/error" element ={<NotFound/> }/>
+          <Route path = "/invalid/expired/" element = {<ExpiredVerification/>}/>
+          <Route path = "/valid" element = {<Confirmation/>}/>
+          <Route path = "/error" element ={<NotFound/> }/>
           <Route path = "*" element ={<Errorpage/> }/>
         </Routes>
       </AppContext>
