@@ -24,7 +24,7 @@ export const RightSideCol = () => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     useEffect(()=>{
-        const url = "http://localhost:3001/posts/popular"
+        const url = "https://tender-glasses-bat.cyclic.app/posts/popular"
         axios.get(url, {
             headers:{
                 "authorization":localStorage.getItem("Token")
@@ -37,7 +37,7 @@ export const RightSideCol = () => {
     },[])
 
     useEffect(()=>{
-        const Url = `http://localhost:3001/message/recent/all/${user.id}`
+        const Url = `https://tender-glasses-bat.cyclic.app/message/recent/all/${user.id}`
         axios.get(Url, {
             headers:{
                 "authorization":localStorage.getItem("Token")
