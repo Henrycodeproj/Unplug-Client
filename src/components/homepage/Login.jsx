@@ -33,7 +33,7 @@ export const Login = ({setOption, option, active, inactive}) => {
       e.preventDefault()
       const Url = 'https://tender-glasses-bat.cyclic.app/login'
       axios.post(Url, loginInfo,{
-        withCredentials:false,
+        //withCredentials:false,
       })
       .then(res => {
         console.log(res, 'res')
