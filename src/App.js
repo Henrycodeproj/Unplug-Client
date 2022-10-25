@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element ={<Signup/>}/>
           <Route element = {<UserAuthentication/>}>
-              <Route path="/#/display" element = {<Display/>}/>
+              <Route path="/display" element = {<Display/>}/>
               <Route path="/#/profile/:userId" element = {<Profile/>}/>
           </Route>
           <Route path = "/#/invalid/expired/" element = {<ExpiredVerification/>}/>

@@ -42,7 +42,7 @@ export const Login = ({setOption, option, active, inactive}) => {
           localStorage.setItem("User", JSON.stringify(res.data.user))
           setUser(JSON.parse(localStorage.getItem("User")))
           setLoginLoading(false)
-          navigateTo("/display")
+          navigateTo("/#/display")
         }
       }).catch(error =>{
         console.log(error.response.data.message)
