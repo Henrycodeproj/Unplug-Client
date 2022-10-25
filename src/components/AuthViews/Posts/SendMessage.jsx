@@ -24,7 +24,7 @@ export const SendMessage = ({post}) => {
 
     const handleClickOpen = async () => {
       setSendMessageOpen(true);
-      const Url = "http://localhost:3001/conversation/create"
+      const Url = "https://tender-glasses-bat.cyclic.app/conversation/create"
       const data = {user1:user.id, user2:post.posterId._id}
       const newConvoId = await axios.post(Url, data, {
         headers:{
@@ -63,7 +63,7 @@ export const SendMessage = ({post}) => {
 
     const sendChatMessage = async () =>{
         handleClose()
-        const Url = "http://localhost:3001/message/send"
+        const Url = "https://tender-glasses-bat.cyclic.app/message/send"
         const data = {
           chatId: currentPostConvoID,
           message: message,

@@ -47,7 +47,7 @@ export const Profile = ()=> {
     const [currentPostConvoID, setCurrentPostConvoID] = useState(null)
 
     useEffect(()=>{
-        const URL = `http://localhost:3001/user/information/${userId}`
+        const URL = `https://tender-glasses-bat.cyclic.app/user/information/${userId}`
         axios.get(URL,{
             headers:{
                 "authorization": localStorage.getItem("Token")
@@ -61,7 +61,7 @@ export const Profile = ()=> {
     },[userId])
 
     const submitDescription = async () => {
-      const url = `http://localhost:3001/user/update/description/${user.id}`
+      const url = `https://tender-glasses-bat.cyclic.app/user/update/description/${user.id}`
       const data = {description: userDescription}
       const response = await axios.patch(url, data, {
         headers:{

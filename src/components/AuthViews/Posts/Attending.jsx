@@ -31,7 +31,7 @@ const Attending = (posting) => {
     const handleScroll = (e, postID) => {
 
         if (e.target.clientHeight + e.target.scrollTop + 1 >= e.target.scrollHeight) {
-            const URL = `http://localhost:3001/posts/${postID}/attend/${currentShownUsers + 5}`
+            const URL = `https://tender-glasses-bat.cyclic.app/posts/${postID}/attend/${currentShownUsers + 5}`
             axios.get(URL, {
                 headers:{
                     "authorization":localStorage.getItem("Token")

@@ -24,7 +24,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
             user:user.id,
             post:status,
         }
-        const url = "http://localhost:3001/posts/"
+        const url = "https://tender-glasses-bat.cyclic.app/posts/"
         axios.post(url, data, {
             headers:{
                 "authorization": localStorage.getItem("Token")
