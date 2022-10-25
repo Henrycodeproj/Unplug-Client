@@ -22,7 +22,7 @@ export const ReportOption = ({post, reportOpen, setReportOpen}) => {
 
   const sendReport = async (postID) =>{
     console.log(postID)
-    const Url = `http://localhost:3001/posts/report/${postID}`
+    const Url = `https://tender-glasses-bat.cyclic.app/posts/report/${postID}`
     const response = await axios.post(Url, {
       headers:{
         "authorization":localStorage.getItem("Token")

@@ -17,7 +17,7 @@ export const DeleteOption = ({post, deleteMessageOpen, setDelteMessageOpen}) => 
       };
 
     const postDeleteHandler = (postId) => {
-      const URL = `http://localhost:3001/posts/delete/${postId}`
+      const URL = `https://tender-glasses-bat.cyclic.app/posts/delete/${postId}`
       const data = {userId: user.id}
       axios.delete(URL, {
         headers:{
