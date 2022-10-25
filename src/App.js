@@ -2,7 +2,7 @@ import './App.css';
 import  { Signup } from './components/homepage/Signup.jsx';
 import { Navbar } from './components/navigation/navbar.jsx'
 import { Errorpage } from './components/config/ErrorPage.jsx';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppContext} from './components/Contexts/appContext.jsx';
 import { ExpiredVerification } from "./components/config/ExpiredVerified.jsx";
 import { Confirmation } from "./components/config/ConfirmationPage.jsx";
