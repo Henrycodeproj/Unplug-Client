@@ -33,9 +33,10 @@ export const Login = ({setOption, option, active, inactive}) => {
       e.preventDefault()
       const Url = 'https://tender-glasses-bat.cyclic.app/login'
       axios.post(Url, loginInfo,{
-        withCredentials:true,
+        withCredentials:false,
       })
       .then(res => {
+        console.log(res, 'res')
         if (res.data.accessToken){
           localStorage.setItem("Token", res.data.accessToken)
           localStorage.setItem("userStatus", true)
