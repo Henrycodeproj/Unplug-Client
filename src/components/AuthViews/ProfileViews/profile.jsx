@@ -74,7 +74,7 @@ export const Profile = ()=> {
 
     const submitAffliliationHandler = async (event) => {
       if (event.key === "Enter" && affiliation) {
-        const url = `http://localhost:3001/user/update/college/${user.id}`
+        const url = `https://tender-glasses-bat.cyclic.app/user/update/college/${user.id}`
         const data = { affiliation: affiliation }
         const response = await axios.patch(url, data, {
           headers:{
@@ -94,7 +94,7 @@ export const Profile = ()=> {
     
     const submitButtonAffliliationHandler = async (e) => {
       if (affiliation) {
-        const url = `http://localhost:3001/user/update/college/${user.id}`
+        const url = `https://tender-glasses-bat.cyclic.app/user/update/college/${user.id}`
         const data ={ affiliation: affiliation }
         const response = await axios.patch(url, data, {
           headers:{
