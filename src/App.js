@@ -13,11 +13,11 @@ import { NotFound } from "./components/config/NotFound.jsx";
 
 function App() {
   return (
-    <Router basename='/unplug-client'>
+    <Router>
       <AppContext>
        <Navbar/>
         <Routes>
-          <Route exact path="/" element ={<Signup/>}/>
+          <Route exact path="/unplug-client" element ={<Signup/>}/>
           <Route element = {<UserAuthentication/>}>
               <Route path="/display" element = {<Display/>}/>
               <Route path="/#/profile/:userId" element = {<Profile/>}/>
