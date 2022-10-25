@@ -16,7 +16,7 @@ export const LeftSideSettingsMenu = () => {
 
     return (
       <div className='left_menu_options'>
-        <div style = {{display:"flex", alignItems:"center", gap:"5%"}}>
+        <div style = {{display:"flex", alignItems:"center", gap:"5%", flexWrap:"wrap"}}>
         <Switch
           checked={checked}
           onChange={handleChange}
@@ -26,7 +26,7 @@ export const LeftSideSettingsMenu = () => {
         />
         <h4 style = {{color:"white"}}>Dark Mode</h4>
         </div>
-        <div style = {{display:"flex", alignItems:"center", gap:"5%"}}>
+        <div style = {{display:"flex", alignItems:"center", gap:"5%", flexWrap:"wrap"}}>
         <Switch
           checked={accessiblity}
           onChange={handleAccessibilityChange}
