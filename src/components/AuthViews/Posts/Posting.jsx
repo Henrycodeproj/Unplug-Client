@@ -14,11 +14,13 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
 
     const [status, setStatus] = useState('')
     const [anchorEl, setAnchorEl] = useState(null);
+    const [postingStatus, setPostingStatus] = useState(false)
 
     const {user, setPosts} = useContext(accountContext)
     const ref = useRef()
 
     const formHandler = (e) => {
+        setPostingStatus(true)
         e.preventDefault()
         const data = {
             user:user.id,
@@ -36,6 +38,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                 setPosts(prevPosts => [res.data.newestPost, ...prevPosts])
                 setLastPostIndex(lastPostIndex + 1)
                 setStatus('')
+                setPostingStatus(false)
             } else throw Error
         })
         .catch(err=>alert(err.response.data.message))
@@ -45,8 +48,13 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
         <LoadingCircle
         loadingState={user}
         />
-    ) 
+    )
     
+    if (postingStatus) return(
+        <LoadingCircle
+        loadingState={postingStatus}
+        />
+    )
 
     return (
         <div className="add_post_container">
