@@ -5,7 +5,12 @@ export const accountContext = createContext()
 
 export const AppContext = ({children}) =>{
     //api link https://tender-glasses-bat.cyclic.app/ 
-    const socket = io.connect("http://localhost:3001")
+    const socket = io("https://tender-glasses-bat.cyclic.app/", 
+    {
+     transports: ["websocket"],
+     withCredentials: true 
+    }
+    )
     
     const navigateTo = useNavigate()
 
