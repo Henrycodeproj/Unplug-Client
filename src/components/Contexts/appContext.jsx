@@ -7,8 +7,8 @@ export const AppContext = ({children}) =>{
     //api link https://tender-glasses-bat.cyclic.app/ 
     const socket = io("https://tender-glasses-bat.cyclic.app/", 
     {
-     transports: ["websocket"],
-     withCredentials: true 
+     transports: ["websocket", "polling"],
+     withCredentials: true
     }
     )
     
