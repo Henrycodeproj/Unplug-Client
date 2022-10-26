@@ -70,7 +70,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
     }
 
     const sendChatMessage = async (data) =>{
-        const Url = "https://tender-glasses-bat.cyclic.app/message/send"
+        const Url = "https://unplug-server.herokuapp.com/message/send"
         const response = await axios.post(Url, data, {
           headers:{
             "authorization":localStorage.getItem("Token")

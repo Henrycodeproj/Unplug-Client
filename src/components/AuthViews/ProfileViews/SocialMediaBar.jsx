@@ -13,7 +13,7 @@ import axios from 'axios';
 export const SocialMediaBar = ({viewedUser, setViewedUser, deleteMedia, user}) => {
 
   const removeSocialHandler = async(socialMediaLink) => {
-    const url = `https://tender-glasses-bat.cyclic.app/user/update/current/socials/${user.id}`
+    const url = `https://unplug-server.herokuapp.com/user/update/current/socials/${user.id}`
     const data  = {socialMediaLink : socialMediaLink }
     const response = await axios.patch(url, data, {
       headers:{

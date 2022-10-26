@@ -26,7 +26,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
             user:user.id,
             post:status,
         }
-        const url = "https://tender-glasses-bat.cyclic.app/posts/"
+        const url = "https://unplug-server.herokuapp.com/posts/"
         axios.post(url, data, {
             headers:{
                 "authorization": localStorage.getItem("Token")

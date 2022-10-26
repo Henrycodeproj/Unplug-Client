@@ -31,7 +31,7 @@ export const Login = ({setOption, option, active, inactive}) => {
     const handleSubmit = (e) =>{
       setLoginLoading(true)
       e.preventDefault()
-      const Url = 'https://tender-glasses-bat.cyclic.app/login'
+      const Url = 'https://unplug-server.herokuapp.com/login'
       axios.post(Url, loginInfo)
       .then(res => {
         if (res.data.accessToken){

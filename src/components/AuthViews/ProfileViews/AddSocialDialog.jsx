@@ -30,7 +30,7 @@ const AddSocialDialog = ({socialMediaModal, setSocialMediaModal, user, setViewed
     }
 
     const handleSubmit = async () => {
-        const url = `https://tender-glasses-bat.cyclic.app/user/update/socials/${user.id}`
+        const url = `https://unplug-server.herokuapp.com/user/update/socials/${user.id}`
         const data = {
             twitter:twitter,
             instagram:instagram,

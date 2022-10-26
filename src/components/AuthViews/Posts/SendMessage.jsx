@@ -24,7 +24,7 @@ export const SendMessage = ({post}) => {
 
     const handleClickOpen = async () => {
       setSendMessageOpen(true);
-      const Url = "https://tender-glasses-bat.cyclic.app/conversation/create"
+      const Url = "https://unplug-server.herokuapp.com/conversation/create"
       const data = {user1:user.id, user2:post.posterId._id}
       const newConvoId = await axios.post(Url, data, {
         headers:{

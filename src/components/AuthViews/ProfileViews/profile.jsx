@@ -47,7 +47,7 @@ export const Profile = ()=> {
     const [currentPostConvoID, setCurrentPostConvoID] = useState(null)
 
     useEffect(()=>{
-        const URL = `https://tender-glasses-bat.cyclic.app/user/information/${userId}`
+        const URL = `https://unplug-server.herokuapp.com/user/information/${userId}`
         axios.get(URL,{
             headers:{
                 "authorization": localStorage.getItem("Token")
@@ -61,7 +61,7 @@ export const Profile = ()=> {
     },[userId])
 
     const submitDescription = async () => {
-      const url = `https://tender-glasses-bat.cyclic.app/user/update/description/${user.id}`
+      const url = `https://unplug-server.herokuapp.com/user/update/description/${user.id}`
       const data = {
         description: userDescription
       }
@@ -76,7 +76,7 @@ export const Profile = ()=> {
 
     const submitAffliliationHandler = async (event) => {
       if (event.key === "Enter" && affiliation) {
-        const url = `https://tender-glasses-bat.cyclic.app/user/update/college/${user.id}`
+        const url = `https://unplug-server.herokuapp.com/user/update/college/${user.id}`
         const data = {
            affiliation: affiliation
         }
@@ -98,7 +98,7 @@ export const Profile = ()=> {
     
     const submitButtonAffliliationHandler = async (e) => {
       if (affiliation) {
-        const url = `https://tender-glasses-bat.cyclic.app/user/update/college/${user.id}`
+        const url = `https://unplug-server.herokuapp.com/user/update/college/${user.id}`
         const data ={ affiliation: affiliation }
         const response = await axios.patch(url, data, {
           headers:{

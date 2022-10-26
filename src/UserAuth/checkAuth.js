@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const authCheck = () => {
-    const URL = 'https://tender-glasses-bat.cyclic.app/authtest'
+    const URL = 'https://unplug-server.herokuapp.com/authtest'
     return axios.get(`${URL}`, {
         headers: {
             "authorization": localStorage.getItem("Token")

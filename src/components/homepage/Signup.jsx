@@ -62,7 +62,7 @@ export const Signup = () =>{
         if ((Object.keys(valid).length === 0 
           && Object.keys(formErrors).length === 0
           && Object.keys(confirm).length === 0)){
-          const url = 'https://tender-glasses-bat.cyclic.app/createUser'
+          const url = 'https://unplug-server.herokuapp.com/createUser'
         await axios.post(url, newUser)
         .then(response => {
           if (response.status === 201){

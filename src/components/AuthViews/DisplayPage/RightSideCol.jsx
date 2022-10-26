@@ -24,7 +24,7 @@ export const RightSideCol = () => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     useEffect(()=>{
-        const url = "https://tender-glasses-bat.cyclic.app/posts/popular"
+        const url = "https://unplug-server.herokuapp.com/posts/popular"
         axios.get(url, {
             headers:{
                 "authorization":localStorage.getItem("Token")
@@ -37,7 +37,7 @@ export const RightSideCol = () => {
     },[])
 
     useEffect(()=>{
-        const Url = `https://tender-glasses-bat.cyclic.app/message/recent/all/${user.id}`
+        const Url = `https://unplug-server.herokuapp.com/message/recent/all/${user.id}`
         axios.get(Url, {
             headers:{
                 "authorization":localStorage.getItem("Token")
