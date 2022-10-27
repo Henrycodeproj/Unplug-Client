@@ -4,13 +4,7 @@ import io from "socket.io-client"
 export const accountContext = createContext()
 
 export const AppContext = ({children}) =>{
-    //api link https://tender-glasses-bat.cyclic.app/ 
-    const socket = io("https://unplug-server.herokuapp.com/", 
-    {
-     transports: ["websocket", "polling"],
-     //withCredentials: true
-    }
-    )
+    const socket = io("https://unplug-server.herokuapp.com/", {transports: ["websocket", "polling"],})
     
     const navigateTo = useNavigate()
 
