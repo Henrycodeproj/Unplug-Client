@@ -8,7 +8,7 @@ export const AppContext = ({children}) =>{
     const socket = io("https://unplug-server.herokuapp.com/", 
     {
      transports: ["websocket", "polling"],
-     withCredentials: true
+     //withCredentials: true
     }
     )
     
