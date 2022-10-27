@@ -83,7 +83,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         chatOpen.current = true
         chatClicked.current = true
         setChatAnchor(event.currentTarget);
-        const Url = `https://tender-glasses-bat.cyclic.app/message/conversation/${convoId}`
+        const Url = `https://unplug-server.herokuapp.com/message/conversation/${convoId}`
         const response = await axios.get(Url, {
             headers:{
                 "authorization":localStorage.getItem("Token")

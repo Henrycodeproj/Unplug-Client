@@ -22,7 +22,7 @@ export const SendMessageProfile = ({viewedUser, sendMessage, setSendMessage, mes
         };  
         const sendMessageHandler = async () => {
             handleClose()
-            const Url = "https://tender-glasses-bat.cyclic.app/message/send"
+            const Url = "https://unplug-server.herokuapp.com/message/send"
             const data = {
               chatId: currentPostConvoID,
               message: message,

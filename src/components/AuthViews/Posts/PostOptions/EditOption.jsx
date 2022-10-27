@@ -31,7 +31,7 @@ export const EditOption = ({post, editOpen, setEditOpen}) => {
 
     const submitEdit = async () => {
       setEditOpen(false);
-      const Url = `https://tender-glasses-bat.cyclic.app/posts/edit/${post._id}`
+      const Url = `https://unplug-server.herokuapp.com/posts/edit/${post._id}`
       const data = {updatedDescription:postDescription}
       const updatedPost = await axios.patch(Url, data, {
         headers:{

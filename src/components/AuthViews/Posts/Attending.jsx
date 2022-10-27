@@ -52,7 +52,7 @@ const Attending = (posting) => {
     }
 
     const handleClick = (event, postID) => {
-        const URL = `http://localhost:3001/posts/${postID}/attend/${currentShownUsers}`
+        const URL = `https://unplug-server.herokuapp.com/posts/${postID}/attend/${currentShownUsers}`
         axios.get(URL,{
             headers:{
                 "authorization":localStorage.getItem("Token")
