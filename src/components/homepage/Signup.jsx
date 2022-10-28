@@ -178,7 +178,10 @@ export const Signup = () =>{
         <div className='landing-wrapper'>
           <div className='signup-container'>
 
-          {demoMessage && <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>Since this is my demo site you may type a random .edu email and it will be automatically verify. Every post expires in 3 days.</Alert>}
+          {demoMessage && 
+          <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>Use this format (e.g test@test.edu) and it will be automatically verify. Every post expires in 3 days.
+          </Alert>
+          }
 
             {option ?
             <motion.div
