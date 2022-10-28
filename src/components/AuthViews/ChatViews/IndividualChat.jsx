@@ -46,9 +46,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             setChatHistory(newMessage => [...newMessage, recievedMessageData]);
             if (chatOpen.current === false) setNotification(prevNotifications => prevNotifications + 1)
         })
-        return function cleanup() {
-            socket.removeListener(`${convoId}`);
-        };
+        return ()=> socket.removeListener(`${convoId}`);
     },[])
 
     useEffect(()=>{
