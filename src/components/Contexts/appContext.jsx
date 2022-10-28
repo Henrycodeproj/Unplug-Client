@@ -4,7 +4,7 @@ import io from "socket.io-client"
 export const accountContext = createContext()
 
 export const AppContext = ({children}) =>{
-    const socket = io("https://unplug-server.herokuapp.com/", {transports: ["websocket", "polling"]}, { forceNew: true })
+    const socket = io("https://unplug-server.herokuapp.com/", { forceNew: true })
     
     const navigateTo = useNavigate()
 
