@@ -29,6 +29,7 @@ export const Display = () =>{
     const navigateTo = useNavigate()
 
     useEffect(()=>{
+        socket.connect()
         socket.emit("status", {userId: user.id, username:user.username})
         socket.on("activeUsers", (usersStatus) => {
             setActiveUsers(usersStatus)
