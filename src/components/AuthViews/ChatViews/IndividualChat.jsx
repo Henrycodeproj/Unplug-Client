@@ -38,7 +38,8 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         senderId:user.id,
         recipientId:recievingUserInfo._id
     }
-
+    socket.on("connect", (data) => { console.log(data, 'connect')});
+    socket.on("data", (data) => { console.log(data, 'data?') });
     useEffect(()=> {
         socket.on(`${convoId}`, recievedMessageData => {
             console.log(recievedMessageData, "recieved message data check")
@@ -46,7 +47,6 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             setChatHistory(newMessage => [...newMessage, recievedMessageData]);
             if (chatOpen.current === false) setNotification(prevNotifications => prevNotifications + 1)
         })
-        return ()=> socket.removeListener(`${convoId}`);
     },[])
 
     useEffect(()=>{
@@ -107,7 +107,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                 textAreaRef.current.value = ''
                 sendChatMessage(data)
                 socket.emit("sendUserId", data)
-                //setChatHistory(newMessage => [...newMessage, data])
+                setChatHistory(newMessage => [...newMessage, data])
                 setMessage("")
                 setOwnMessage(true)
             }
