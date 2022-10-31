@@ -59,7 +59,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             chatContainer.current.scrollIntoView()
             chatClicked.current = false
         }
-    }, [chatHistory])
+    }, [])
 
     useEffect(()=>{
         if (chatContainer.current) chatContainer.current.scrollIntoView({behavior: "smooth"})
