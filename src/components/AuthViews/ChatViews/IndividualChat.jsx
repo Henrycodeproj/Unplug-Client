@@ -38,8 +38,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         senderId:user.id,
         recipientId:recievingUserInfo._id
     }
-    console.log(socket.ListenAny())
-    
+
     useEffect(()=> {
         socket.on(`${convoId}`, recievedMessageData => {
             console.log(recievedMessageData, "recieved message data check")
@@ -108,7 +107,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                 textAreaRef.current.value = ''
                 sendChatMessage(data)
                 socket.emit("sendUserId", data)
-                setChatHistory(newMessage => [...newMessage, data])
+                //setChatHistory(newMessage => [...newMessage, data])
                 setMessage("")
                 setOwnMessage(true)
             }
@@ -119,7 +118,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             textAreaRef.current.value = ''
             sendChatMessage(data)
             socket.emit("sendUserId", data)
-            setChatHistory(newMessage => [...newMessage, data])
+            //setChatHistory(newMessage => [...newMessage, data])
             setMessage("")
             setOwnMessage(true)
         }
