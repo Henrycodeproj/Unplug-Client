@@ -42,7 +42,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         socket.once(`${convoId}`, recievedMessageData => {
             if (recievedMessageData.senderId !== user.id) {
                 setNewMessages(true)
-                setChatHistory(newMessage => [...newMessage, recievedMessageData])
+                setChatHistory(newMessage => [...newMessage, recievedMessageData]);
             }
             if (chatOpen.current === false) setNotification(prevNotifications => prevNotifications + 1)
         })
@@ -117,7 +117,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             textAreaRef.current.value = ''
             sendChatMessage(data)
             socket.emit("sendUserId", data)
-            //setChatHistory(newMessage => [...newMessage, data])
+            setChatHistory(newMessage => [...newMessage, data])
             setMessage("")
             setOwnMessage(true)
         }
