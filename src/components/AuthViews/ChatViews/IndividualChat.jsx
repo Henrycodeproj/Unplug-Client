@@ -39,7 +39,8 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         recipientId:recievingUserInfo._id
     }
     useEffect(()=> {
-        socket.once(`${convoId}`, recievedMessageData => {
+        socket.on(`${convoId}`, recievedMessageData => {
+            console.log(recievedMessageData)
             if (recievedMessageData.senderId !== user.id) {
                 setNewMessages(true)
                 setChatHistory(newMessage => [...newMessage, recievedMessageData]);
