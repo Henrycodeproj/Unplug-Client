@@ -38,7 +38,8 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         senderId:user.id,
         recipientId:recievingUserInfo._id
     }
-
+    console.log(socket.ListenAny())
+    
     useEffect(()=> {
         socket.on(`${convoId}`, recievedMessageData => {
             console.log(recievedMessageData, "recieved message data check")
@@ -59,7 +60,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             chatContainer.current.scrollIntoView()
             chatClicked.current = false
         }
-    }, [])
+    }, [chatHistory])
 
     useEffect(()=>{
         if (chatContainer.current) chatContainer.current.scrollIntoView({behavior: "smooth"})
