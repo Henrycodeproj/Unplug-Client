@@ -41,13 +41,12 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
     socket.on("connect", (data) => { console.log(data, 'connect')});
     socket.on("data", (data) => { console.log(data, 'data?') });
     useEffect(()=> {
-        socket.on(`${convoId}`, recievedMessageData => {
+        socket.once(`${convoId}`, recievedMessageData => {
             console.log(recievedMessageData, "recieved message data check")
             setNewMessages(true)
             setChatHistory(newMessage => [...newMessage, recievedMessageData]);
             if (chatOpen.current === false) setNotification(prevNotifications => prevNotifications + 1)
         })
-        socket.off(`${convoId}`);
     },[])
 
     useEffect(()=>{
