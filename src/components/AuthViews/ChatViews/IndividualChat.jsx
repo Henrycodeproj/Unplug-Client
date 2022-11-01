@@ -223,6 +223,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                             anchor = {individualChatAnchor}
                             setAnchor = {setIndividualChatAnchor}
                             title = {false}
+                            setMessage = {setMessage}
                             />
                         </div>
                     <div>

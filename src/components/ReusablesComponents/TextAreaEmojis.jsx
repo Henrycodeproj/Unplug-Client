@@ -2,10 +2,11 @@ import Picker from 'emoji-picker-react';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import Popover from '@mui/material/Popover';
 
-export const TextAreaEmojis = ({input, anchor, setAnchor, title}) => {
+export const TextAreaEmojis = ({input, anchor, setAnchor, title, setMessage}) => {
 
     const onEmojiClick = (event, emojiObject) => {
         input.value = input.value + emojiObject.emoji
+        setMessage(prevMessage => prevMessage + emojiObject.emoji)
     };
 
     const handleClick = (event) => {

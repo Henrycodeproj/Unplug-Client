@@ -138,6 +138,7 @@ export const SendMessage = ({post}) => {
             input = {ref.current}
             anchor = {anchorEl}
             setAnchor = {setAnchorEl}
+            setMessage = {setMessage}
             />
           </DialogContent>
           <DialogActions sx = {{padding:"0 24px 20px"}}>
