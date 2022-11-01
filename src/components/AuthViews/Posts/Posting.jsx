@@ -19,7 +19,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
     const {user, setPosts} = useContext(accountContext)
     const ref = useRef()
 
-    const formHandler = (e) => {
+    const formHandler = async (e) => {
         setPostingStatus(true)
         e.preventDefault()
         const data = {
@@ -27,21 +27,19 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
             post:status,
         }
         const url = "https://unplug-server.herokuapp.com/posts/"
-        axios.post(url, data, {
+        const res = await axios.post(url, data, {
             headers:{
                 "authorization": localStorage.getItem("Token")
             }
         })
-        .then(res => {
-            if (res.status){
-                ref.current.value = ''
-                setPosts(prevPosts => [res.data.newestPost, ...prevPosts])
-                setLastPostIndex(lastPostIndex + 1)
-                setStatus('')
-                setPostingStatus(false)
-            } else throw Error
-        })
-        .catch(err=>alert(err.response.data.message))
+        console.log(res)
+        if (res.status === 200){
+            ref.current.value = ''
+            setPosts(prevPosts => [res.data.newestPost, ...prevPosts])
+            setLastPostIndex(lastPostIndex + 1)
+            setStatus('')
+            setPostingStatus(false)
+        } 
     }
 
     if (user === null) return(
@@ -50,11 +48,6 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
         />
     )
     
-    if (postingStatus) return(
-        <LoadingCircle
-        loadingState={postingStatus}
-        />
-    )
 
     return (
         <div className="add_post_container">
