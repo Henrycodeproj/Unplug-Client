@@ -79,6 +79,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                                 anchor = {anchorEl}
                                 setAnchor = {setAnchorEl}
                                 title = {true}
+                                setMessage = {setStatus}
                                 />
                                 <AddPhotoAlternateIcon sx = {{color:"gray"}}/>
                                 <LocationOnIcon sx = {{color:"gray"}}/>
