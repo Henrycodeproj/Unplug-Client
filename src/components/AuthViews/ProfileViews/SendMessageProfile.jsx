@@ -71,6 +71,7 @@ export const SendMessageProfile = ({viewedUser, sendMessage, setSendMessage, mes
               input = {ref.current}
               anchor = {anchor}
               setAnchor = {setAnchor}
+              setMessage = {setMessage}
               /> 
             </DialogContent>
             <DialogActions sx = {{padding:"0 24px 20px"}}>
