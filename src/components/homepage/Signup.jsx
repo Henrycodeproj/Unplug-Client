@@ -179,7 +179,7 @@ export const Signup = () =>{
           <div className='signup-container'>
 
           {demoMessage && 
-          <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>Use this format (e.g test@test.edu) and it will be automatically verify. Every post expires in 3 days.
+          <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>Use this format for email (e.g test@test.edu) and it will be automatically verified. Every post expires in 3 days.
           </Alert>
           }
 
