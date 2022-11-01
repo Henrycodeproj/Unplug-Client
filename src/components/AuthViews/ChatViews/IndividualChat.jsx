@@ -132,8 +132,8 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
     return (
       <>
         <Tooltip title ="Chat">
-            <Badge badgeContent={notification} color="primary" style = {{minWidth:'15px', height:"15px"}}>
-                <ChatIcon onClick = { handleClick } sx = {{ color:"gray", cursor:"pointer", fontSize:"1.7rem" }}/>
+            <Badge badgeContent={notification} color="primary">
+                <ChatIcon onClick = { handleClick } sx = {{ color:"gray", cursor:"pointer", fontSize:"1.8rem" }}/>
             </Badge>
         </Tooltip>
         <Popover
