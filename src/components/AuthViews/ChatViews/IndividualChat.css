@@ -27,7 +27,6 @@
     background-color: #469bf0;
     background-color: rgb(253, 234, 129);
     font-weight: 500;
-    word-break: break-all;
 }
 .otherUser_message {
     border-top-right-radius: 5px;
@@ -36,7 +35,6 @@
     padding: 5px 10px;
     background-color: #edacf8d3;
     font-weight: 500;
-    word-break: break-all;
 }
 .input_messages{
     caret-color: gray;
