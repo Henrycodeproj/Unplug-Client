@@ -112,6 +112,11 @@
       box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
     }
 }
+@media (max-width:2075px){
+    .display_newsfeed_wrapper{
+        width:60%;
+    }
+}
 @media (max-width:1800px){
     .display_newsfeed_wrapper{
         width:70%;
