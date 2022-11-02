@@ -11,6 +11,15 @@ import FireplaceIcon from '@mui/icons-material/Fireplace';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export const SidebarOptions = ({viewedUser, user}) => {
+  const joinDate = new Date(viewedUser.createdAt)
+
+  function getMonthName(monthNumber) {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+  
+    // Using the browser's default locale.
+    return date.toLocaleString([], { month: 'long' });
+  }
   return (
         <div 
         className = "profile_sidebox_container"
@@ -45,7 +54,7 @@ export const SidebarOptions = ({viewedUser, user}) => {
                       <FireplaceIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="First Joined" secondary="Jan 7, 2014" />
+                  <ListItemText primary="First Joined" secondary= {`${getMonthName(joinDate.getMonth())}  ${joinDate.getDate()}  ${joinDate.getFullYear()}`} />
                 </ListItem>
                 </motion.div>
 
