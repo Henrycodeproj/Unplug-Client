@@ -30,6 +30,7 @@
 .profile_image_name_container {
     display:flex;
     align-items: center;
+    cursor:"pointer";
 }
 .recent_message_users {
     margin-bottom: 5px;
