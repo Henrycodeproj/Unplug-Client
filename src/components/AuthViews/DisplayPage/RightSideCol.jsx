@@ -92,7 +92,7 @@ export const RightSideCol = () => {
                         onClick = {()=> navigateTo(`/profile/${post.original_poster[0]._id}`)}
                         />
                             <div>
-                                <h3 style = {{textTransform:"capitalize", color:"black", margin:0, fontWeight:"600"}}>{post.original_poster[0].username}</h3>
+                                <h3 style = {{textTransform:"capitalize", color:"black", margin:0, fontWeight:"600", cursor:"pointer"}}>{post.original_poster[0].username}</h3>
                                     {
                                     post.Description.length >= 50 ?
                                         <div>
