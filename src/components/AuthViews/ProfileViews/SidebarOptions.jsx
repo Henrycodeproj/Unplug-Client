@@ -12,6 +12,7 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 
 export const SidebarOptions = ({viewedUser, user}) => {
   const joinDate = new Date(viewedUser.createdAt)
+  const lastActive = new Date(viewedUser.lastActiveDate)
 
   function getMonthName(monthNumber) {
     const date = new Date();
@@ -68,7 +69,7 @@ export const SidebarOptions = ({viewedUser, user}) => {
                       <TravelExploreIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary="Last Seen Online" secondary="July 20, 2014" />
+                  <ListItemText primary="Last Seen Online" secondary= {`${getMonthName(lastActive.getMonth())}  ${lastActive.getDate()}  ${lastActive.getFullYear()}`} />
                 </ListItem>
                 </motion.div>
             </List>
