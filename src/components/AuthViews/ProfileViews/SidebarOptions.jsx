@@ -41,7 +41,7 @@ export const SidebarOptions = ({viewedUser, user}) => {
                       <ImageIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={ viewedUser._id === user.id ? 'Upload Photos': 'Photos'} secondary="Jan 9, 2014" />
+                  <ListItemText primary={ viewedUser._id === user.id ? 'Upload Photos': 'Photos'} />
                 </ListItem >
                 </motion.div>
 
