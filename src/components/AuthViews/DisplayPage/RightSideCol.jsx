@@ -134,7 +134,7 @@ export const RightSideCol = () => {
                         }
                         >
                             <div className = "recent_chatMessages_container">
-                                <Avatar sx = {{ marginRight:"10px", cursor:"pointer" }} src = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&   ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmVtYWxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80"
+                                <Avatar sx = {{ marginRight:"10px", cursor:"pointer" }} src = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZmVtYWxlJTIwcG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80"
                                 />
                                 {
                                 queryInfo.recieverInfo[0]._id === user.id ?
