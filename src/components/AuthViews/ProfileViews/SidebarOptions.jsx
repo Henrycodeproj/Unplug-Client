@@ -16,7 +16,7 @@ export const SidebarOptions = ({viewedUser, user}) => {
 
   function getMonthName(monthNumber) {
     const date = new Date();
-    date.setMonth(monthNumber + 1);
+    date.setMonth(monthNumber);
   
     // Using the browser's default locale.
     return date.toLocaleString([], { month: 'long' });
