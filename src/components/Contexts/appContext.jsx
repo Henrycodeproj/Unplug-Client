@@ -4,11 +4,12 @@ import io from "socket.io-client"
 export const accountContext = createContext()
 
 export const AppContext = ({children}) =>{
-    const socket = io("https://unplug-server.herokuapp.com/", {transports: ["websocket", "polling"]} )
+    const socket = io("https://unplug-server.herokuapp.com/", {transports: ["websocket", "polling"]})
     
     const navigateTo = useNavigate()
 
     const logoutHandler = () => {
+        socket.disconnect()
         localStorage.removeItem("userStatus")
         localStorage.removeItem("Token")
         localStorage.removeItem("User")

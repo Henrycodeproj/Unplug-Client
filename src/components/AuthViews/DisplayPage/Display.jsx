@@ -34,6 +34,7 @@ export const Display = () =>{
             if (!activeUsers.includes(loggedUser))
             setActiveUsers(onlineUsers => [...onlineUsers, loggedUser])
         })
+        console.log(activeUsers, 'activeusers')
     },[])
 
     useEffect(() => {
