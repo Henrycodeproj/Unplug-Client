@@ -29,18 +29,16 @@ export const Display = () =>{
     const navigateTo = useNavigate()
 
     useEffect(()=>{
-        console.log(activeUsers, 'activeUsers')
         socket.emit("status", {userId: user.id, username:user.username})
-        socket.on("activeUsers", (user) => {
-            console.log(activeUsers, user, 'activeUsers')
-            if (!activeUsers.includes(user))
-            setActiveUsers(onlineUsers => [...onlineUsers, user])
+        socket.on("activeUsers", (loggedUser) => {
+            if (!activeUsers.includes(loggedUser))
+            setActiveUsers(onlineUsers => [...onlineUsers, loggedUser])
         })
     },[])
 
     useEffect(() => {
-        socket.on("inactiveUsers", (user) => {
-            const newActiveUsers = activeUsers.filter(users => users.toString() !== user.toString())
+        socket.on("inactiveUsers", (currentUser) => {
+            const newActiveUsers = activeUsers.filter(users => users.toString() !== currentUser.toString())
             setActiveUsers(newActiveUsers)
         })
     },[])
