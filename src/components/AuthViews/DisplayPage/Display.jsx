@@ -32,6 +32,7 @@ export const Display = () =>{
         console.log(activeUsers, 'activeUsers')
         socket.emit("status", {userId: user.id, username:user.username})
         socket.on("activeUsers", (user) => {
+            console.log(activeUsers, user, 'activeUsers')
             if (!activeUsers.includes(user))
             setActiveUsers(onlineUsers => [...onlineUsers, user])
         })
