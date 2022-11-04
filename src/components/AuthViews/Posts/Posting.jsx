@@ -32,7 +32,6 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                 "authorization": localStorage.getItem("Token")
             }
         })
-        console.log(res)
         if (res.status === 200){
             ref.current.value = ''
             setPosts(prevPosts => [res.data.newestPost, ...prevPosts])

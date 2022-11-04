@@ -30,8 +30,16 @@ export const Display = () =>{
 
     useEffect(()=>{
         socket.emit("status", {userId: user.id, username:user.username})
-        socket.on("activeUsers", (usersStatus) => {
-            setActiveUsers(usersStatus)
+        socket.on("activeUsers", (user) => {
+            if (!activeUsers.includes(user))
+            setActiveUsers(onlineUsers => [...onlineUsers, user])
+        })
+    },[])
+
+    useEffect(() => {
+        socket.on("inactiveUsers", (user) => {
+            const newActiveUsers = activeUsers.filter(users => users.toString() !== user.toString())
+            setActiveUsers(newActiveUsers)
         })
     },[])
 
@@ -104,7 +112,7 @@ export const Display = () =>{
                                 <li key = {post._id} className = "posts_articles">
                                     <>
                                         <Tooltip 
-                                            title ={
+                                            title = {
                                                 `${post.posterId.username.charAt(0).toUpperCase() + post.posterId.username.slice(1)}'s  Profile`
                                             }
                                         >
@@ -114,8 +122,7 @@ export const Display = () =>{
                                             </Avatar>
                                         </Tooltip>
                                         {
-                                            post.posterId._id in activeUsers
-                                            &&
+                                            activeUsers.includes(post.posterId._id) &&
                                             <Tooltip title="Online">
                                                 <span className='online'/>
                                             </Tooltip>
