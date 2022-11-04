@@ -29,9 +29,9 @@ export const Display = () =>{
     const navigateTo = useNavigate()
 
     useEffect(()=>{
+        console.log(activeUsers, 'activeUsers')
         socket.emit("status", {userId: user.id, username:user.username})
         socket.on("activeUsers", (user) => {
-            console.log(activeUsers)
             if (!activeUsers.includes(user))
             setActiveUsers(onlineUsers => [...onlineUsers, user])
         })
