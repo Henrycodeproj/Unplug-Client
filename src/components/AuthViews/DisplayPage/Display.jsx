@@ -120,7 +120,7 @@ export const Display = () =>{
                                             </Avatar>
                                         </Tooltip>
                                         {
-                                            activeUsers.includes(post.posterId._id) &&
+                                            post.posterId._id in activeUsers &&
                                             <Tooltip title="Online">
                                                 <span className='online'/>
                                             </Tooltip>
