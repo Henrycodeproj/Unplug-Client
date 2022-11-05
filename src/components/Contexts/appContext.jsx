@@ -9,7 +9,6 @@ export const AppContext = ({children}) =>{
     const navigateTo = useNavigate()
 
     const logoutHandler = () => {
-        socket.disconnect()
         localStorage.removeItem("userStatus")
         localStorage.removeItem("Token")
         localStorage.removeItem("User")

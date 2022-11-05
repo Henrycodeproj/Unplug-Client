@@ -30,17 +30,14 @@ export const Display = () =>{
 
     useEffect(()=>{
         socket.emit("status", {userId: user.id, username:user.username})
-        socket.on("activeUsers", (loggedUser) => {
-            if (!activeUsers.includes(loggedUser))
-            setActiveUsers(onlineUsers => [...onlineUsers, loggedUser])
+        socket.on("activeUsers", (activeUsers) => {
+            setActiveUsers(activeUsers)
         })
-        console.log(activeUsers, 'activeusers')
     },[])
 
     useEffect(() => {
-        socket.on("inactiveUsers", (currentUser) => {
-            const newActiveUsers = activeUsers.filter(users => users.toString() !== currentUser.toString())
-            setActiveUsers(newActiveUsers)
+        socket.on("inactiveUsers", (remainingUsers) => {
+            setActiveUsers(remainingUsers)
         })
     },[])
 
