@@ -118,7 +118,7 @@ export const RightSideCol = () => {
             )}
         </div>
         <div className="recent_message_container">
-            <div className="recent_message_title">
+            <div className="recent_message_title" style ={{fontSize:"1.6rem"}}>
                 <h2 style = {{textDecoration:"underline", fontSize:"1.6rem", fontWeight:"900"}}>Recent Messages</h2>
             </div>
             <div className = "recent_message_avatars">
