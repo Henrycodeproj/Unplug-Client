@@ -21,7 +21,7 @@ export const AppContext = ({children}) =>{
 
     const [posts, setPosts] = useState(null)
     
-    const [activeUsers, setActiveUsers] = useState([])
+    const [activeUsers, setActiveUsers] = useState({})
 
     const [recentMessages, setRecentMessages] = useState([])
 
