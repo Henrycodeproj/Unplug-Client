@@ -31,7 +31,7 @@ export const ProfileImageUploader = ({widgetApi, viewedUser, user, setViewedUser
             await axios.delete(`https://api.uploadcare.com/files/${response.data.prev.profilePicture}/storage/`, {
               headers: {
                 Accept: 'application/vnd.uploadcare-v0.7+json',
-                Authorization: `Uploadcare.Simple ${process.env.PUBLIC_API_KEY} : ${process.env.PUBLIC_API_KEY}`
+                Authorization: `Uploadcare.Simple 82efe8e1794afced30ba:afa55846bad933aa30ff`
               }
             })
           }
@@ -42,7 +42,7 @@ export const ProfileImageUploader = ({widgetApi, viewedUser, user, setViewedUser
         <div className="profile_upload_button">
           <Widget ref={widgetApi}
           imagesOnly = "true"
-          publicKey= {`${process.env.PUBLIC_API_KEY}`}
+          publicKey="82efe8e1794afced30ba" 
           preloader={null}
           onChange = {e => uploadHandler(e)}
           imageShrink = "640x480"
