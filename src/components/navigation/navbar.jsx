@@ -29,6 +29,7 @@ export const Navbar = () =>{
 
     const [profile, setProfile] = useState(null)
     const [notification, setNotification] = useState(null)
+    const [userInfo] = useState(JSON.parse(localStorage.getItem("User")))
     
     const navlogoutHandler = () => {
         socket.emit("logout", {userID:user.id})
@@ -84,7 +85,7 @@ export const Navbar = () =>{
                     {test.map((item)=>
                     <div>
                     <MenuItem sx={{ minWidth:"200px", justifyContent:"space-around" }}>
-                        <Avatar src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh4moBSRCeyvWaJI8pPsFRCczpc9rB-f53ew&usqp=CAU"/>
+                        <Avatar src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}/>
                         <p>Hello liked your post</p>
                     </MenuItem>
                     <Divider/>
