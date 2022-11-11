@@ -86,7 +86,7 @@ export const Navbar = () =>{
                     <div>
                     <MenuItem sx={{ minWidth:"200px", justifyContent:"space-around" }}>
                         <Avatar 
-                        src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
+                        src = {userInfo && `https://ucarecdn.com/${userInfo.profilePicture}/`}
                         sx = {{width:"50px", height:"50px"}}
                         />
                         <p>Hello liked your post</p>
@@ -106,7 +106,7 @@ export const Navbar = () =>{
                         aria-expanded={open ? 'true' : undefined}
                     >
                         <Avatar 
-                        src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
+                        src = {userInfo && `https://ucarecdn.com/${userInfo.profilePicture}/`}
                         sx = {{ minWidth: 40, minHeight: 40, borderStyle:"solid", borderColor:"white" }}
                         className='faker1'
                         >
