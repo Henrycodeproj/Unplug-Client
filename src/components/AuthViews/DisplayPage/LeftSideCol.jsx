@@ -33,7 +33,7 @@ export const LeftColumn = ()=>{
             <div className="leftside_profile_card" style={{background:"rgba(139, 137, 137, 0.404)",borderTopLeftRadius:'5px', borderTopRightRadius:'5px'}}>
                 <Avatar 
                   sx = {{ width:50, height:50 }}
-                  src = {`https://ucarecdn.com/${user.profilePicture}/`}
+                  src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
                 />
                 <span className='leftsidebar_online'/>
                 <div className = "leftside_profile_card_name">
