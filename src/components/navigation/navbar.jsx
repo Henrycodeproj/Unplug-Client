@@ -103,7 +103,7 @@ export const Navbar = () =>{
                         aria-expanded={open ? 'true' : undefined}
                     >
                         <Avatar 
-                        src ="https://www.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png" 
+                        src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
                         sx={{ width: 35, height: 35 }}
                         className='faker1'
                         >
