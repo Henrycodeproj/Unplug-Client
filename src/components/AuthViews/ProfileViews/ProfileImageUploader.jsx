@@ -12,6 +12,7 @@ export const ProfileImageUploader = ({widgetApi, viewedUser, user, setViewedUser
         const userInfo = JSON.parse(localStorage.getItem("User"))
         userInfo.profilePicture = response.profilePicture
         localStorage.setItem("User", JSON.stringify(userInfo))
+        setUser(userInfo)
     }
 
     const uploadHandler = async (file) => {

@@ -29,13 +29,16 @@ export const Navbar = () =>{
 
     const [profile, setProfile] = useState(null)
     const [notification, setNotification] = useState(null)
-    const [userInfo] = useState()
+    const [userInfo, setUserInfo] = useState()
     
     const navlogoutHandler = () => {
         socket.emit("logout", {userID:user.id})
         logoutHandler()
         setProfile(false)
     }
+    useEffect(() => {
+        setUserInfo(user)
+    },[user])
 
     const test = [1,2]
     const open = Boolean(profile)
