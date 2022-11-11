@@ -1,8 +1,13 @@
 import { Widget } from "@uploadcare/react-widget";
 import "./ProfileImageUploader.css"
 import axios from "axios"
+import { accountContext } from "../../Contexts/appContext";
+import { useContext } from "react";
 
 export const ProfileImageUploader = ({widgetApi, viewedUser, user, setViewedUser}) => {
+
+    const {setUser} = useContext(accountContext)
+
     const changeProfileImageHandler = (response) => {
         const userInfo = JSON.parse(localStorage.getItem("User"))
         userInfo.profilePicture = response.profilePicture

@@ -1,7 +1,7 @@
 import logo from '../../images/logo.png'
 import {Button} from "@mui/material"
 import { useNavigate } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect} from 'react'
 import { accountContext } from '../Contexts/appContext'
 import { motion } from "framer-motion";
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -29,7 +29,7 @@ export const Navbar = () =>{
 
     const [profile, setProfile] = useState(null)
     const [notification, setNotification] = useState(null)
-    const [userInfo] = useState(JSON.parse(localStorage.getItem("User")))
+    const [userInfo] = useState()
     
     const navlogoutHandler = () => {
         socket.emit("logout", {userID:user.id})
@@ -86,7 +86,7 @@ export const Navbar = () =>{
                     <div>
                     <MenuItem sx={{ minWidth:"200px", justifyContent:"space-around" }}>
                         <Avatar 
-                        src = {userInfo && `https://ucarecdn.com/${userInfo.profilePicture}/`}
+                        src = {user && `https://ucarecdn.com/${user.profilePicture}/`}
                         sx = {{width:"50px", height:"50px"}}
                         />
                         <p>Hello liked your post</p>
@@ -106,12 +106,13 @@ export const Navbar = () =>{
                         aria-expanded={open ? 'true' : undefined}
                     >
                         <Avatar 
-                        src = {userInfo && `https://ucarecdn.com/${userInfo.profilePicture}/`}
+                        src = {user && `https://ucarecdn.com/${user.profilePicture}/`}
                         sx = {{ minWidth: 40, minHeight: 40, borderStyle:"solid", borderColor:"white" }}
                         className='faker1'
                         >
                         </Avatar>
                     </IconButton>
+                    {console.log(userInfo)}
                     <Menu
                         id="basic-menu"
                         anchorEl={profile}

@@ -54,7 +54,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
         <div className="add_post_container">
             <Avatar 
             className ="input_picture"
-            src = {`https://ucarecdn.com/${user.profilePicture}/`}
+            src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
             />
             <div className = "post_form_container">
                 <div className="post_form">
