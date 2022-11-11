@@ -6,6 +6,7 @@ import { Avatar, Tooltip } from "@mui/material"
 import { accountContext } from "../../Contexts/appContext"
 import { AnimatePresence, motion } from "framer-motion"
 import { SendMessageProfile } from "./SendMessageProfile"
+import { ProfileImageUploader } from "./ProfileImageUploader"
 import axios from "axios"
 import "./profile.css"
 import SendIcon from '@mui/icons-material/Send';
@@ -123,12 +124,15 @@ export const Profile = ()=> {
     const closeExpandedDescription = () => {
       setFullDescription(false)
     }
+
     const handleOpenSocialMedia = () => {
       setSocialMediaModal(true)
     }
+
     const handleDeleteMedia = () => {
       setDeleteMedia(clicked => !clicked)
     } 
+    
     const handleClick = () => {
       setClicked(prevState => !prevState)
     }
@@ -177,6 +181,12 @@ export const Profile = ()=> {
         </List>
       </Box>
     );       
+    const widgetApi = useRef();
+
+    const profileImagehandler = () => {
+      const dialog = widgetApi.current.openDialog();
+      dialog.switchTab("url");
+    }
 
     return(
         <>
@@ -185,7 +195,28 @@ export const Profile = ()=> {
                 <div className="outer_profile_container">
                     <div className = "top_profile_container">
                         <div className="Profile_picture_section">
-                            <Avatar sx = {{width:'250px', height:'250px', borderStyle:"solid", borderColor:"white", borderRadius:"50%", borderWidth:'5px'}} src = "https://cdn.mos.cms.futurecdn.net/3kZ3hc2YMB6LXiPohtyfKa.jpg"/>
+                            <Avatar 
+                              sx = {{
+                                width:'250px', 
+                                height:'250px', 
+                                borderStyle:"solid", 
+                                borderColor:"white", 
+                                borderRadius:"50%", 
+                                borderWidth:'5px', 
+                                cursor: viewedUser._id === user.id ? "pointer": "initial" 
+                              }} 
+                              src = {`https://ucarecdn.com/${viewedUser.profilePicture}/`}
+                              onClick = { 
+                                viewedUser._id === user.id ? 
+                                () => profileImagehandler() : null 
+                              }
+                              />
+                              <ProfileImageUploader 
+                              widgetApi = {widgetApi}
+                              viewedUser = {viewedUser}
+                              setViewedUser = {setViewedUser}
+                              user = {user}
+                              />
                             <div>
                                 <h1 className = "profile_username">
                                     {

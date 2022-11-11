@@ -1,0 +1,6 @@
+.uploadcare--widget__button,
+.uploadcare--widget__dragndrop-area,
+.uploadcare--progress,
+.uploadcare--widget__text {
+  display: none;
+}

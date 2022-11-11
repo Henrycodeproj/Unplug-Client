@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@uploadcare/react-widget": "^2.2.0",
     "axios": "^0.26.1",
     "emoji-picker-react": "^3.6.1",
     "framer-motion": "^6.3.0",
