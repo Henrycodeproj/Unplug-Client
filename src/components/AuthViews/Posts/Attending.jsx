@@ -15,7 +15,6 @@ import Popover from '@mui/material/Popover';
 const Attending = (posting) => {
 
     const {user} = useContext(accountContext)
-    const currentUser = user
     const navigateTo = useNavigate()
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -23,6 +22,7 @@ const Attending = (posting) => {
     const [searchUsers, setSearchUsers] = useState([])
     const [loading, setLoading] = useState(true)
     const [search, setSearch] = useState('')
+    const [currentUser] = useState(user)
 
     const post = posting.posting
     const open = Boolean(anchorEl);
@@ -94,7 +94,7 @@ const Attending = (posting) => {
                         onClick = {()=> navigateTo(`/profile/${user._id}`)} 
                         className = "attending_avatars" 
                         alt="Trevor Henderson" 
-                        src="https://faces-img.xcdn.link/image-lorem-face-6511.jpg"
+                        src= {currentUser.id !== user._id ? `https://ucarecdn.com/${user.profilePicture}/`: `https://ucarecdn.com/${currentUser.profilePicture}/`}
                         />
                     </Tooltip>
                 </motion.div>
@@ -155,7 +155,8 @@ const Attending = (posting) => {
                                             height:35, 
                                             marginRight:"10px",
                                         }}
-                                        src="https://faces-img.xcdn.link/image-lorem-face-6511.jpg" />
+                                        src={`https://ucarecdn.com/${remainUser.profilePicture}/`} 
+                                        />
                                         <h2 style = {{textTransform:"capitalize"}}>{remainUser.username}</h2>
                                     </div>
                                 )} 
@@ -171,7 +172,7 @@ const Attending = (posting) => {
                                             height:35, 
                                             marginRight:"10px",
                                         }}
-                                        src="https://faces-img.xcdn.link/image-lorem-face-6511.jpg" />
+                                        src={`https://ucarecdn.com/${remainUser.profilePicture}/`} />
                                         <h2 style = {{textTransform:"capitalize"}}>{remainUser.username}</h2>
                                     </div>
                                 )} 

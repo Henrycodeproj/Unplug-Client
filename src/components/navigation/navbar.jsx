@@ -85,7 +85,10 @@ export const Navbar = () =>{
                     {test.map((item)=>
                     <div>
                     <MenuItem sx={{ minWidth:"200px", justifyContent:"space-around" }}>
-                        <Avatar src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}/>
+                        <Avatar 
+                        src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
+                        sx = {{width:"50px", height:"50px"}}
+                        />
                         <p>Hello liked your post</p>
                     </MenuItem>
                     <Divider/>
@@ -104,7 +107,7 @@ export const Navbar = () =>{
                     >
                         <Avatar 
                         src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
-                        sx={{ width: 35, height: 35 }}
+                        sx = {{ minWidth: 40, minHeight: 40, borderStyle:"solid", borderColor:"white" }}
                         className='faker1'
                         >
                         </Avatar>

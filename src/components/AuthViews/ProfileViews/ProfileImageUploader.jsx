@@ -6,7 +6,6 @@ export const ProfileImageUploader = ({widgetApi, viewedUser, user, setViewedUser
     const changeProfileImageHandler = (response) => {
         const userInfo = JSON.parse(localStorage.getItem("User"))
         userInfo.profilePicture = response.profilePicture
-        console.log(userInfo, userInfo.profilePicture, 'tteesster')
         localStorage.setItem("User", JSON.stringify(userInfo))
     }
 

@@ -115,7 +115,8 @@ export const Display = () =>{
                                             }
                                         >
                                             <Avatar onClick = {() => navigateTo(`/profile/${post.posterId._id}`)}
-                                                src = {`https://ucarecdn.com/${post.posterId.profilePicture}/`}  className='faker'
+                                                src = {`https://ucarecdn.com/${post.posterId.profilePicture}/`}  
+                                                className='posts_image'
                                             >
                                             </Avatar>
                                         </Tooltip>

@@ -33,9 +33,9 @@
     border-radius: 5px;
     padding:20px;
 }
-.faker{
-    width:35px !important;
-    height:35px !important;
+.posts_image{
+    width:45px !important;
+    height:45px !important;
     /* border-radius: 50%; */
     margin: 0px 10px !important;
     cursor: pointer;

@@ -16,10 +16,10 @@
 }
 
 .input_picture {
-    width:45px;
-    height:45px;
-    border-radius: 50%;
-    margin-right:10px;
+    width:45px !important;
+    height:45px !important;
+    border-radius: 50% !important;
+    margin-right:10px !important;
 }
 
 .post_form_container {

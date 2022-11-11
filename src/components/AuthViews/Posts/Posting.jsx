@@ -7,6 +7,7 @@ import TextareaAutosize from '@mui/material/TextareaAutosize';
 import {Button} from "@mui/material";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import Avatar from '@mui/material/Avatar';
 import { TextAreaEmojis } from "../../ReusablesComponents/TextAreaEmojis";
 import { LoadingCircle } from "../../ReusablesComponents/LoadingCircle";
 
@@ -51,11 +52,10 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
 
     return (
         <div className="add_post_container">
-            <img 
+            <Avatar 
             className ="input_picture"
             src = {`https://ucarecdn.com/${user.profilePicture}/`}
-            >
-            </img>
+            />
             <div className = "post_form_container">
                 <div className="post_form">
                     <TextareaAutosize
