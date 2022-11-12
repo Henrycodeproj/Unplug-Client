@@ -115,7 +115,6 @@ export const Navbar = () =>{
                         >
                         </Avatar>
                     </IconButton>
-                    {console.log(userInfo)}
                     <Menu
                         id="basic-menu"
                         anchorEl={profile}

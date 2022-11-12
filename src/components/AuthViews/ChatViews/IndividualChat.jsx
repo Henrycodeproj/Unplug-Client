@@ -151,7 +151,8 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             <> 
             <div className='chat_box_wrapper'>
                 <div style = {{display:"flex", gap:"10px", alignItems:"center"}}>
-                <Avatar src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOCLcCD0l0PpNGuRAmtNh47ovGB3c_a59DPQ&usqp=CAU"
+                <Avatar 
+                src ={`https://ucarecdn.com/${recievingUserInfo.profilePicture}/`}
                 sx ={{width:"30px", height:"30px"}}
                 />
                 <h2 style ={{fontWeight:"600"}}>{recievingUserInfo.username.charAt(0).toUpperCase() + recievingUserInfo.username.slice(1)}</h2>
@@ -191,13 +192,13 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                                 <div className='currentUser_message' ref = {el => chatContainer.current = el}>
                                     <p style ={{display:"block"}} className ="testzz">{message.message}</p>
                                 </div>
-                                <Avatar src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUBMYLhvdVc5YocrrSJpyYXnb274TDj50OZQ&usqp=CAU"/>
+                                <Avatar src ={`https://ucarecdn.com/${user.profilePicture}/`}/>
                             </div>
                         </div>
                         :
                         <div className = "otherUser_message_wrapper">
                             <div className='otherUser_messsage_container'>
-                                <Avatar src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVY-iEh_KAqonOvgpFX8keZ3qd_l4TwwfoPA&usqp=CAU"/>
+                                <Avatar src ={`https://ucarecdn.com/${recievingUserInfo.profilePicture}/`}/>
                                 <div className='otherUser_message' ref = {el => chatContainer.current = el}>
                                     {message.message}
                                 </div>
