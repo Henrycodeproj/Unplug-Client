@@ -89,7 +89,10 @@ const Attending = (posting) => {
                 whileHover = {{ y: -10, scale: 1.3}}
                 exit={{ opacity: 0 }}
                 >
-                    <Tooltip title = {currentUser.id !== user._id && user._id ? `${user.username.charAt(0). toUpperCase() + user.username.slice(1)} is attending`:'You are attending this event'}>
+                    <Tooltip title = {currentUser.id !== user._id && user._id ?
+                         `${user.username.charAt(0). toUpperCase() + user.username.slice(1)} is attending`
+                         :'You are attending this event'}
+                    >
                         <Avatar
                         onClick = {()=> navigateTo(`/profile/${user._id}`)} 
                         className = "attending_avatars" 
@@ -157,7 +160,9 @@ const Attending = (posting) => {
                                         }}
                                         src={`https://ucarecdn.com/${remainUser.profilePicture}/`} 
                                         />
-                                        <h2 style = {{textTransform:"capitalize"}}>{remainUser.username}</h2>
+                                        <h2 style = {{textTransform:"capitalize"}}>
+                                            {remainUser.username}
+                                        </h2>
                                     </div>
                                 )} 
                             </>
@@ -172,8 +177,11 @@ const Attending = (posting) => {
                                             height:35, 
                                             marginRight:"10px",
                                         }}
-                                        src={`https://ucarecdn.com/${remainUser.profilePicture}/`} />
-                                        <h2 style = {{textTransform:"capitalize"}}>{remainUser.username}</h2>
+                                        src={`https://ucarecdn.com/${remainUser.profilePicture}/`} 
+                                        />
+                                        <h2 style = {{textTransform:"capitalize"}}>
+                                            {remainUser.username}
+                                        </h2>
                                     </div>
                                 )} 
                             </> 

@@ -174,10 +174,9 @@ export const Signup = () =>{
     if (userStatus) return <Navigate to="/display"/>
 
     return (
-      <main>
+      <main >
         <div className='landing-wrapper'>
           <div className='signup-container'>
-
           {demoMessage && 
           <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>Use this format for email (e.g test@test.edu) and it will be automatically verified. Every post expires in 3 days.
           </Alert>
