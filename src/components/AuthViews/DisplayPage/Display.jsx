@@ -143,6 +143,7 @@ export const Display = () => {
                         <h4
                           style={{
                             textTransform: "capitalize",
+                            cursor:"pointer"
                           }}
                           onClick={() =>
                             navigateTo(`/profile/${post.posterId._id}`)
