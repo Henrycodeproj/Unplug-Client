@@ -4,9 +4,25 @@
     flex-direction: column;
     gap: 2.5rem;
 }
+.hero_section_headline {
+    font-size: 4rem;
+    color:white;
+}
+.avatar_container_wrapper {
+    display: flex;
+    gap:2rem;
+}
 @media (max-width:1000px) {
     .hero_section_container{
         max-width: 100%;
         margin:1.5rem;
+    }
+}
+@media (max-width:450px) {
+    .hero_section_headline{
+        font-size: 2rem;
+    }
+    .avatar_container_wrapper {
+        gap:1.5rem;
     }
 }

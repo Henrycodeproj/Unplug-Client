@@ -21,13 +21,15 @@ export const HeroSection = ({setOption, setClicked}) => {
 
   return (
     <div className = "hero_section_container">
-            <h1 style = {{fontSize:"4rem", color:"White"}}>A Revolutionary Way to Connect With Your Peers.</h1>
+            <h1 className = "hero_section_headline">
+                A Revolutionary Way to Connect With Your Peers.
+            </h1>
               <p style = {{color:"white", fontSize:"1rem", lineHeight:"1.5rem"}}>
                 Neworking in college made easy.
                 A platform that addresses the different typees of personalities in college students and seeks to help break the ice to foster real in-person interactions.
                 Posting live on-campus activities to encourage others to join and mingle.
               </p>
-              <div style = {{display:"flex", gap:"2rem"}}>
+              <div className = "avatar_container_wrapper">
               <motion.div
               whileHover={{scale:1.3, y:-10}}
               >
