@@ -57,8 +57,8 @@ export const Login = ({setOption, option, active, inactive}) => {
     transition = {{ duration:1 }}
     >
         <div className='space'>
-          <h1 className='signup-title' style= {option ? active: inactive} onClick = {()=> setOption(!option)}>Sign Up</ h1>
-          <h1 className='signup-title' style= {option ? inactive: active} onClick={()=> setOption(!option)}>Sign In</h1>
+          <h1 className='signup-title' style= {option ? active: inactive} onClick = {()=> setOption(true)}>Sign Up</ h1>
+          <h1 className='signup-title' style= {option ? inactive: active} onClick={()=> setOption(false)}>Sign In</h1>
         </div>
         {serverError && 
         <Alert variant='filled' severity="error" color="secondary" onClose={()=>setServerError('')}>{serverError}</Alert>
