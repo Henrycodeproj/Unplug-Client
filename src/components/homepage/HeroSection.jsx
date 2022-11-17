@@ -1,6 +1,7 @@
 import Zoom from '@mui/material/Zoom';
 import { Button,Avatar, Tooltip } from '@mui/material/';
 import { motion} from "framer-motion"
+import "./HeroSection.css"
 
 export const HeroSection = ({setOption, setClicked}) => {
     const avatarStyling = {
@@ -19,7 +20,7 @@ export const HeroSection = ({setOption, setClicked}) => {
     }
 
   return (
-    <div style = {{display:"flex", maxWidth:"35%", flexDirection:"column", gap:"2.5rem"}}>
+    <div className = "hero_section_container">
             <h1 style = {{fontSize:"4rem", color:"White"}}>A Revolutionary Way to Connect With Your Peers.</h1>
               <p style = {{color:"white", fontSize:"1rem", lineHeight:"1.5rem"}}>
                 Neworking in college made easy.

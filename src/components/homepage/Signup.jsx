@@ -52,14 +52,6 @@ export const Signup = () =>{
       }
     }, [passwordError, emailError, serverError])
 
-    const getStartedHandler = () => {
-      setClicked(true)
-      setOption(true)
-    }
-    const loginButtonHandler = () => {
-      setClicked(true)
-      setOption(false)
-    }
     const submitHandler = async (e) => {
         e.preventDefault()
         if (formCheck(newUser) || !emailCheck(newUser.email)){

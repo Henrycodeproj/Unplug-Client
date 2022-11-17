@@ -1,0 +1,12 @@
+.hero_section_container {
+    display: flex;
+    max-width: 35%;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+@media (max-width:1000px) {
+    .hero_section_container{
+        max-width: 100%;
+        margin:1.5rem;
+    }
+}
