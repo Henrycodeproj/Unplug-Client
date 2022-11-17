@@ -26,7 +26,7 @@ export const HeroSection = ({setOption, setClicked}) => {
             </h1>
               <p style = {{color:"white", fontSize:"1rem", lineHeight:"1.5rem"}}>
                 Neworking in college made easy.
-                A platform that addresses the different typees of personalities in college students and seeks to help break the ice to foster real in-person interactions.
+                A platform that addresses the different types of personalities in college students and seeks to help break the ice to foster real in-person interactions.
                 Posting live on-campus activities to encourage others to join and mingle.
               </p>
               <div className = "avatar_container_wrapper">
