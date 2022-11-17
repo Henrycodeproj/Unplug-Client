@@ -152,7 +152,11 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             <div className='chat_box_wrapper'>
                 <div style = {{display:"flex", gap:"10px", alignItems:"center"}}>
                 <Avatar 
-                src ={`https://ucarecdn.com/${recievingUserInfo.profilePicture}/`}
+                src ={
+                    recievingUserInfo.profilePicture 
+                    ? `https://ucarecdn.com/${recievingUserInfo.profilePicture}/`
+                    : null
+                }
                 sx ={{width:"30px", height:"30px"}}
                 />
                 <h2 style ={{fontWeight:"600"}}>{recievingUserInfo.username.charAt(0).toUpperCase() + recievingUserInfo.username.slice(1)}</h2>
@@ -192,13 +196,25 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                                 <div className='currentUser_message' ref = {el => chatContainer.current = el}>
                                     <p style ={{display:"block"}} className ="testzz">{message.message}</p>
                                 </div>
-                                <Avatar src ={`https://ucarecdn.com/${user.profilePicture}/`}/>
+                                <Avatar 
+                                src ={
+                                    user.profilePicture
+                                    ? `https://ucarecdn.com/${user.profilePicture}/`
+                                    : null
+                                }
+                                />
                             </div>
                         </div>
                         :
                         <div className = "otherUser_message_wrapper">
                             <div className='otherUser_messsage_container'>
-                                <Avatar src ={`https://ucarecdn.com/${recievingUserInfo.profilePicture}/`}/>
+                                <Avatar 
+                                src ={
+                                    recievingUserInfo.profilePicture
+                                    ? `https://ucarecdn.com/${recievingUserInfo.profilePicture}/`
+                                    : null
+                                }
+                                />
                                 <div className='otherUser_message' ref = {el => chatContainer.current = el}>
                                     {message.message}
                                 </div>

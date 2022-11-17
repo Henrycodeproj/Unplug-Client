@@ -97,7 +97,19 @@ const Attending = (posting) => {
                         onClick = {()=> navigateTo(`/profile/${user._id}`)} 
                         className = "attending_avatars" 
                         alt="Trevor Henderson" 
-                        src= {currentUser.id !== user._id ? `https://ucarecdn.com/${user.profilePicture}/`: `https://ucarecdn.com/${currentUser.profilePicture}/`}
+                        src={
+                            currentUser.id !== user._id 
+                            ? (
+                                user.profilePicture 
+                                ? `https://ucarecdn.com/${user.profilePicture}/`
+                                : null
+                              )
+                            : (
+                                currentUser.profilePicture 
+                                ? `https://ucarecdn.com/${currentUser.profilePicture}/`
+                                : null
+                              )
+                        }
                         />
                     </Tooltip>
                 </motion.div>
