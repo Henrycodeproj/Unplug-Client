@@ -9,6 +9,7 @@ import axios from 'axios'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import "./Signup.css"
 import landing from "../../images/landing.png"
+import { HeroSection } from './HeroSection';
 
 export const Signup = () =>{
 
@@ -23,6 +24,7 @@ export const Signup = () =>{
     
     const [createdAccount, setCreatedAccount] = useState(false)
     const [signLoading, setSignLoading] = useState(false)
+    const [clicked, setClicked] = useState(false)
 
     //state errors
     const [formErrors, setformErrors] = useState({})
@@ -50,6 +52,14 @@ export const Signup = () =>{
       }
     }, [passwordError, emailError, serverError])
 
+    const getStartedHandler = () => {
+      setClicked(true)
+      setOption(true)
+    }
+    const loginButtonHandler = () => {
+      setClicked(true)
+      setOption(false)
+    }
     const submitHandler = async (e) => {
         e.preventDefault()
         if (formCheck(newUser) || !emailCheck(newUser.email)){
@@ -176,8 +186,14 @@ export const Signup = () =>{
     return (
       <main >
         <div className='landing-wrapper'>
-          <div className='signup-container'>
-          {demoMessage && 
+          { !clicked
+          ? <HeroSection
+            setClicked={setClicked}
+            setOption = {setOption}
+            />
+          :<div className='signup-container'>
+          {
+          demoMessage && 
           <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>Use this format for email (e.g test@test.edu) and it will be automatically verified. Every post expires in 3 days.
           </Alert>
           }
@@ -279,6 +295,7 @@ export const Signup = () =>{
             />
             }
           </div>
+          }
           <img className = "signup_sideimage_logo"src={landing} alt='landing-pic'/>
       </div>
     </main>
