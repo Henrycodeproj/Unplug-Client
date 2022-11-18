@@ -12,6 +12,14 @@
     display: flex;
     gap:2rem;
 }
+@media(max-width:1050px) {
+    .hero_section_headline {
+        font-size: 4.5vw;
+    }
+    .hero_section_container {
+        gap:2rem;
+    }
+}
 @media (max-width:1000px) {
     .hero_section_container{
         max-width: 100%;
