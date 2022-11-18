@@ -12,7 +12,7 @@
     display: flex;
     gap:2rem;
 }
-@media(max-width:1050px) {
+@media(max-width:1281px) {
     .hero_section_headline {
         font-size: 4.5vw;
     }
