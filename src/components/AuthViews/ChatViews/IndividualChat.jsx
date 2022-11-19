@@ -129,7 +129,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         if (scrollPosition >= containerMaxHeight) 
             setNewMessages(false)
         else if (event.target.scrollTop === 0) {
-            const Url = `http://localhost:3001/message/conversation/prev/${convoId}/${chatHistory.length}`
+            const Url = `https://unplug-server.herokuapp.com/message/conversation/prev/${convoId}/${chatHistory.length}`
             const response = await axios.get(Url, {
                 headers:{
                     "authorization":localStorage.getItem("Token")
