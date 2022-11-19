@@ -124,9 +124,20 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
     }
     
 
-    const handleChatScroll = (event) => {
+    const handleChatScroll = async (event) => {
         setScrollPosition(event.target.clientHeight + event.target.scrollTop + 1)
-        if (scrollPosition >= containerMaxHeight) setNewMessages(false)
+        if (scrollPosition >= containerMaxHeight) 
+            setNewMessages(false)
+        else if (event.target.scrollTop === 0) {
+            const Url = `http://localhost:3001/message/conversation/prev/${convoId}/${chatHistory.length}`
+            const response = await axios.get(Url, {
+                headers:{
+                    "authorization":localStorage.getItem("Token")
+                },
+            })
+            setChatHistory(prev => [...response.data, ...prev])
+            if (response.data.length !== 0) event.target.scrollTop = 200
+        }
     }
     
     return (
