@@ -1,0 +1,6 @@
+.login_input {
+    color:white;
+  }
+  .login_input::placeholder{
+    color:white;
+  }
