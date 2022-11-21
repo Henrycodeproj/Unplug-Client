@@ -188,8 +188,7 @@ export const Signup = () =>{
           demoMessage && 
           <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>
             Use this format for email (e.g test@test.edu) 
-            and it will be automatically verified OR login with username and password "guest".
-            Every post expires in 3 days. 
+            to make an account OR login with username and password "guest".
           </Alert>
           }
 
@@ -222,7 +221,7 @@ export const Signup = () =>{
               }
               {serverError && <Alert variant="filled" severity="error" color="secondary" onClose = {()=> setServerError('')}>{serverError}</Alert>}
               {emailError && <Alert variant ="filled" severity="error" color= "secondary" onClose={()=>setEmailError(false)}>Your email does not end with edu.</Alert>}
-              {createdAccount && <Alert variant ="filled" severity="success" onClose={()=>setCreatedAccount(false)}>You account is automatically verified, you may login with your signed up credentials. All posts expire in 24 hours.</Alert>}
+              {createdAccount && <Alert variant ="filled" severity="success" onClose={()=>setCreatedAccount(false)}>You account is automatically verified, you may login with your signed up credentials. All posts expire in 3 days.</Alert>}
               {/* start of form */}
               <form className='signup' onSubmit={submitHandler}>
                 {/* username */}
