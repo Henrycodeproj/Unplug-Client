@@ -188,7 +188,7 @@ export const Signup = () =>{
           demoMessage && 
           <Alert variant ="filled" severity="error" onClose={()=> setDemoMessage(false)}>
             Use this format for email (e.g example@example.edu) 
-            to make an account.
+            to make an account or login with USERNAME and PASSWORD "guest".
           </Alert>
           }
 
