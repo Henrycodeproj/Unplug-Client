@@ -2,5 +2,5 @@
     color:white;
   }
   .login_input::placeholder{
-    color:white;
+    color:rgba(143, 143, 143, 0.774);
   }
