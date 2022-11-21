@@ -6,6 +6,7 @@ import { accountContext } from "../Contexts/appContext";
 import axios from "axios";
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
+import "./Login.css"
 
 
 export const Login = ({setOption, option, active, inactive}) => {
@@ -74,6 +75,7 @@ export const Login = ({setOption, option, active, inactive}) => {
                             name="login_username" 
                             onChange={handleInfo} 
                             style={{width:'100%'}}
+                            placeholder ="guest"
                             />
                     <PersonIcon style={{fontSize:'25px', marginBottom:'5px', color:'rgb(198, 196, 196)'}}/>
                     </label>
@@ -87,6 +89,7 @@ export const Login = ({setOption, option, active, inactive}) => {
                             name="login_password" 
                             onChange={handleInfo} 
                             style={{width:'100%'}}
+                            placeholder ="guest"
                             />
                     <LockIcon style={{fontSize:'25px', marginBottom:'5px', color:'rgb(198, 196, 196)'}}/>
                     </label>

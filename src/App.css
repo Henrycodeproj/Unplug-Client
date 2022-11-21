@@ -94,9 +94,6 @@ main{
   cursor:pointer;
   font-size:25px;
 }
-.login_input {
-  color:white;
-}
 .requirement-warning{
   display:flex;
   align-items: center;
