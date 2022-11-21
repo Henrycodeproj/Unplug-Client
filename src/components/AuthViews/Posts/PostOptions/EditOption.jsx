@@ -30,6 +30,8 @@ export const EditOption = ({post, editOpen, setEditOpen}) => {
     }
 
     const submitEdit = async () => {
+      if (postDescription) return
+      
       setEditOpen(false);
       const Url = `https://unplug-server.herokuapp.com/posts/edit/${post._id}`
       const data = {updatedDescription:postDescription}
