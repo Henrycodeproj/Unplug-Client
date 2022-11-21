@@ -88,7 +88,11 @@ export const RightSideCol = () => {
                         <div style = {{display:"flex"}}>
                         <Avatar 
                         sx = {{ marginRight:"10px", cursor:"pointer" }} 
-                        src = {`https://ucarecdn.com/${post.original_poster[0].profilePicture}/`}
+                        src = {
+                            post.original_poster[0].profilePicture 
+                            ? `https://ucarecdn.com/${post.original_poster[0].profilePicture}/`
+                            : null
+                        }
                         onClick = {()=> navigateTo(`/profile/${post.original_poster[0]._id}`)}
                         />
                             <div>
@@ -135,7 +139,11 @@ export const RightSideCol = () => {
                         >
                             <div className = "recent_chatMessages_container">
                                 <Avatar sx = {{ marginRight:"10px", cursor:"pointer" }} 
-                                src = {queryInfo.recieverInfo[0]._id === user.id ? `https://ucarecdn.com/${queryInfo.senderInfo[0].profilePicture}/`: `https://ucarecdn.com/${queryInfo.recieverInfo[0].profilePicture}/`}
+                                src = {
+                                    queryInfo.recieverInfo[0]._id === user.id 
+                                    ? `https://ucarecdn.com/${queryInfo.senderInfo[0].profilePicture}/`
+                                    : `https://ucarecdn.com/${queryInfo.recieverInfo[0].profilePicture}/`
+                                }
                                 />
                                 {
                                 queryInfo.recieverInfo[0]._id === user.id ?
