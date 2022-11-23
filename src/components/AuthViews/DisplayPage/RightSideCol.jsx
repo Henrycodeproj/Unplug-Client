@@ -139,10 +139,14 @@ export const RightSideCol = () => {
                         >
                             <div className = "recent_chatMessages_container">
                                 <Avatar sx = {{ marginRight:"10px", cursor:"pointer" }} 
-                                src = {
-                                    queryInfo.recieverInfo[0]._id === user.id 
-                                    ? `https://ucarecdn.com/${queryInfo.senderInfo[0].profilePicture}/`
-                                    : `https://ucarecdn.com/${queryInfo.recieverInfo[0].profilePicture}/`
+                                src={
+                                  queryInfo.recieverInfo[0]._id === user.id
+                                    ? queryInfo.senderInfo[0].profilePicture
+                                      ? `https://ucarecdn.com/${queryInfo.senderInfo[0].profilePicture}/`
+                                      : null
+                                    : queryInfo.recieverInfo[0].profilePicture
+                                      ? `https://ucarecdn.com/${queryInfo.recieverInfo[0].profilePicture}/`
+                                      : null
                                 }
                                 />
                                 {
