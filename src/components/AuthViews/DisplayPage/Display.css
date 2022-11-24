@@ -1,7 +1,7 @@
 .display_container {
     display: flex;
     width: 100%;
-    min-height: 94vh;
+    height: 94vh;
     justify-content: center;
 }
 .display_newsfeed_wrapper {
@@ -21,7 +21,7 @@
     box-sizing: border-box;
 }
 .post_container_section {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
     overflow-y: scroll;
 }
 ::-webkit-scrollbar {
