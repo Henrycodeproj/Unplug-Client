@@ -137,6 +137,9 @@ export const SearchBarModal = ({
                         ) ? (
                           <motion.div
                             whileHover={{scale: 1.1}}
+                            whileTap={{
+                              scale: 1.3,
+                            }}
                           >
                           <FavoriteIcon
                             sx={{ color: "red", cursor: "pointer" }}
@@ -146,6 +149,9 @@ export const SearchBarModal = ({
                         ) : (
                           <motion.div
                             whileHover={{scale: 1.1}}
+                            whileTap={{
+                              scale: 1.3,
+                            }}
                           >
                           <FavoriteBorderIcon
                             onClick={() => searchLikeHandler(postInfo._id)}
