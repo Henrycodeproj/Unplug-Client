@@ -30,6 +30,8 @@ export const AppContext = ({children}) =>{
 
     const [isNewChat, setIsNewChat] = useState([])
 
+    const [lastPostIndex, setLastPostIndex] = useState(15);
+
     return(
         <accountContext.Provider 
         value = {{
@@ -46,7 +48,9 @@ export const AppContext = ({children}) =>{
             recentMessages,
             setRecentMessages,
             isNewChat,
-            setIsNewChat
+            setIsNewChat,
+            lastPostIndex,
+            setLastPostIndex
         }}>
             {children}
         </accountContext.Provider>    

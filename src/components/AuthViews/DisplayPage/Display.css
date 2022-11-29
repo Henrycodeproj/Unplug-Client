@@ -31,7 +31,7 @@
 .posts_articles {
     display:flex;
     font-size: 1.5rem;
-    background-color: rgb(215, 215, 215);
+    background-color: var(--white-background);
     margin:20px 0px;
     border-radius: 5px;
     padding:20px;
