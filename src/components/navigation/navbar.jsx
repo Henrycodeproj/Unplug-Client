@@ -1,7 +1,7 @@
 import logo from '../../images/logo.png'
 import {Button} from "@mui/material"
 import { useNavigate } from 'react-router-dom'
-import { useContext, useState, useEffect} from 'react'
+import { useContext, useState, useEffect, useRef} from 'react'
 import { accountContext } from '../Contexts/appContext'
 import { motion } from "framer-motion";
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -16,7 +16,13 @@ import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
 import Popover from '@mui/material/Popover';
 import Divider from '@mui/material/Divider';
-import Tooltip from "@mui/material/Tooltip";
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import axios from "axios";
+import "../navigation/navbar.css";
+import {SearchBarModal} from "./SearchBarModal";
 
 
 
@@ -25,11 +31,21 @@ import "../navigation/navbar.css"
 export const Navbar = () =>{
 
     const navigateTo = useNavigate()
-    const {userStatus, user, logoutHandler, socket} = useContext(accountContext)
+    const ref = useRef()
+    const { 
+        userStatus, 
+        user, 
+        logoutHandler, 
+        socket,
+        posts 
+      } = useContext(accountContext);
 
     const [profile, setProfile] = useState(null)
     const [notification, setNotification] = useState(null)
     const [userInfo, setUserInfo] = useState()
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [search, setSearch] = useState('')
+    const [searchResults, setSearchResults] = useState()
     
     const navlogoutHandler = () => {
         socket.emit("logout", {userID:user.id})
@@ -59,6 +75,37 @@ export const Navbar = () =>{
     const handleClose = () => {
         setNotification(null);
     };
+
+    const searchInputCheck = () => {
+        if (search) setAnchorEl(ref.current)
+        else setSearchResults([])
+    }
+    
+    const searchwordHandler = (word) => {
+        setSearch(word)
+      }
+
+    useEffect(() => {
+      const searchBarHandler = async () => {
+        const data = {
+          "word": search 
+        }
+        const url = 'https://unplug-server.herokuapp.com/posts/search'
+        const searchResponse = await axios.post(url, data, {
+          headers:{
+            "authorization": localStorage.getItem("Token")
+          }
+        })
+    
+        if (searchResponse.data && searchResponse.data.length >= 1) {
+          setSearchResults(searchResponse.data)
+          setAnchorEl(ref.current)
+        } else {
+          setAnchorEl(null)
+        }
+      }
+      searchBarHandler()
+    },[search, posts])
     
 
     if (userStatus){
@@ -68,6 +115,34 @@ export const Navbar = () =>{
             <img className ="unplug_logo" src ={logo} alt ="logo" onClick={()=> !userStatus ? navigateTo("/"): navigateTo("/display")}/>
 
             <div className="profile_section">
+            <TextField
+            ref = {ref}
+            id="input-with-icon-textfield"
+            placeholder="Search Unplug"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start" sx = {{color:"white"}} className = "navy_search">
+                  <TravelExploreIcon sx = {{fontSize:"1.85rem"}}/>
+                </InputAdornment>
+              ),
+            }}
+            onChange = {(e) => searchwordHandler(e.target.value)}
+            variant="standard"
+            color = "secondary"
+            sx={{
+              '& .MuiInput-underline:before': { borderBottomColor: 'gray', borderBottomWidth:"2px" },
+              '& .MuiInput-underline:after': { borderBottomColor: 'white' },
+              width:"250px",
+            }}
+            className = "search_bar"
+            onClick = {() => searchInputCheck()}
+            />
+            <SearchBarModal
+            anchorEl = {anchorEl}
+            setAnchorEl = {setAnchorEl}
+            searchResults = {searchResults}
+            setSearchResults = {setSearchResults}
+            />
                 <Badge badgeContent={4} color="error">
                     <NotificationsIcon className = "notification_bell" onClick = {(e) => handleClick(e)}/>
                     <Popover

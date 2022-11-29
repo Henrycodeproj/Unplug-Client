@@ -1,0 +1,23 @@
+.search_attending_avatars {
+    cursor: pointer;
+    position: relative;
+    margin-left: -8px;
+    border-style: solid;
+    border-color: white;
+    width:30px !important;
+    height:30px !important;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-color: white;
+}
+.search_remaining_users_avatar {
+    position: relative;
+    margin-left:-8px;
+    border-style: solid;
+    border-color: white;
+    width:30px !important;
+    height:30px !important;
+    border-color: white;
+}
+.search_boxes:hover{
+    background: rgba(128, 128, 128, 0.153) !important;
+}

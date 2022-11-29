@@ -40,6 +40,15 @@ nav{
 .notification_bell:hover{
     animation: notification-pulse 2s infinite;
 }
+#input-with-icon-textfield[type="text"]{
+  color: white !important;
+}
+.MuiInput-root:hover::before  {
+  border-bottom-color: gray !important;
+}
+#input-with-icon-textfield::placeholder{
+  color: white !important;
+}
 @keyframes notification-pulse {
     0% {
       transform: scale(0.95);

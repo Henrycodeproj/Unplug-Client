@@ -10,7 +10,7 @@
     padding:20px;
     display:flex;
     background-color: rgba(255, 255, 255, 0.139);
-    background-color: rgb(215, 215, 215);
+    background-color: var(--white-background);
     height:auto;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
