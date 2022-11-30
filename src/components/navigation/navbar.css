@@ -49,6 +49,11 @@ nav{
 #input-with-icon-textfield::placeholder{
   color: white !important;
 }
+.navbar-wrapper{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+}
 @keyframes notification-pulse {
     0% {
       transform: scale(0.95);
@@ -65,8 +70,25 @@ nav{
       box-shadow: 0 0 0 0 rgba(128, 128, 128, 0);
     }
   }
+@media (min-width:1800px){
+  .navbar-wrapper{
+   width:80%;
+  }
+} 
 @media (max-width:768px){
   .unplug_logo {
     max-height: 50px;
+  }
+}
+@media (max-width:500px) {
+  .profile_section {
+    gap: 5px;
+  }
+  .navbar-avatar{
+    width:35px !important;
+    height:35px !important;
+  }
+  .navbar-wrapper{
+    justify-content: space-evenly;
   }
 }
