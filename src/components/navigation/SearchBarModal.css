@@ -21,3 +21,8 @@
 .search_boxes:hover{
     background: rgba(128, 128, 128, 0.153) !important;
 }
+@media (max-width:500px) {
+    .search-box-container {
+        max-height:40vh !important;
+    }
+}

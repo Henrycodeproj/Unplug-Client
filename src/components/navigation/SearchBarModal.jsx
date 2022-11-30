@@ -86,6 +86,7 @@ export const SearchBarModal = ({
             overflowY: "scroll",
             boxSizing: "border-box",
           }}
+          className="search-box-container"
         >
           <ul ref={ref}>
             {searchResults &&
@@ -136,27 +137,27 @@ export const SearchBarModal = ({
                           (attending) => attending._id === user.id
                         ) ? (
                           <motion.div
-                            whileHover={{scale: 1.1}}
+                            whileHover={{ scale: 1.1 }}
                             whileTap={{
                               scale: 1.3,
                             }}
                           >
-                          <FavoriteIcon
-                            sx={{ color: "red", cursor: "pointer" }}
-                            onClick={() => searchLikeHandler(postInfo._id)}
-                          />
+                            <FavoriteIcon
+                              sx={{ color: "red", cursor: "pointer" }}
+                              onClick={() => searchLikeHandler(postInfo._id)}
+                            />
                           </motion.div>
                         ) : (
                           <motion.div
-                            whileHover={{scale: 1.1}}
+                            whileHover={{ scale: 1.1 }}
                             whileTap={{
                               scale: 1.3,
                             }}
                           >
-                          <FavoriteBorderIcon
-                            onClick={() => searchLikeHandler(postInfo._id)}
-                            sx={{ color: "red", cursor: "pointer" }}
-                          />
+                            <FavoriteBorderIcon
+                              onClick={() => searchLikeHandler(postInfo._id)}
+                              sx={{ color: "red", cursor: "pointer" }}
+                            />
                           </motion.div>
                         )}
                         <div style={{ display: "flex" }}>
