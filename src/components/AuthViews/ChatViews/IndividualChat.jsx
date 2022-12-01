@@ -48,6 +48,19 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
         })
     },[])
 
+    useEffect(() => {
+        async function getUnreadMessages (){
+            const url = `http://localhost:3001/message/unread/${convoId}/${user.id}`
+            const response = await axios.get(url, {
+                headers:{
+                    "authorization":localStorage.getItem("Token")
+                }
+            })
+            if (response.data.results >= 1) setNotification(response.data.results)
+        }
+      getUnreadMessages()
+    },[])
+
     useEffect(()=>{
         chatOpen.current = false
         if (isNewMessage) setNotification(prevNotifications => prevNotifications + 1)
