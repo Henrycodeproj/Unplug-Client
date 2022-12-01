@@ -70,6 +70,7 @@ export const LeftColumn = ()=>{
               <AccordionSummary
                 className = "accordian_summary"
                 expandIcon={<ExpandMoreIcon className = "expand_icon" sx = {{color:"white"}}/>}
+                sx ={{justifyContent:"center"}}
               >
                 <div style = {{minWidth:36}}>
                   <SettingsIcon fontSize="small" sx ={{color:"white"}}/>
