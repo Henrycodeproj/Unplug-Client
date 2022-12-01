@@ -50,7 +50,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
 
     useEffect(() => {
         async function getUnreadMessages (){
-            const url = `http://localhost:3001/message/unread/${convoId}/${user.id}`
+            const url = `https://unplug-server.herokuapp.com/message/unread/${convoId}/${user.id}`
             const response = await axios.get(url, {
                 headers:{
                     "authorization":localStorage.getItem("Token")
