@@ -5,12 +5,17 @@
     gap: 2.5rem;
 }
 .hero_section_headline {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color:white;
 }
 .avatar_container_wrapper {
     display: flex;
     gap:2rem;
+}
+@media (min-width:1600px) {
+    .hero_section_headline {
+        font-size: 4rem;
+    }
 }
 @media(max-width:1281px) {
     .hero_section_headline {
