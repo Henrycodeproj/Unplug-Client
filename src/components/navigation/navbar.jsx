@@ -228,7 +228,7 @@ export const Navbar = () => {
                           }
                           sx={{ width: "50px", height: "50px" }}
                         />
-                        <p>Hello liked your post</p>
+                        <p>User liked your post</p>
                       </MenuItem>
                       <Divider />
                     </div>
