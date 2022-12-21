@@ -11,7 +11,11 @@ import "./Login.css"
 
 export const Login = ({setOption, option, active, inactive}) => {
 
-  const {setUser} = useContext(accountContext)
+  const {
+    setUser,
+    setNotificationID,
+    setTime
+  } = useContext(accountContext)
 
     const [loginInfo, setLoginInfo] = useState({
         login_username:"",
@@ -41,6 +45,8 @@ export const Login = ({setOption, option, active, inactive}) => {
           localStorage.setItem("User", JSON.stringify(res.data.user))
           setUser(JSON.parse(localStorage.getItem("User")))
           setLoginLoading(false)
+          setNotificationID(res.data.user.id);
+          setTime(res.data.user.lastActive);
           navigateTo("/display")
         }
       }).catch(error =>{

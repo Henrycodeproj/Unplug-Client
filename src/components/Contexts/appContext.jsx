@@ -32,12 +32,20 @@ export const AppContext = ({children}) =>{
 
     const [lastPostIndex, setLastPostIndex] = useState(15);
 
+    const [time, setTime] = useState(localStorage.getItem("User") ? user.lastActive : null)
+
+    const [unreadNotifications, setUnreadNotifications] = useState(0)
+
+    const [notificationID, setNotificationID] = useState(localStorage.getItem("User") ? user.id : 0)
+
+    const [userNotification, setUserNotification] = useState([])
+
     return(
         <accountContext.Provider 
         value = {{
             userStatus,
             setUserStatus,
-             user,
+            user,
             setUser,
             posts,
             setPosts,
@@ -50,7 +58,15 @@ export const AppContext = ({children}) =>{
             isNewChat,
             setIsNewChat,
             lastPostIndex,
-            setLastPostIndex
+            setLastPostIndex,
+            time, 
+            setTime,
+            unreadNotifications, 
+            setUnreadNotifications,
+            notificationID,
+            setNotificationID,
+            userNotification, 
+            setUserNotification
         }}>
             {children}
         </accountContext.Provider>    

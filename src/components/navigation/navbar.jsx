@@ -1,9 +1,4 @@
 import logo from "../../images/logo.png";
-import { Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { useContext, useState, useEffect, useRef } from "react";
-import { accountContext } from "../Contexts/appContext";
-import { motion } from "framer-motion";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import Avatar from "@mui/material/Avatar";
@@ -23,13 +18,30 @@ import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import axios from "axios";
 import "../navigation/navbar.css";
 import { SearchBarModal } from "./SearchBarModal";
+import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { useContext, useState, useEffect, useRef } from "react";
+import { accountContext } from "../Contexts/appContext";
+import { motion } from "framer-motion";
+import { Notification } from "../AuthViews/DisplayPage/Notification";
 
-import "../navigation/navbar.css";
 
 export const Navbar = () => {
   const navigateTo = useNavigate();
   const ref = useRef();
-  const { userStatus, user, logoutHandler, socket, posts } =
+  const { 
+    userStatus, 
+    user, 
+    logoutHandler, 
+    socket, 
+    posts,
+    userNotification, 
+    setUserNotification,
+    notificationID,
+    setTime,
+    unreadNotifications,
+    setUnreadNotifications,  
+    } =
     useContext(accountContext);
 
   const [profile, setProfile] = useState(null);
@@ -46,13 +58,13 @@ export const Navbar = () => {
     logoutHandler();
     setProfile(false);
   };
+
   useEffect(() => {
     setUserInfo(user);
   }, [user]);
 
   useEffect(() => {
     function getCurrentWidth() {
-      console.log(window.innerWidth);
       setWidth(window.innerWidth);
     }
     window.addEventListener("resize", getCurrentWidth);
@@ -63,7 +75,6 @@ export const Navbar = () => {
     if (width < 550) setSearchClicked(false);
   }, [width]);
 
-  const test = [1, 2];
   const open = Boolean(profile);
 
   const openProfile = (e) => {
@@ -75,12 +86,48 @@ export const Navbar = () => {
 
   const notificationOpen = Boolean(notification);
 
+  const updateLastActive = async () => {
+    const data = {user: user}
+    const url = `https://unplug-server.herokuapp.com/user/update/activity`;
+    await axios.post(url, data, {
+        headers: {
+          authorization: localStorage.getItem("Token")
+        }
+    })
+  }
+
+  const getUserNotifications = async () => {
+    const url = `https://unplug-server.herokuapp.com/user/${user.id}/notifications`;
+    const response = await axios.get(url, {
+      headers: {
+        authorization: localStorage.getItem("Token"),
+      }
+    });
+    setUserNotification(response.data.notifications)
+  }
+
+  useEffect(() => {
+      socket.on(`${notificationID}-notification`, (data) => {
+        if (!(userNotification.some(notifications => notifications._id === data[0]._id))){
+          setUserNotification(prev => [data[0], ...prev])
+          setUnreadNotifications(count => count + 1)
+        } 
+      })
+    return () => { 
+      socket.removeListener(`${notificationID}-notification`);
+    }
+  }, [notificationID])
+
   const handleClick = (event) => {
     setNotification(event.currentTarget);
+    setUnreadNotifications(0);
+    getUserNotifications();
+    updateLastActive();
   };
 
   const handleClose = () => {
     setNotification(null);
+    setTime(new Date().toISOString());
   };
 
   const searchInputCheck = () => {
@@ -183,7 +230,7 @@ export const Navbar = () => {
               searchResults={searchResults}
               setSearchResults={setSearchResults}
             />
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={unreadNotifications} color="error">
               <NotificationsIcon
                 className="notification_bell"
                 onClick={(e) => handleClick(e)}
@@ -213,26 +260,7 @@ export const Navbar = () => {
                     </span>
                   </MenuItem>
                   <Divider />
-                  {test.map((item) => (
-                    <div>
-                      <MenuItem
-                        sx={{
-                          minWidth: "200px",
-                          justifyContent: "space-around",
-                        }}
-                      >
-                        <Avatar
-                          src={
-                            user &&
-                            `https://ucarecdn.com/${user.profilePicture}/`
-                          }
-                          sx={{ width: "50px", height: "50px" }}
-                        />
-                        <p>User liked your post</p>
-                      </MenuItem>
-                      <Divider />
-                    </div>
-                  ))}
+                  <Notification/>
                 </div>
               </Popover>
             </Badge>

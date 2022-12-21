@@ -31,23 +31,48 @@ export const Display = () => {
     dark,
     setDark,
     lastPostIndex,
-    setLastPostIndex
+    setLastPostIndex,
+    setUnreadNotifications,
+    setTime,
   } = useContext(accountContext);
 
   const [loadingState, setLoadingState] = useState(true);
+
   const navigateTo = useNavigate();
+
+  useEffect(() => {
+    const getNewNotifications = async () => {
+      const url = `https://unplug-server.herokuapp.com/user/${user.id}/newnotifications`;
+      const response = await axios.get(url, {
+        headers: {
+          authorization: localStorage.getItem("Token")
+        }
+      })
+      if (response.data.new > 0) {
+        setUnreadNotifications(response.data.new)
+        setTime(response.data.lastActive)
+      }
+    }
+    getNewNotifications()
+  }, [])
 
   useEffect(() => {
     socket.emit("status", { userId: user.id, username: user.username });
     socket.on("activeUsers", (activeUsers) => {
       setActiveUsers(activeUsers);
     });
+    return () => { 
+      socket.removeListener("activeUsers");
+    }
   }, []);
 
   useEffect(() => {
     socket.on("inactiveUsers", (remainingUsers) => {
       setActiveUsers(remainingUsers);
     });
+    return () => { 
+      socket.removeListener("inactiveUsers");
+    }
   }, []);
 
   useEffect(() => {
@@ -81,17 +106,62 @@ export const Display = () => {
     }
   };
 
-  const likeHandler = (postID) => {
+  const createNotificaction = async (post) => {
+    const url = `https://unplug-server.herokuapp.com/user/create/notifications/`
+    const data = {
+      postId: post._id,
+      notifiedUser: post.posterId._id,
+      attendId: user.id
+    }
+    await axios.post(url, data, {
+      headers: {
+        authorization: localStorage.getItem("Token")
+      }
+    })
+  }
+
+  const likeHandler = (post) => {
     const data = { user: user.id };
-    const URL = `https://unplug-server.herokuapp.com/posts/likes/${postID}/${lastPostIndex}`;
+    const URL = `https://unplug-server.herokuapp.com/posts/like/${post._id}/${lastPostIndex}`;
     axios
       .patch(URL, data, {
         headers: {
           authorization: localStorage.getItem("Token"),
         },
       })
-      .then((res) => {
-        setPosts(res.data);
+      .then((response) => {
+        setPosts(response.data);
+        createNotificaction(post);
+        if (response)
+        socket.emit("notification",
+          {
+            postID: post._id, 
+            posterID: post.posterId._id,
+            currentUser: user.id
+          }
+        )
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const unlikeHandler = (post) => {
+    const data = { user: user.id };
+    const URL = `https://unplug-server.herokuapp.com/posts/unlike/${post._id}/${lastPostIndex}`;
+    axios
+      .patch(URL, data, {
+        headers: {
+          authorization: localStorage.getItem("Token"),
+        },
+      })
+      .then((response) => {
+        setPosts(response.data);
+        //unlike notification socket
+        /*socket.emit("notification",
+          {
+            postID: post._id, 
+            posterID: post.posterId._id
+          }
+        )*/
       })
       .catch((error) => console.log(error));
   };
@@ -187,7 +257,7 @@ export const Display = () => {
                               >
                                 <FavoriteIcon
                                   sx={{ color: "red" }}
-                                  onClick={() => likeHandler(post._id)}
+                                  onClick={() => unlikeHandler(post)}
                                   style={{ cursor: "pointer" }}
                                 />
                               </Tooltip>
@@ -212,7 +282,7 @@ export const Display = () => {
                               >
                                 <VolunteerActivismIcon
                                   className="heart_button_outline"
-                                  onClick={() => likeHandler(post._id)}
+                                  onClick={() => likeHandler(post)}
                                   style={{ cursor: "pointer" }}
                                 />
                               </Tooltip>
