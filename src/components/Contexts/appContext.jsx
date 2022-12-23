@@ -38,7 +38,7 @@ export const AppContext = ({children}) =>{
 
     const [notificationID, setNotificationID] = useState(localStorage.getItem("User") ? user.id : 0)
 
-    const [userNotification, setUserNotification] = useState([])
+    const [userNotification, setUserNotification] = useState(null)
 
     return(
         <accountContext.Provider 
