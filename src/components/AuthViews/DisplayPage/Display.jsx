@@ -37,6 +37,7 @@ export const Display = () => {
   } = useContext(accountContext);
 
   const [loadingState, setLoadingState] = useState(true);
+  const [currentDate, setCurrentDate] = useState(new Date())
 
   const navigateTo = useNavigate();
 
