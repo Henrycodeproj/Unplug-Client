@@ -179,7 +179,7 @@ export const Display = () => {
     const postDate = new Date(time)
     const difference = Math.abs((parseInt(postDate.getTime()) - parseInt(currentDate.getTime())) / 3600000)
     const minutes = Math.abs((parseInt(postDate.getTime()) - parseInt(currentDate.getTime())) / 60000)
-    return difference > 1 ? Math.round(difference)+ " hours ago" : Math.trunc(minutes) + " Minutes Ago"
+    return difference > 1 ? Math.round(difference)+ " hours ago" : Math.trunc(minutes) + " minutes ago"
   }
 
   if (posts === null) return <LoadingCircle loadingState={loadingState} />;
