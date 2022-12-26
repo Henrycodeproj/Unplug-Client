@@ -246,7 +246,7 @@ export const Display = () => {
                         >
                           {post.posterId.username}
                         </h4>
-                        <h6 style = {{fontSize:".75rem"}}>{handlePastHours(post.createdAt)}</h6>
+                        <h6 style = {{fontSize:".75rem", color:"gray"}}>{handlePastHours(post.createdAt)}</h6>
                         </div>
                         <div style={{ display: "flex" }}>
                           {post.posterId._id !== user.id ? (
