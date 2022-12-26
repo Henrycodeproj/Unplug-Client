@@ -227,7 +227,14 @@ export const Display = () => {
 
                     <div className="inner_post_container">
                       <div className="title_wrapper">
-                        <div className="post_title">
+                        <div 
+                        style={{
+                          display:"flex", 
+                          gap:"3%", 
+                          width:"100%", 
+                          alignItems:"center"
+                        }}
+                        >
                         <h4
                           style={{
                             textTransform: "capitalize",
