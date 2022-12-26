@@ -20,6 +20,12 @@
     flex-direction: column;
     box-sizing: border-box;
 }
+.post_title {
+    display:"flex";
+    width:100%;
+    gap:3%;
+    align-items: center;
+}
 .post_container_section {
     margin-top: 10px !important;
     overflow-y: scroll;

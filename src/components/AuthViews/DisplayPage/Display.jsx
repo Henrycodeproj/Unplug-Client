@@ -174,6 +174,13 @@ export const Display = () => {
       .catch((error) => console.log(error));
   };
 
+  const handlePastHours = (time) => {
+    const postDate = new Date(time)
+    const difference = Math.abs((parseInt(postDate.getTime()) - parseInt(currentDate.getTime())) / 3600000)
+    const minutes = Math.abs((parseInt(postDate.getTime()) - parseInt(currentDate.getTime())) / 60000)
+    return difference > 1 ? Math.round(difference)+ " hours ago" : Math.trunc(minutes) + " Minutes Ago"
+  }
+
   if (posts === null) return <LoadingCircle loadingState={loadingState} />;
 
   return (
@@ -219,6 +226,7 @@ export const Display = () => {
 
                     <div className="inner_post_container">
                       <div className="title_wrapper">
+                        <div className="post_title">
                         <h4
                           style={{
                             textTransform: "capitalize",
@@ -230,6 +238,8 @@ export const Display = () => {
                         >
                           {post.posterId.username}
                         </h4>
+                        <h6 style = {{fontSize:".75rem"}}>{handlePastHours(post.createdAt)}</h6>
+                        </div>
                         <div style={{ display: "flex" }}>
                           {post.posterId._id !== user.id ? (
                             <SendMessage post={post} />
