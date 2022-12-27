@@ -107,20 +107,6 @@ export const Display = () => {
     }
   };
 
-  const createNotificaction = async (post) => {
-    const url = `https://unplug-server.herokuapp.com/user/create/notifications/`
-    const data = {
-      postId: post._id,
-      notifiedUser: post.posterId._id,
-      attendId: user.id
-    }
-    await axios.post(url, data, {
-      headers: {
-        authorization: localStorage.getItem("Token")
-      }
-    })
-  }
-
   const likeHandler = (post) => {
     const data = { user: user.id };
     const URL = `https://unplug-server.herokuapp.com/posts/like/${post._id}/${lastPostIndex}`;
@@ -132,7 +118,6 @@ export const Display = () => {
       })
       .then((response) => {
         setPosts(response.data);
-        createNotificaction(post);
         if (response)
         socket.emit("notification",
           {
@@ -145,20 +130,6 @@ export const Display = () => {
       .catch((error) => console.log(error));
   };
 
-  const deleteNotificaction = async (post) => {
-    const url = `https://unplug-server.herokuapp.com/user/delete/notifications/`
-    const data = {
-      postId: post._id,
-      notifiedUser: post.posterId._id,
-      attendId: user.id
-    }
-    await axios.post(url, data, {
-      headers: {
-        authorization: localStorage.getItem("Token")
-      }
-    })
-  }
-
   const unlikeHandler = (post) => {
     const data = { user: user.id };
     const URL = `https://unplug-server.herokuapp.com/posts/unlike/${post._id}/${lastPostIndex}`;
@@ -170,7 +141,6 @@ export const Display = () => {
       })
       .then((response) => {
         setPosts(response.data);
-        deleteNotificaction(post)
       })
       .catch((error) => console.log(error));
   };
