@@ -120,7 +120,6 @@ export const Navbar = () => {
 
 useEffect(() => {
   const checkNotificationInArray = () => {
-    console.log(newNotification.postId._id)
     if (!(userNotification.some(notification => notification.postId._id === newNotification.postId._id))) {
       setUserNotification(prev => [newNotification, ...prev])
       setUnreadNotifications(count => count + 1)
