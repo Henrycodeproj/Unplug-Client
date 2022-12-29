@@ -34,12 +34,28 @@ export const Display = () => {
     setLastPostIndex,
     setUnreadNotifications,
     setTime,
+    newNotification,
+    setNewNotification,
+    setUserNotification
   } = useContext(accountContext);
 
   const [loadingState, setLoadingState] = useState(true);
   const [currentDate, setCurrentDate] = useState(new Date())
 
   const navigateTo = useNavigate();
+
+  useEffect(() => {
+    const getUserNotifications = async () => {
+      const url = `https://unplug-server.herokuapp.com/user/${user.id}/notifications`;
+      const response = await axios.get(url, {
+        headers: {
+          authorization: localStorage.getItem("Token"),
+        }
+      });
+      setUserNotification(response.data.notifications)
+    }
+    getUserNotifications()
+  },[])
 
   useEffect(() => {
     const getNewNotifications = async () => {
@@ -147,9 +163,21 @@ export const Display = () => {
 
   const handlePastHours = (time) => {
     const postDate = new Date(time)
-    const difference = Math.abs((parseInt(postDate.getTime()) - parseInt(currentDate.getTime())) / 3600000)
-    const minutes = Math.abs((parseInt(postDate.getTime()) - parseInt(currentDate.getTime())) / 60000)
-    return difference > 1 ? Math.round(difference)+ " hours ago" : Math.trunc(minutes) + " minutes ago"
+    const difference = 
+    Math.abs((
+      parseInt(postDate.getTime()) 
+      - parseInt(currentDate.getTime())) 
+      / 3600000
+    )
+    const minutes = 
+    Math.abs((
+      parseInt(postDate.getTime()) 
+      - parseInt(currentDate.getTime())) 
+      / 60000
+    )
+    return difference > 1 
+    ? Math.round(difference)+ " hours ago" 
+    : Math.trunc(minutes) + " minutes ago"
   }
 
   if (posts === null) return <LoadingCircle loadingState={loadingState} />;

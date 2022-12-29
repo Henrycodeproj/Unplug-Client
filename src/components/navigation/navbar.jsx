@@ -40,7 +40,9 @@ export const Navbar = () => {
     notificationID,
     setTime,
     unreadNotifications,
-    setUnreadNotifications,  
+    setUnreadNotifications,
+    newNotification,
+    setNewNotification   
     } =
     useContext(accountContext);
 
@@ -107,16 +109,23 @@ export const Navbar = () => {
   }
 
   useEffect(() => {
-      socket.on(`${notificationID}-notification`, (data) => {
-        if (!(userNotification.some(notifications => notifications._id === data[0]._id))){
-          setUserNotification(prev => [data[0], ...prev])
-          setUnreadNotifications(count => count + 1)
-        } 
-      })
-    return () => { 
-      socket.removeListener(`${notificationID}-notification`);
+    socket.on(`${notificationID}-notification`, (data) => {
+      setNewNotification(data)
+    })
+  return () => { 
+    socket.removeListener(`${notificationID}-notification`);
+  }
+}, [])
+
+useEffect(() => {
+  const checkNotificationInArray = () => {
+    if (!(userNotification.some(notification => notification.postId._id === newNotification.postId._id))) {
+      setUserNotification(prev => [newNotification, ...prev])
+      setUnreadNotifications(count => count + 1)
     }
-  }, [notificationID])
+  }
+  if (newNotification) checkNotificationInArray()
+}, [newNotification])
 
   const handleClick = (event) => {
     setNotification(event.currentTarget);
