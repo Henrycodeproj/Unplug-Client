@@ -29,6 +29,7 @@ import { Notification } from "../AuthViews/DisplayPage/Notification";
 export const Navbar = () => {
   const navigateTo = useNavigate();
   const ref = useRef();
+
   const { 
     userStatus, 
     user, 
@@ -112,13 +113,14 @@ export const Navbar = () => {
     socket.on(`${notificationID}-notification`, (data) => {
       setNewNotification(data)
     })
-  return () => { 
-    socket.removeListener(`${notificationID}-notification`);
+    return () => { 
+      socket.removeListener(`${notificationID}-notification`);
   }
-}, [])
+}, [notificationID])
 
 useEffect(() => {
   const checkNotificationInArray = () => {
+    console.log(newNotification.postId._id)
     if (!(userNotification.some(notification => notification.postId._id === newNotification.postId._id))) {
       setUserNotification(prev => [newNotification, ...prev])
       setUnreadNotifications(count => count + 1)
