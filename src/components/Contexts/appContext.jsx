@@ -42,6 +42,8 @@ export const AppContext = ({children}) =>{
 
     const [newNotification, setNewNotification] = useState()
 
+    const [clicked, setClicked] = useState(false)
+
     return(
         <accountContext.Provider 
         value = {{
@@ -70,7 +72,9 @@ export const AppContext = ({children}) =>{
             userNotification, 
             setUserNotification,
             newNotification, 
-            setNewNotification
+            setNewNotification,
+            clicked, 
+            setClicked
         }}>
             {children}
         </accountContext.Provider>    

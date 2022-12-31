@@ -24,7 +24,6 @@ export const Signup = () =>{
     
     const [createdAccount, setCreatedAccount] = useState(false)
     const [signLoading, setSignLoading] = useState(false)
-    const [clicked, setClicked] = useState(false)
 
     //state errors
     const [formErrors, setformErrors] = useState({})
@@ -171,7 +170,7 @@ export const Signup = () =>{
       borderStyle:'none'
     }
 
-    const {userStatus} = useContext(accountContext)
+    const {userStatus, clicked, setClicked} = useContext(accountContext)
 
     if (userStatus) return <Navigate to="/display"/>
 
