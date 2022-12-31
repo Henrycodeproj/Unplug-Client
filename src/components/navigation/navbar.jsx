@@ -43,7 +43,9 @@ export const Navbar = () => {
     unreadNotifications,
     setUnreadNotifications,
     newNotification,
-    setNewNotification   
+    setNewNotification,
+    clicked,
+    setClicked   
     } =
     useContext(accountContext);
 
@@ -345,7 +347,7 @@ useEffect(() => {
             style={{ maxWidth: "100%" }}
             src={logo}
             alt="logo"
-            onClick={() => navigateTo("/")}
+            onClick={() => setClicked(false)}
           />
         </motion.div>
       ) : (
