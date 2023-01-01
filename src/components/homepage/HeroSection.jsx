@@ -80,8 +80,30 @@ export const HeroSection = ({setOption, setClicked}) => {
               </motion.div>
               </div>
             <div style = {{display:"flex", gap:"1rem"}}>
-            <Button className = "signup_action_buttons" variant="contained" sx = {{padding:"5px 1.5rem", borderRadius:"100px", fontSize:"1rem"}} color ="secondary" onClick = {() => getStartedHandler()}>Get Started</Button>
-            <Button className = "signup_action_buttons" variant="contained" sx = {{padding:"5px 1.5rem", borderRadius:"100px", fontSize:"1rem"}} onClick = {() => loginButtonHandler()} severity="warning">Login</Button>
+            <Button 
+            className = "signup_action_buttons" 
+            variant="contained" 
+            sx = {{
+             padding:"5px 2rem",
+             borderRadius:"100px",
+             fontSize:"1rem"
+            }} 
+            color ="secondary" 
+            onClick = {() => getStartedHandler()}>
+              Get Started
+            </Button>
+            <Button 
+            className = "signup_action_buttons" 
+            variant="contained" 
+            sx = {{
+              padding:"5px 2rem", 
+              borderRadius:"100px", 
+              fontSize:"1rem"
+            }} 
+            onClick = {() => loginButtonHandler()} 
+            severity="warning">
+              Login
+            </Button>
             </div>
           </div>
   )
