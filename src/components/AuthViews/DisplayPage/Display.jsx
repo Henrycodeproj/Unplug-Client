@@ -1,24 +1,25 @@
 import axios from "axios";
 import "./Display.css";
-import { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { Posts } from "../Posts/Posting.jsx";
-import { accountContext } from "../../Contexts/appContext";
-import { LeftColumn } from "./LeftSideCol";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import AddToHomeScreenIcon from "@mui/icons-material/AddToHomeScreen";
-import { motion } from "framer-motion";
 import Zoom from "@mui/material/Zoom";
 import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 import Attending from "../Posts/Attending";
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import { RightSideCol } from "./RightSideCol";
 import { MoreOptions } from "../Posts/MoreOptions";
 import { Truncating } from "../../ReusablesComponents/Truncating.jsx";
 import { SendMessage } from "../Posts/SendMessage";
 import { LoadingCircle } from "../../ReusablesComponents/LoadingCircle";
+import { motion } from "framer-motion";
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { Posts } from "../Posts/Posting.jsx";
+import { accountContext } from "../../Contexts/appContext";
+import { LeftColumn } from "./LeftSideCol";
+import { format } from "date-fns"
 
 export const Display = () => {
   const {
@@ -34,8 +35,6 @@ export const Display = () => {
     setLastPostIndex,
     setUnreadNotifications,
     setTime,
-    newNotification,
-    setNewNotification,
     setUserNotification
   } = useContext(accountContext);
 
@@ -180,6 +179,15 @@ export const Display = () => {
     : Math.trunc(minutes) + " minutes ago"
   }
 
+  const handleEventTimeandDate = (timeAndDate) => {
+    if (!timeAndDate) return null
+
+    const timeDate = new Date(timeAndDate)
+    const changedDate = format(timeDate, "E, LLL d, y, h:m a")
+
+    return `${changedDate}`
+  }
+
   if (posts === null) return <LoadingCircle loadingState={loadingState} />;
 
   return (
@@ -244,7 +252,7 @@ export const Display = () => {
                         >
                           {post.posterId.username}
                         </h4>
-                        <h6 style = {{fontSize:".75rem", color:"gray"}}>{handlePastHours(post.createdAt)}</h6>
+                        <h6 style = {{fontSize:".75rem", color:"rgb(96, 96, 96)"}}>{handlePastHours(post.createdAt)}</h6>
                         </div>
                         <div style={{ display: "flex" }}>
                           {post.posterId._id !== user.id ? (
@@ -258,6 +266,20 @@ export const Display = () => {
                         postDescription={post.Description}
                         truncateNumber={150}
                       />
+                      { post.timeAndDate &&
+                      <Tooltip title = "Scheduled time and date">
+                      <div style = {{
+                        display:"flex", 
+                        alignItems:"center", 
+                        gap:"1%"
+                      }}>   
+                        <ScheduleIcon/>
+                        <h6>
+                          {handleEventTimeandDate(post.timeAndDate)}
+                        </h6>
+                      </div>
+                      </Tooltip>
+                      }
 
                       <div className="posts_icon_wrapper">
                         <div className="posts_icon_bar">
@@ -312,9 +334,6 @@ export const Display = () => {
                               </Tooltip>
                             </motion.button>
                           )}
-                          <Tooltip title="Disabled (Add the date of event)">
-                            <CalendarMonthIcon sx={{ color: "gray" }} />
-                          </Tooltip>
                           <Tooltip title="Disabled (Add event to your phone calendar)">
                             <AddToHomeScreenIcon sx={{ color: "gray" }} />
                           </Tooltip>

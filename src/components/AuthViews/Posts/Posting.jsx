@@ -1,32 +1,41 @@
 import "../Posts/Posting.css"
-import {useState, useContext, useRef} from "react"
-import { accountContext } from "../../Contexts/appContext";
-import { Emojis } from "../../ReusablesComponents/Emojis";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import axios from "axios"
-import TextareaAutosize from '@mui/material/TextareaAutosize';
-import {Button} from "@mui/material";
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Avatar from '@mui/material/Avatar';
+import TextField from '@mui/material/TextField';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
+import {useState, useContext, useRef, useEffect} from "react"
+import { accountContext } from "../../Contexts/appContext";
+import { Button } from "@mui/material";
 import { TextAreaEmojis } from "../../ReusablesComponents/TextAreaEmojis";
 import { LoadingCircle } from "../../ReusablesComponents/LoadingCircle";
+import { format } from "date-fns"
+import { motion } from "framer-motion"
 
 export const Posts = ({lastPostIndex, setLastPostIndex})=>{
 
     const {user, setPosts} = useContext(accountContext)
     const ref = useRef()
+    const postRef = useRef();
 
     const [status, setStatus] = useState('')
     const [anchorEl, setAnchorEl] = useState(null);
     const [postingStatus, setPostingStatus] = useState(false)
+    const [dateTime, setDateTime] = useState()
+    const [addEventTime, setAddEventTime] = useState(false)
     const [userInfo] = useState(JSON.parse(localStorage.getItem("User")))
+    
+    const currentDate = new Date()
+    const currentDateFormatted = format(currentDate, "yyyy-MM-dd'T'HH:mm")
 
     const formHandler = async (e) => {
         setPostingStatus(true)
         e.preventDefault()
         const data = {
-            user:user.id,
-            post:status,
+            user: user.id,
+            post: status,
+            date: dateTime ? dateTime : null
         }
         const url = "https://unplug-server.herokuapp.com/posts/"
         const res = await axios.post(url, data, {
@@ -40,7 +49,31 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
             setLastPostIndex(lastPostIndex + 1)
             setStatus('')
             setPostingStatus(false)
+            setDateTime(null)
+            setAddEventTime(false)
         } 
+    }
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+          if (
+            postRef.current 
+          && !postRef.current.contains(event.target) 
+          && (event.target.offsetWidth >= postRef.current.offsetWidth + 50
+          || event.target.offsetHeight >= postRef.current.offsetHeight + 10)
+          ) {
+            setAddEventTime(false)
+          }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+    
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      }, [postRef]);
+
+    const handleDateandTime = (event) => {
+      setDateTime(event.target.value)
     }
 
     if (user === null) return(
@@ -49,9 +82,8 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
         />
     )
     
-
     return (
-        <div className="add_post_container">
+        <div className="add_post_container" ref = {postRef}>
             <Avatar 
             className ="input_picture"
             src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
@@ -77,7 +109,39 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                                 title = {true}
                                 setMessage = {setStatus}
                                 />
-                                <AddPhotoAlternateIcon sx = {{color:"gray"}}/>
+                                {
+                                addEventTime
+                                ? <TextField
+                                id="datetime-local"
+                                label="What time and day?"
+                                type="datetime-local"
+                                defaultValue={`${currentDateFormatted}`}
+                                sx={{ width: 250 }}
+                                InputLabelProps={{
+                                  shrink: true,
+                                }}
+                                onChange = {handleDateandTime}
+                                /> 
+                                : <div 
+                                style={{
+                                  display:"flex", 
+                                  alignItems:"center"
+                                }}>
+                                <motion.div
+                                whileHover={{scale: 1.1}}
+                                >
+                                <CalendarMonthIcon 
+                                sx={{
+                                   color: "black", 
+                                   marginRight:"5px", 
+                                   cursor:"pointer" 
+                                }} 
+                                onClick = {()=> setAddEventTime(true)}
+                                />
+                                </motion.div>
+                                <h3 style = {{color:"black"}}>Date</h3>
+                              </div>
+                                }
                                 <LocationOnIcon sx = {{color:"gray"}}/>
                             </div>
                         </div>
