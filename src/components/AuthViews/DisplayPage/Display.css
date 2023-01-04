@@ -105,6 +105,11 @@
 .online:hover{
     animation: online-pulse 2s infinite;
 }
+.meeting_bar {
+    display: flex;
+    align-items: center;
+    gap: 1%;
+}
 @keyframes online-pulse {
     0% {
       transform: scale(0.95);
@@ -136,7 +141,7 @@
         width:100%;
     }
 }
-@media (max-width:400px){
+@media (max-width:500px){
     .right_sidebar{
         display: none;
     }
@@ -151,5 +156,8 @@
     }
     .newsfeed_container{
         max-height: none;
+    }
+    .meeting_bar {
+        gap: 5%;
     }
 }

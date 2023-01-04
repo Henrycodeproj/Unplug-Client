@@ -268,11 +268,7 @@ export const Display = () => {
                       />
                       { post.timeAndDate &&
                       <Tooltip title = "Scheduled time and date">
-                      <div style = {{
-                        display:"flex", 
-                        alignItems:"center", 
-                        gap:"1%"
-                      }}>   
+                      <div className="meeting_bar">   
                         <ScheduleIcon/>
                         <h6>
                           {handleEventTimeandDate(post.timeAndDate)}
