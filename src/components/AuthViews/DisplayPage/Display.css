@@ -81,7 +81,7 @@
 }
 .posts_icon_bar {
     display: flex;
-    justify-content: space-between;
+    gap:10%;
     width:50%;
 }
 .dss {
