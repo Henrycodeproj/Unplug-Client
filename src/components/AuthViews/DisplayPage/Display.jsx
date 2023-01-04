@@ -183,7 +183,7 @@ export const Display = () => {
     if (!timeAndDate) return null
 
     const timeDate = new Date(timeAndDate)
-    const changedDate = format(timeDate, "E, LLL d, y, h:m a")
+    const changedDate = format(timeDate, "E, LLL d, y, h:mm a")
 
     return `${changedDate}`
   }
