@@ -122,13 +122,16 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                                 }}
                                 onChange = {handleDateandTime}
                                 /> 
-                                : <div 
+                                :
+                                <motion.div
+                                whileHover={{scale: 1.1}}
+                                > 
+                                <div 
                                 style={{
                                   display:"flex", 
                                   alignItems:"center"
-                                }}>
-                                <motion.div
-                                whileHover={{scale: 1.1}}
+                                }}
+                                onClick = {()=> setAddEventTime(true)}
                                 >
                                 <CalendarMonthIcon 
                                 sx={{
@@ -136,11 +139,10 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                                    marginRight:"5px", 
                                    cursor:"pointer" 
                                 }} 
-                                onClick = {()=> setAddEventTime(true)}
                                 />
-                                </motion.div>
-                                <h3 style = {{color:"black"}}>Date</h3>
+                                <h3 style = {{color:"black", cursor:"pointer"}}>Date</h3>
                               </div>
+                              </motion.div>
                                 }
                                 <LocationOnIcon sx = {{color:"gray"}}/>
                             </div>
