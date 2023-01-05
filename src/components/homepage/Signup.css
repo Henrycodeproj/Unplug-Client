@@ -3,12 +3,12 @@
     flex-direction: column;
     font-family: 'Mulish', sans-serif;
     font-weight: 900;
-    color:rgb(85, 128, 227)
-}
-.signup_username{
+    color:rgb(85, 128, 227);
     border-bottom-style: solid;
     border-color: rgb(199, 199, 199);
     border-bottom-width: 2px;
+}
+.signup_username{
     color:white;
 }
 .signup_sideimage_logo {
