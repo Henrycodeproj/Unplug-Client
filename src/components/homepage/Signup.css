@@ -1,7 +1,6 @@
 .signup_label {
     display:flex;
     flex-direction: column;
-    margin: 15px 0px;
     font-family: 'Mulish', sans-serif;
     font-weight: 900;
     color:rgb(85, 128, 227)
@@ -33,6 +32,18 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+.form-errors{
+    color:rgb(120, 2, 2);
+    font-weight: bolder;
+}
+.signup_input_wrapper {
+    margin: 15px 0px;
+}
+.requirement-warning{
+    display:flex;
+    align-items: center;
+    font-weight: bolder;
 }
 @media (max-width:999px) {
     .signup_sideimage_logo {

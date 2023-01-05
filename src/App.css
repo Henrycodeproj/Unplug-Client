@@ -48,10 +48,6 @@ p{
   margin:0;
   padding:0;
 }
-.form-errors{
-  color:rgba(182, 0, 0, 0.719);
-  color:rgba(151, 2, 2, 0.856);
-}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -96,11 +92,6 @@ main{
   display:inline;
   cursor:pointer;
   font-size:25px;
-}
-.requirement-warning{
-  display:flex;
-  align-items: center;
-  color:red;
 }
 .password-checkmark{
   font-size:1.2rem !important;
