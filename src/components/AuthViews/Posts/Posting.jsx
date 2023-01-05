@@ -124,7 +124,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                                 /> 
                                 :
                                 <motion.div
-                                whileHover={{scale: 1.1}}
+                                whileHover={{ scale: 1.1 }}
                                 > 
                                 <div 
                                 style={{
