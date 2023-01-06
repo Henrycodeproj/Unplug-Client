@@ -128,7 +128,7 @@ input{
   font-size:30px;
   caret-color: white;
   height:25px;
-  /* width:100%; */
+  width:100%;
 }
 input:focus{
   outline:none;
