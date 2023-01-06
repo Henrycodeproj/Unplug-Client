@@ -1,6 +1,5 @@
 .login_input {
     color:white;
-    box-sizing: border-box;
   }
   .login_input::placeholder{
     color:rgb(199, 199, 199);
