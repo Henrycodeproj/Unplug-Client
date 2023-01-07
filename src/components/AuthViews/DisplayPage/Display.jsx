@@ -19,7 +19,7 @@ import { useNavigate } from "react-router-dom";
 import { Posts } from "../Posts/Posting.jsx";
 import { accountContext } from "../../Contexts/appContext";
 import { LeftColumn } from "./LeftSideCol";
-import { format } from "date-fns"
+import { handleEventTimeandDate } from "../../../Reusable Functions/TimeFunctions"
 
 export const Display = () => {
   const {
@@ -177,15 +177,6 @@ export const Display = () => {
     return difference > 1 
     ? Math.round(difference)+ " hours ago" 
     : Math.trunc(minutes) + " minutes ago"
-  }
-
-  const handleEventTimeandDate = (timeAndDate) => {
-    if (!timeAndDate) return null
-
-    const timeDate = new Date(timeAndDate)
-    const changedDate = format(timeDate, "E, LLL d, y, h:mm a")
-
-    return `${changedDate}`
   }
 
   if (posts === null) return <LoadingCircle loadingState={loadingState} />;
