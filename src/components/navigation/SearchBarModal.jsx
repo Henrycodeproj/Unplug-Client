@@ -17,6 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Tooltip from "@mui/material/Tooltip";
 import { useNavigate } from "react-router-dom";
 import { Truncating } from "../ReusablesComponents/Truncating";
+import { handleEventTimeandDate } from "../../Reusable Functions/TimeFunctions";
 
 export const SearchBarModal = ({
   anchorEl,
@@ -127,6 +128,7 @@ export const SearchBarModal = ({
                         }
                         sx={{ marginTop: "0" }}
                       />
+                      <h6>{handleEventTimeandDate(postInfo.timeAndDate)}</h6>
                       <div
                         style={{
                           display: "flex",
