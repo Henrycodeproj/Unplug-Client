@@ -144,7 +144,6 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                               </div>
                               </motion.div>
                                 }
-                                <LocationOnIcon sx = {{color:"gray"}}/>
                             </div>
                         </div>
                     <Button 

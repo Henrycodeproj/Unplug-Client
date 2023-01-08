@@ -71,7 +71,7 @@ textarea {
 .input_icons_bar {
     width:80%;
     display:flex; 
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 @media (max-width:400px){
