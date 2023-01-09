@@ -55,7 +55,6 @@ export const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState();
-  const [width, setWidth] = useState(window.innerWidth);
   const [searchClicked, setSearchClicked] = useState(false);
 
   const navlogoutHandler = () => {
@@ -67,18 +66,6 @@ export const Navbar = () => {
   useEffect(() => {
     setUserInfo(user);
   }, [user]);
-
-  useEffect(() => {
-    function getCurrentWidth() {
-      setWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", getCurrentWidth);
-    return () => window.removeEventListener("resize", getCurrentWidth);
-  }, []);
-
-  useEffect(() => {
-    if (width < 550) setSearchClicked(false);
-  }, [width]);
 
   const open = Boolean(profile);
 
@@ -186,22 +173,20 @@ useEffect(() => {
             }
           />
           <div className="profile_section">
-            {width <= 500 && !searchClicked ? (
+          {searchClicked ? (
               <TravelExploreIcon
-                onClick={() => setSearchClicked(true)}
-                sx={{
-                  color: "white",
-                  fontSize: "1.85rem",
-                }}
+                onClick={() => setSearchClicked(false)}
+                sx={{ color: "white", fontSize: "1.85rem", cursor: "pointer" }}
               />
             ) : (
               <motion.div
                 initial={{
                   opacity: 0,
-                  x: width <= 500 ? 20 : 0,
+                  x: 20
                 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.75 }}
+                exit = {{scale: 5}}
               >
                 <TextField
                   ref={ref}
@@ -214,7 +199,15 @@ useEffect(() => {
                         sx={{ color: "white" }}
                         className="navy_search"
                       >
-                        <TravelExploreIcon sx={{ fontSize: "1.85rem" }} />
+                        <TravelExploreIcon
+                          sx={{
+                            fontSize: "1.85rem",
+                            cursor: "pointer"
+                          }}
+                          onClick={
+                            () => setSearchClicked(true)
+                          }
+                        />
                       </InputAdornment>
                     ),
                   }}
