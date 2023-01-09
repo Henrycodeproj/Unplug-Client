@@ -69,7 +69,7 @@ textarea {
     width: 100%;
 }
 .input_icons_bar {
-    width:80%;
+    width:100%;
     display:flex; 
     justify-content: space-around;
     align-items: center;
