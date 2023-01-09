@@ -46,6 +46,32 @@ const AddSocialDialog = ({socialMediaModal, setSocialMediaModal, user, setViewed
         setViewedUser(response.data)
         if (response) handleClose()
     }
+
+    function checkLinkedInUrl (url) {
+        const linkedInExpression = 
+        /((https?:\/\/)?((www|\w\w)\.)?linkedin\.com\/)((([\w]{2,3})?)|([^]+\/(([\w|\d-&#?=])+\/?){1,}))$/
+        if (linkedInExpression.test(url)) setLinkedin(url)
+    }
+    function checkInstagramUrl (url) {
+        const instagramExpression = 
+        /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am|instagr.com)\/(\w+)/
+        if (instagramExpression.test(url)) setInstagram(url)
+    }
+    function checkFacebookUrl (url) {
+        const facebookExpression = 
+        /(?:https?:\/\/)?(?:www\.)?(mbasic.facebook|m\.facebook|facebook|fb)\.(com|me)\/(?:(?:\w\.)*#!\/)?(?:pages\/)?(?:[\w\-.]*\/)*([\w\-.]*)/
+        if (facebookExpression.test(url)) setFacebook(url)
+    }
+    function checkTwitterUrl (url) {
+        const twitterExpression = 
+        /(?:https?:)?\/\/(?:www\.|m\.)?twitter\.com\/(\w{2,15})\/?(?:\?\S+)?(?:\#\S+)?$/
+        if (twitterExpression.test(url)) setTwitter(url)
+    }
+    function checkGithubUrl (url) {
+        const githubExpression = 
+        /^(http(s?):\/\/)?(www\.)?github\.([a-z])+\/([A-Za-z0-9]{1,})+\/?$/
+        if (githubExpression.test(url)) setGithub(url)
+    }
     return (
           <div>
               <Dialog
@@ -59,23 +85,23 @@ const AddSocialDialog = ({socialMediaModal, setSocialMediaModal, user, setViewed
                 </DialogTitle>
                 <DialogContent sx = {{display:"flex", alignItems:"flex-end", gap:"5%", minWidth:"400px"}}>
                     <LinkedInIcon sx ={{ fontSize:"30px", color:"#0072b1",}}/>
-                    <TextField id="standard-basic" label="LinkedIn" variant="standard" sx = {{width:"100%"}} onChange = {e => setLinkedin(e.target.value)}/>
+                    <TextField id="standard-basic" label="LinkedIn" variant="standard" sx = {{width:"100%"}} onChange = {e => checkLinkedInUrl(e.target.value)}/>
                 </DialogContent>
                 <DialogContent sx = {{display:"flex", alignItems:"flex-end", gap:"5%"}}>
                     <InstagramIcon sx = {{ fontSize:"30px", color:"#bc2a8d" }}/>
-                    <TextField id="standard-basic" label="Instagram" variant="standard" sx = {{width:"100%"}} onChange = {e => setInstagram(e.target.value)}/>
+                    <TextField id="standard-basic" label="Instagram" variant="standard" sx = {{width:"100%"}} onChange = {e => checkInstagramUrl(e.target.value)}/>
                 </DialogContent>
                 <DialogContent sx = {{display:"flex", alignItems:"flex-end", gap:"5%"}}>
                     <FacebookIcon sx = {{ fontSize:"30px", color:"#4267B2" }}/>
-                    <TextField id="standard-basic" label="Facebook" variant="standard" sx = {{width:"100%"}} onChange = {e => setFacebook(e.target.value)}/>
+                    <TextField id="standard-basic" label="Facebook" variant="standard" sx = {{width:"100%"}} onChange = {e => checkFacebookUrl(e.target.value)}/>
                 </DialogContent>
                 <DialogContent sx = {{display:"flex", alignItems:"flex-end", gap:"5%"}}>
                     <TwitterIcon sx = {{ fontSize:"30px", color:"#00acee" }}/>
-                    <TextField id="standard-basic" label="Twitter" variant="standard" sx = {{width:"100%"}} onChange = {e => setTwitter(e.target.value)}/>
+                    <TextField id="standard-basic" label="Twitter" variant="standard" sx = {{width:"100%"}} onChange = {e => checkTwitterUrl(e.target.value)}/>
                 </DialogContent>
                 <DialogContent sx = {{display:"flex", alignItems:"flex-end", gap:"5%"}}>
                     <GitHubIcon sx = {{ fontSize:"30px", color:"#171515" }}/>
-                    <TextField id="standard-basic" label="Github" variant="standard" sx = {{width:"100%"}} onChange = {e => setGithub(e.target.value)}/>
+                    <TextField id="standard-basic" label="Github" variant="standard" sx = {{width:"100%"}} onChange = {e => checkGithubUrl(e.target.value)}/>
                 </DialogContent>
                 <DialogActions>
                   <Button 
