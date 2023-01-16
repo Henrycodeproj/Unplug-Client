@@ -17,27 +17,33 @@ export const Truncating = ({postDescription, truncateNumber}) => {
 
   return (
     <>
-    {!truncate ?
-        <p style={{whiteSpace:"pre-line"}}>
+      {!truncate ? (
+        <div>
+          <p
+            style={{ whiteSpace: "pre-line", color: dark ? "white" : "black" }}
+          >
             {postDescription.substring(0, truncateNumber)}
-            {
-            postDescription.length > truncateNumber ?
-            <Tooltip title ="Expand">
-                <span style = {{cursor:"pointer"}} onClick={showTruncate}>...</span> 
-            </Tooltip> 
-            :null
-            }
-        </p>
-        :
-        <p style={{whiteSpace:"pre-line"}}>
-            {postDescription}
-            <div>
-                <Tooltip title = "Condense">
-                <ExpandLessIcon className="Expand_Less" sx ={{fontSize:"30px", cursor:"pointer"}} onClick={hideTruncate}/>
-                </Tooltip>
-            </div> 
-        </p>
-    }
+            {postDescription.length > truncateNumber ? (
+              <Tooltip title="Expand">
+                <span style={{ cursor: "pointer" }} onClick={showTruncate}>
+                  ...
+                </span>
+              </Tooltip>
+            ) : null}
+          </p>
+        </div>
+      ) : (
+        <div>
+          <p style={{ whiteSpace: "pre-line" }}>{postDescription}</p>
+          <Tooltip title="Condense">
+            <ExpandLessIcon
+              className="Expand_Less"
+              sx={{ fontSize: "30px", cursor: "pointer" }}
+              onClick={hideTruncate}
+            />
+          </Tooltip>
+        </div>
+      )}
     </>
   )
 }
