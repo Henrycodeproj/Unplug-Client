@@ -7,6 +7,7 @@ import ChatIcon from '@mui/icons-material/Chat';
 import { accountContext } from "../../Contexts/appContext";
 import { IndividualChats } from "../ChatViews/IndividualChat";
 import { useNavigate } from "react-router-dom";
+import { EventCalendar } from "./EventCalendar";
 
 export const RightSideCol = () => {
     const newMessageCheck = useRef()
@@ -79,6 +80,7 @@ export const RightSideCol = () => {
     
   return (
     <div className = "right_column_wrapper">
+        <EventCalendar/>
         <div className = "popular_container">
             <h2 style = {{marginBottom:"10px", textDecoration:"underline", fontSize:"1.6rem", fontWeight:"900"}}>Biggest Events Today</h2>
             {popularPosts.map((post)=> 

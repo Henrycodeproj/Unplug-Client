@@ -20,7 +20,7 @@ export const Truncating = ({postDescription, truncateNumber}) => {
       {!truncate ? (
         <div>
           <p
-            style={{ whiteSpace: "pre-line", color: dark ? "white" : "black" }}
+            style={{ whiteSpace: "pre-line"}}
           >
             {postDescription.substring(0, truncateNumber)}
             {postDescription.length > truncateNumber ? (
