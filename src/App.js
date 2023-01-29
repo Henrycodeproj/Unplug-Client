@@ -10,22 +10,26 @@ import { UserAuthentication } from './components/config/userAuth.jsx';
 import { Profile } from "./components/AuthViews/ProfileViews/profile.jsx";
 import { Display } from './components/AuthViews/DisplayPage/Display.jsx';
 import { NotFound } from "./components/config/NotFound.jsx";
+import { AdminPage } from "./components/Admin/AdminConfig.jsx"
+import { NavWrapper } from './components/config/NavWrapper.jsx';
 
 function App() {
   return (
     <Router>
       <AppContext>
-       <Navbar/>
-        <Routes >
-          <Route path="/" element ={<Signup/>}/>
-          <Route element = {<UserAuthentication/>}>
-              <Route path="/display" element = {<Display/>}/>
-              <Route path="/profile/:userId" element = {<Profile/>}/>
+        <Routes>
+           <Route element = {<NavWrapper/>}> 
+            <Route path="/" element ={<Signup/>}/>
+            <Route path="/admin/*" element ={<AdminPage/>}/>
+            <Route element = {<UserAuthentication/>}>
+                <Route path="/display" element = {<Display/>}/>
+                <Route path="/profile/:userId" element = {<Profile/>}/>
+            </Route>
+            <Route path = "/invalid/expired/" element = {<ExpiredVerification/>}/>
+            <Route path = "/valid" element = {<Confirmation/>}/>
+            <Route path = "/error" element ={<NotFound/> }/>
+            <Route path = "*" element ={<Errorpage/> }/>
           </Route>
-          <Route path = "/invalid/expired/" element = {<ExpiredVerification/>}/>
-          <Route path = "/valid" element = {<Confirmation/>}/>
-          <Route path = "/error" element ={<NotFound/> }/>
-          <Route path = "*" element ={<Errorpage/> }/>
         </Routes>
       </AppContext>
     </Router>
