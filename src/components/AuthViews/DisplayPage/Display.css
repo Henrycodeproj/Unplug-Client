@@ -13,7 +13,7 @@
 
 .newsfeed_container {
     max-height:100vh;
-    max-width:50%;
+    width:50%;
     margin: 0 20px;
     display:flex;
     flex-direction: column;
