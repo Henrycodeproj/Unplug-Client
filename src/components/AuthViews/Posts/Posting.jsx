@@ -27,31 +27,35 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
     const [userInfo] = useState(JSON.parse(localStorage.getItem("User")))
     
     const currentDate = new Date()
-    const currentDateFormatted = format(currentDate, "yyyy-MM-dd'T'HH:mm")
+
+    function formatDate(dateObj) {
+      return format(dateObj, "yyyy-MM-dd'T'HH:mm")
+    } 
 
     const formHandler = async (e) => {
-        setPostingStatus(true)
-        e.preventDefault()
-        const data = {
-            user: user.id,
-            post: status,
-            date: dateTime ? dateTime : null
-        }
-        const url = "https://unplug-server.herokuapp.com/posts/"
-        const res = await axios.post(url, data, {
-            headers:{
-                "authorization": localStorage.getItem("Token")
-            }
-        })
-        if (res.status === 200){
-            ref.current.value = ''
-            setPosts(prevPosts => [res.data.newestPost, ...prevPosts])
-            setLastPostIndex(lastPostIndex + 1)
-            setStatus('')
-            setPostingStatus(false)
-            setDateTime(null)
-            setAddEventTime(false)
-        } 
+      const startDateTime = new Date(dateTime).getTime()
+      const updatedTIme = new Date(startDateTime + 2 * 60 * 30 * 1000);
+      e.preventDefault()
+      const data = {
+          user: user.id,
+          post: status,
+          date: dateTime ? dateTime : null,
+          end : dateTime ? formatDate(updatedTIme) : null
+      }
+      const url = "https://unplug-server.herokuapp.com/posts/"
+      const res = await axios.post(url, data, {
+          headers:{
+              "authorization": localStorage.getItem("Token")
+          }
+      })
+      if (res.status === 200){
+          ref.current.value = ''
+          setPosts(prevPosts => [res.data.newestPost, ...prevPosts])
+          setLastPostIndex(lastPostIndex + 1)
+          setStatus('')
+          setDateTime(null)
+          setAddEventTime(false)
+      } 
     }
 
     useEffect(() => {
@@ -115,7 +119,7 @@ export const Posts = ({lastPostIndex, setLastPostIndex})=>{
                                 id="datetime-local"
                                 label="What time and day?"
                                 type="datetime-local"
-                                defaultValue={`${currentDateFormatted}`}
+                                defaultValue={`${formatDate(currentDate)}`}
                                 sx={{ width: 250 }}
                                 InputLabelProps={{
                                   shrink: true,

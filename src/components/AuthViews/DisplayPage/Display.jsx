@@ -8,7 +8,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 import Attending from "../Posts/Attending";
 import ScheduleIcon from '@mui/icons-material/Schedule';
-import { RightSideCol } from "./RightSideCol";
+import { RightSideCol } from "./RightColumn/RightSideCol";
 import { MoreOptions } from "../Posts/MoreOptions";
 import { Truncating } from "../../ReusablesComponents/Truncating.jsx";
 import { SendMessage } from "../Posts/SendMessage";
@@ -18,7 +18,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Posts } from "../Posts/Posting.jsx";
 import { accountContext } from "../../Contexts/appContext";
-import { LeftColumn } from "./LeftSideCol";
+import { LeftColumn } from "./LeftColumn/LeftSideCol";
 import { handleEventTimeandDate } from "../../../Reusable Functions/TimeFunctions"
 
 export const Display = () => {

@@ -4,8 +4,8 @@ import "./RightSideCol.css";
 import Avatar from "@mui/material/Avatar";
 import Divider from "@mui/material/Divider";
 import ChatIcon from "@mui/icons-material/Chat";
-import { accountContext } from "../../Contexts/appContext";
-import { IndividualChats } from "../ChatViews/IndividualChat";
+import { accountContext } from "../../../Contexts/appContext";
+import { IndividualChats } from "../../ChatViews/IndividualChat";
 import { useNavigate } from "react-router-dom";
 import { EventCalendar } from "./EventCalendar";
 

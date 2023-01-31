@@ -1,0 +1,12 @@
+.rbc-agenda-view::-webkit-scrollbar-thumb {
+    border-radius: 5px !important;
+    background-color: rgba(0,0,0,.5) !important;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5) !important;
+}
+.rbc-agenda-view::-webkit-scrollbar {
+    width: 2em !important;
+    height: .75rem !important;
+}
+.event_calendar {
+    max-height: 400px !important;
+}

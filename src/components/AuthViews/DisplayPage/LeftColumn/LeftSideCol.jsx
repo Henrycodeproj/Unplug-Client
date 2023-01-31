@@ -1,5 +1,5 @@
 import { Avatar } from "@mui/material"
-import { accountContext } from "../../Contexts/appContext"
+import { accountContext } from "../../../Contexts/appContext";
 import { useContext, useState} from "react"
 import { useNavigate } from "react-router-dom";
 import { LeftSideSettingsMenu } from "./LeftSideSettingsMenu";
