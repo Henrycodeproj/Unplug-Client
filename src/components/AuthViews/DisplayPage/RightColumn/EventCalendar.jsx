@@ -43,7 +43,6 @@ export const EventCalendar = () => {
         });
       }
       eventDateFormat();
-      console.log(response.data)
       setEvents(response.data);
     }
     getData();
