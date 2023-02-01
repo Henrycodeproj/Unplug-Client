@@ -3,6 +3,7 @@
     max-width: 25%;
     min-width: 25%;
     border-radius: 5px !important;
+    overflow: scroll;
 }
 .right_column_wrapper {
     display:flex;
