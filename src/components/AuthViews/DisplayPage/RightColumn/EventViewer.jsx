@@ -44,9 +44,9 @@ export function EventViewer({ open, setOpen, event }) {
           <DialogContentText id="alert-dialog-description">
             <h3 style={{ color: "rgb(99, 99, 99)", fontSize: ".9rem" }}>
               {event
-                ? `${format(event.start, "HH:mm aa")} - ${format(
+                ? `${format(event.start, "h:mm aa")} - ${format(
                     event.end,
-                    "HH:mm aa"
+                    "h:mm aa"
                   )}`
                 : null}
             </h3>
