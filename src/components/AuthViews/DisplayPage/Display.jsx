@@ -14,7 +14,7 @@ import { Truncating } from "../../ReusablesComponents/Truncating.jsx";
 import { SendMessage } from "../Posts/SendMessage";
 import { LoadingCircle } from "../../ReusablesComponents/LoadingCircle";
 import { motion } from "framer-motion";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Posts } from "../Posts/Posting.jsx";
 import { accountContext } from "../../Contexts/appContext";
@@ -42,6 +42,9 @@ export const Display = () => {
   const [currentDate, setCurrentDate] = useState(new Date())
 
   const navigateTo = useNavigate();
+
+  const ref = useRef()
+  ref.current = posts
 
   useEffect(() => {
     const getUserNotifications = async () => {
@@ -103,6 +106,25 @@ export const Display = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  //info contains user info and post id
+  useEffect(() => {
+    socket.on("likedpost", (info) => {
+      liveLikeHandler(info)
+    });
+    return () => {
+      socket.removeListener("likedpost");
+    };
+  }, []);
+
+  useEffect(() => {
+    socket.on("removeLike", (info) => {
+      removeAttendHandler(info)
+    });
+    return () => {
+      socket.removeListener("removeUser");
+    };
+  }, []);
+
   const handleScroll = async (e) => {
     if (
       e.target.clientHeight + e.target.scrollTop + 1 >=
@@ -122,43 +144,67 @@ export const Display = () => {
     }
   };
 
-  const likeHandler = (post) => {
-    const data = { user: user.id };
-    const URL = `https://unplug-server.herokuapp.com/posts/like/${post._id}/${lastPostIndex}`;
-    axios
+  const likeHandler = async (post) => {
+    const data = { 
+      user: user.id, 
+      posterId: post.posterId._id, 
+      postID:post._id 
+    };
+    const URL = `https://unplug-server.herokuapp.com/posts/like/${post._id}`;
+    const response = await axios
       .patch(URL, data, {
         headers: {
           authorization: localStorage.getItem("Token"),
         },
       })
-      .then((response) => {
-        setPosts(response.data);
-        if (response)
-        socket.emit("notification",
-          {
-            postID: post._id, 
-            posterID: post.posterId._id,
-            currentUser: user.id
-          }
-        )
-      })
-      .catch((error) => console.log(error));
+    if (response) {
+      socket.emit("notification", {
+        postID: post._id,
+        posterID: post.posterId._id,
+        currentUser: user.id,
+        user: {
+          _id:user.id, 
+          username:user.username, 
+          profilePicture:user.profilePicture 
+        }
+      });
+    }
   };
 
-  const unlikeHandler = (post) => {
+  const unlikeHandler = async (post) => {
     const data = { user: user.id };
-    const URL = `https://unplug-server.herokuapp.com/posts/unlike/${post._id}/${lastPostIndex}`;
-    axios
+    const URL = `https://unplug-server.herokuapp.com/posts/unlike/${post._id}`;
+    const response = await axios
       .patch(URL, data, {
         headers: {
           authorization: localStorage.getItem("Token"),
         },
       })
-      .then((response) => {
-        setPosts(response.data);
-      })
-      .catch((error) => console.log(error));
+      if (response) {
+        socket.emit("removeUser", {
+          user: {_id:user.id, username:user.username, profilePicture:user.profilePicture },
+          post : post._id
+        })
+      }
   };
+
+  function liveLikeHandler(info){
+    const index = ref.current.map(element => element._id).indexOf(info.post)
+    ref.current[index].attending.push(info.user)
+    setPosts([...ref.current])
+  }
+  
+  function removeAttendHandler(info){
+    const index = ref.current.map(element => element._id).indexOf(info.post)
+    ref.current[index].attending = ref.current[index].attending.filter(element => element._id !== info.user._id)
+    setPosts([...ref.current])
+    setUnreadNotifications(
+    notifications => 
+      notifications > 0 
+      ? notifications - 1 
+      : 0
+    )
+  }
 
   const handlePastHours = (time) => {
     const postDate = new Date(time)
