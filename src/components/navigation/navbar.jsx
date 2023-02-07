@@ -95,27 +95,22 @@ export const Navbar = () => {
         authorization: localStorage.getItem("Token"),
       }
     });
+    console.log(response.data)
     setUserNotification(response.data.notifications)
   }
 
   useEffect(() => {
     socket.on(`${notificationID}-notification`, (data) => {
-      setNewNotification(data)
+      console.log(userNotification)
+      if (!(userNotification.some(notification => notification.postId._id === data[0].postId._id))) {
+        setUserNotification(prev => [...prev, data[0]])
+        setUnreadNotifications(count => count + 1)
+      }
     })
-    return () => { 
-      socket.removeListener(`${notificationID}-notification`);
+  return () => { 
+    socket.removeListener(`${notificationID}-notification`);
   }
 }, [notificationID])
-
-useEffect(() => {
-  const checkNotificationInArray = () => {
-    if (!(userNotification.some(notification => notification.postId._id === newNotification.postId._id))) {
-      setUserNotification(prev => [newNotification, ...prev])
-      setUnreadNotifications(count => count + 1)
-    }
-  }
-  if (newNotification) checkNotificationInArray()
-}, [newNotification])
 
   const handleClick = (event) => {
     setNotification(event.currentTarget);
