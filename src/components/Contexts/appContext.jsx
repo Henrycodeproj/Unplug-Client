@@ -14,7 +14,10 @@ export const AppContext = ({children}) =>{
         localStorage.removeItem("Token")
         localStorage.removeItem("User")
         navigateTo("/")
+        setOption(false)
     }
+    //login and signup toggle state
+    const [option, setOption] = useState(true)
 
     const [userStatus, setUserStatus] = useState(localStorage.getItem("userStatus"))
 
@@ -74,7 +77,9 @@ export const AppContext = ({children}) =>{
             newNotification, 
             setNewNotification,
             clicked, 
-            setClicked
+            setClicked,
+            option, 
+            setOption
         }}>
             {children}
         </accountContext.Provider>    

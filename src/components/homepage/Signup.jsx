@@ -19,8 +19,6 @@ export const Signup = () =>{
       Confirm:'',
       email:''
     })
-    //login and signup toggle state
-    const [option, setOption] = useState(true)
     
     const [createdAccount, setCreatedAccount] = useState(false)
     const [signLoading, setSignLoading] = useState(false)
@@ -170,7 +168,7 @@ export const Signup = () =>{
       borderStyle:'none'
     }
 
-    const {userStatus, clicked, setClicked} = useContext(accountContext)
+    const {userStatus, clicked, setClicked, option, setOption} = useContext(accountContext)
 
     if (userStatus) return <Navigate to="/display"/>
 

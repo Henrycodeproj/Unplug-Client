@@ -6,6 +6,9 @@
 .rbc-agenda-view::-webkit-scrollbar {
     height: .75rem !important;
 }
+.rbc-toolbar-label {
+    font-weight: 900 !important;
+}
 .event_calendar {
     max-height: 400px !important;
 }
