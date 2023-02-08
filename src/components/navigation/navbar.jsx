@@ -49,6 +49,22 @@ export const Navbar = () => {
     } =
     useContext(accountContext);
 
+  //animation for framer motion
+  const variants = {
+    alert: { 
+      opacity: 1,
+      scale:[.95, 1, .95], 
+      boxShadow: [
+        "0 0 0 0 rgba(128, 128, 128, 0.393)",
+       "0 0 0 15px rgba(128, 128, 128, 0)",
+       "0 0 0 0 rgba(128, 128, 128, 0)"
+      ],
+      transition:{ repeat: Infinity, duration: 2 }
+     },
+      
+    noAlert: {},
+  }
+
   const [profile, setProfile] = useState(null);
   const [notification, setNotification] = useState(null);
   const [userInfo, setUserInfo] = useState();
@@ -231,10 +247,15 @@ export const Navbar = () => {
               setSearchResults={setSearchResults}
             />
             <Badge badgeContent={unreadNotifications} color="error">
-              <NotificationsIcon
-                className="notification_bell"
-                onClick={(e) => handleClick(e)}
-              />
+              <motion.div
+                  style = {{borderRadius:"50%", width:"30.4px", height:"30.4px"}} 
+                  animate={unreadNotifications > 0 ? "alert": "noAlert"}
+                  variants={variants}>
+                <NotificationsIcon
+                  className="notification_bell"
+                  onClick={(e) => handleClick(e)}
+                />
+              </motion.div>
               <Popover
                 open={notificationOpen}
                 anchorEl={notification}
