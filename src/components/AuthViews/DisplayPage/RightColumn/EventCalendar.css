@@ -4,7 +4,6 @@
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5) !important;
 }
 .rbc-agenda-view::-webkit-scrollbar {
-    width: 2em !important;
     height: .75rem !important;
 }
 .event_calendar {
