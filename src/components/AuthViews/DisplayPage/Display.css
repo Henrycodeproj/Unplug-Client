@@ -140,6 +140,12 @@
         width:100%;
     }
 }
+@media (max-width:785px) {
+    .newsfeed_container {
+        max-height: none;
+        width:100%;
+    }
+}
 @media (max-width:500px){
     .right_sidebar{
         display: none;
@@ -152,9 +158,6 @@
     }
     .posts_articles{
         margin:10px 0px 10px 0px;
-    }
-    .newsfeed_container{
-        max-height: none;
     }
     .meeting_bar {
         gap: 5%;
