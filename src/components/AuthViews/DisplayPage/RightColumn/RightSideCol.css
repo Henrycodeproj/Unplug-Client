@@ -97,7 +97,7 @@
       box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
     }
 }
-@media (max-width:920px){
+@media (max-width:786px){
     .right_sidebar{
         display:none;
     }
