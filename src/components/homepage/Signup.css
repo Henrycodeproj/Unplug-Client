@@ -11,9 +11,6 @@
 .signup_username{
     color:white;
 }
-.signup_sideimage_logo {
-    max-width: 50%;
-}
 .signup_action_buttons {
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px !important;
 }
@@ -44,6 +41,11 @@
     display:flex;
     align-items: center;
     font-weight: bolder;
+}
+@media(max-width: 1441px) {
+    .signup_sideimage_logo {
+        max-width: 45%;
+    }
 }
 @media (max-width:999px) {
     .signup_sideimage_logo {
