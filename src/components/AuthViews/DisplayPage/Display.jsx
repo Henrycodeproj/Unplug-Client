@@ -40,6 +40,7 @@ export const Display = () => {
 
   const [loadingState, setLoadingState] = useState(true);
   const [currentDate, setCurrentDate] = useState(new Date())
+  const [likeLoading, setLikeLoading] = useState(false)
 
   const navigateTo = useNavigate();
 
@@ -145,6 +146,7 @@ export const Display = () => {
   };
 
   const likeHandler = async (post) => {
+    setLikeLoading(true)
     const data = { 
       user: user.id, 
       posterId: post.posterId._id, 
@@ -192,6 +194,7 @@ export const Display = () => {
     const index = ref.current.map(element => element._id).indexOf(info.post)
     ref.current[index].attending.push(info.user)
     setPosts([...ref.current])
+    setLikeLoading(false)
   }
   
   function removeAttendHandler(info){
@@ -361,7 +364,7 @@ export const Display = () => {
                               >
                                 <VolunteerActivismIcon
                                   className="heart_button_outline"
-                                  onClick={() => likeHandler(post)}
+                                  onClick={() => likeLoading ? null : likeHandler(post)}
                                   style={{ cursor: "pointer" }}
                                 />
                               </Tooltip>
