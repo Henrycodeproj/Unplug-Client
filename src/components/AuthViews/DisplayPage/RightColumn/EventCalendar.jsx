@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./EventCalendar.css";
 import { EventViewer } from "./EventViewer";
+import PersonalEvents from "./PersonalEvents";
 
 const locales = {
   "en-US": require("date-fns"),
@@ -21,6 +22,7 @@ const localizer = dateFnsLocalizer({
 const view = {
   day: true,
   agenda: true,
+  MyEvents: PersonalEvents
 };
 
 export const EventCalendar = () => {
@@ -67,6 +69,7 @@ export const EventCalendar = () => {
             views={view}
             onSelectEvent={handleSelectEvent}
             className = "event_calendar"
+            messages={{ MyEvents: 'MyEvents' }}
           />
           <EventViewer open={open} setOpen={setOpen} event={focusedEvent} />
         </div>

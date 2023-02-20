@@ -39,21 +39,6 @@ export const Signup = () =>{
     const [passwordError, setPasswordError] = useState(false)
     const [demoMessage, setDemoMessage] = useState(true)
     const [disclaimerError, setDisclaimerError] = useState(false)
-    
-
-    //helps to clear error alerts on signup
-    useEffect(()=>{
-      const setTimer = setTimeout(()=>{
-        setPasswordError(false)
-        setEmailError(false)
-        setServerError('')
-        setCreatedAccount(false)
-      },3000)
-      
-      return () => {
-        clearTimeout(setTimer)
-      }
-    }, [passwordError, emailError, serverError])
 
     const submitHandler = async (e) => {
         e.preventDefault()
