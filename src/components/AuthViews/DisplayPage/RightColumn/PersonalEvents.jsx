@@ -29,7 +29,6 @@ export default function PersonalEvents({
           authorization: localStorage.getItem("Token"),
         }
       })
-      console.log(response)
       if (response){
       function eventDateFormat() {
         response.data.forEach((event) => {
