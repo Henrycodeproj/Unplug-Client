@@ -8,6 +8,7 @@ import { accountContext } from "../../../Contexts/appContext";
 import { IndividualChats } from "../../ChatViews/IndividualChat";
 import { useNavigate } from "react-router-dom";
 import { EventCalendar } from "./EventCalendar";
+import { motion } from "framer-motion"
 
 export const RightSideCol = () => {
   const newMessageCheck = useRef();
