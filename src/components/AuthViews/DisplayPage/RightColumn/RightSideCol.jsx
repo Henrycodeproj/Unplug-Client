@@ -120,6 +120,9 @@ export const RightSideCol = () => {
                       fontWeight: "600",
                       cursor: "pointer",
                     }}
+                    onClick={() =>
+                      navigateTo(`/profile/${post.original_poster[0]._id}`)
+                    }
                   >
                     {post.original_poster[0].username}
                   </h3>
