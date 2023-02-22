@@ -87,9 +87,16 @@ export const RightSideCol = () => {
         >
           Biggest Events Today
         </h2>
-        {popularPosts.map((post) => (
-          <div>
-            <Divider />
+        {popularPosts.map((post, i) => (
+          <motion.div
+          initial = {{ x:-40, opacity: 0 }}
+          animate = {{ x:0, opacity: 1 }}
+          transition={{delay: i * 0.15, duration:.5}}
+          >
+            <motion.div
+            whileHover={{scale:1.05, x:-2}}
+            key = {post._id}
+            >
             <div className="popular_post_container">
               <div style={{ display: "flex" }}>
                 <Avatar
@@ -139,7 +146,8 @@ export const RightSideCol = () => {
                 +{post.attendingLength}
               </Avatar>
             </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
       </div>
       <div className="recent_message_container">
