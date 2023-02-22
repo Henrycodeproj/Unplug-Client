@@ -76,13 +76,16 @@
     margin:0
 }
 .popular_container{
+    margin:10px 0;
     padding:10px;
 }
 .popular_post_container{
+    background: #bcbaba;
+    padding:10px;
+    border-radius: 10px;
     margin: 20px 0;
     display:flex;
     justify-content: space-between;
-    align-items: center;
 }
 @keyframes online-pulse {
     0% {
