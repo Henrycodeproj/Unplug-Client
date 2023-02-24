@@ -177,6 +177,7 @@ export const RightSideCol = () => {
                   height: "100%",
                   marginBottom: "10px",
                 }}
+                className = "chat_user_bar"
               >
                 <div
                   className="profile_image_name_container"

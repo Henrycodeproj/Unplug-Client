@@ -1,7 +1,6 @@
 import Popover from '@mui/material/Popover';
 import axios from 'axios';
 import Tooltip from "@mui/material/Tooltip";
-import ChatIcon from '@mui/icons-material/Chat';
 import {useState, useContext, useEffect, useRef} from "react"
 import { accountContext } from '../../Contexts/appContext';
 import CircularProgress from '@mui/material/CircularProgress'
@@ -11,7 +10,9 @@ import "./IndividualChat.css"
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SendIcon from '@mui/icons-material/Send';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import CallMadeIcon from '@mui/icons-material/CallMade';
 import { TextAreaEmojis } from '../../ReusablesComponents/TextAreaEmojis';
+import { motion } from "framer-motion"
 
 export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
     const {user, socket} = useContext(accountContext)
@@ -157,7 +158,15 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
       <>
         <Tooltip title ="Chat">
             <Badge badgeContent={notification} color="primary">
-                <ChatIcon onClick = { handleClick } sx = {{ color:"gray", cursor:"pointer", fontSize:"1.7rem" }}/>
+                <motion.div
+                    whileHover={{rotate:45}}
+                    whileTap = {{x:5, scale:1.1}}
+                >
+                <CallMadeIcon 
+                onClick = { handleClick } sx = {{ color:"gray", cursor:"pointer", fontSize:"1.7rem" }}
+                className = "chat-icon"
+                />
+                </motion.div>
             </Badge>
         </Tooltip>
         <Popover
