@@ -129,7 +129,7 @@ export const SendMessage = ({post}) => {
             <TextareaAutosize
               aria-label="empty textarea"
               placeholder="Write your message here"
-              style={{ width: "300px", height:"auto"}}
+              style={{ maxWidth: "300px", height:"auto"}}
               minRows = {10}
               onChange = { (e)=> setMessage(e.target.value) }
               ref = {ref}
