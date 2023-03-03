@@ -259,11 +259,9 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                 <div>
                     <div style = {{display:"flex", justifyContent:"flex-end", alignItems:"center", gap:"10px", padding:"5px"}}>
                         <div style ={{display:"flex", justifyContent:"space-between", alignItems:"center", background:"rgba(128, 128, 128, 0.30)", borderRadius:"20px", maxWidth:"90%",padding:"5px",flexGrow:1}}>
-                            <TextareaAutosize
+                            <textarea
                             className='input_messages' 
                             placeholder='Reply'
-                            minRows = {1}
-                            maxRows = {5}
                             onChange={e => setMessage(e.target.value)}
                             onKeyDown = {e => handleReplyEnter(e)}
                             ref = {textAreaRef}
