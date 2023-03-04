@@ -12,3 +12,6 @@
 .event_calendar {
     max-height: 400px !important;
 }
+.rbc-toolbar button {
+    font-weight: 700 !important;
+}
