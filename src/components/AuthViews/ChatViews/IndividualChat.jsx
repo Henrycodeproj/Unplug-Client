@@ -9,7 +9,7 @@ import Badge from '@mui/material/Badge';
 import "./IndividualChat.css"
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import SendIcon from '@mui/icons-material/Send';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
+import TextareaAutosize from 'react-textarea-autosize';
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import { TextAreaEmojis } from '../../ReusablesComponents/TextAreaEmojis';
 import { motion } from "framer-motion"
@@ -227,7 +227,7 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                         <div className = "currentUser_message_wrapper">
                             <div className='currentUser_messsage_container'>
                                 <div className='currentUser_message' ref = {el => chatContainer.current = el}>
-                                    <p style ={{display:"block"}} className ="testzz">{message.message}</p>
+                                    <p style ={{display:"block"}} className ="chat_message">{message.message}</p>
                                 </div>
                                 <Avatar 
                                 src ={
@@ -259,7 +259,8 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
                 <div>
                     <div style = {{display:"flex", justifyContent:"flex-end", alignItems:"center", gap:"10px", padding:"5px"}}>
                         <div style ={{display:"flex", justifyContent:"space-between", alignItems:"center", background:"rgba(128, 128, 128, 0.30)", borderRadius:"20px", maxWidth:"90%",padding:"5px",flexGrow:1}}>
-                            <textarea
+                            <TextareaAutosize
+                            maxRows={5}
                             className='input_messages' 
                             placeholder='Reply'
                             onChange={e => setMessage(e.target.value)}

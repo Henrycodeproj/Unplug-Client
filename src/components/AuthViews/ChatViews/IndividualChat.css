@@ -27,6 +27,8 @@
     background-color: #469bf0;
     background-color: rgb(253, 234, 129);
     font-weight: 500;
+    overflow-wrap: break-word;
+    max-width: 80%;
 }
 .otherUser_message {
     border-top-right-radius: 5px;
