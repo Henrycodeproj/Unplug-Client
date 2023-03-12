@@ -11,7 +11,7 @@ import ScheduleIcon from '@mui/icons-material/Schedule';
 import { RightSideCol } from "./RightColumn/RightSideCol";
 import { MoreOptions } from "../Posts/MoreOptions";
 import { Truncating } from "../../ReusablesComponents/Truncating.jsx";
-import { SendMessage } from "../Posts/SendMessage";
+import { SendMessage } from "../../ReusablesComponents/SendMessage";
 import { LoadingCircle } from "../../ReusablesComponents/LoadingCircle";
 import { motion } from "framer-motion";
 import { useState, useEffect, useContext, useRef } from "react";
@@ -296,7 +296,7 @@ export const Display = () => {
                         </div>
                         <div style={{ display: "flex" }}>
                           {post.posterId._id !== user.id ? (
-                            <SendMessage post={post} />
+                            <SendMessage />
                           ) : null}
                           <MoreOptions post={post} />
                         </div>
