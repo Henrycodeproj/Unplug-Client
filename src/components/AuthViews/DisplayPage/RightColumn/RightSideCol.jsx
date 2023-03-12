@@ -9,6 +9,7 @@ import { IndividualChats } from "../../ChatViews/IndividualChat";
 import { useNavigate } from "react-router-dom";
 import { EventCalendar } from "./EventCalendar";
 import { motion } from "framer-motion"
+import { ChatSearchModal } from "./ChatSearchModal";
 
 export const RightSideCol = () => {
   const newMessageCheck = useRef();
@@ -19,6 +20,7 @@ export const RightSideCol = () => {
 
   const [popularPosts, setPopularPosts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [totalUsers, setTotalUsers] = useState([]);
 
   useEffect(() => {
     const url = "https://unplug-server.herokuapp.com/posts/popular";
@@ -34,6 +36,7 @@ export const RightSideCol = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  //gets recent messages
   useEffect(() => {
     const Url = `https://unplug-server.herokuapp.com/message/recent/all/${user.id}`;
     axios
@@ -54,6 +57,19 @@ export const RightSideCol = () => {
     return () => {
       socket.off(`${user.id}`);
     };
+  }, []);
+
+  //gets total users
+  useEffect(() => {
+    const url = "https://unplug-server.herokuapp.com/user/chat/search/";
+    axios
+      .get(url, {
+        headers: {
+          authorization: localStorage.getItem("Token"),
+        },
+      })
+      .then((res) => setTotalUsers(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   const handleClick = (event) => {
@@ -156,6 +172,7 @@ export const RightSideCol = () => {
       </div>
       <div className="recent_message_container">
         <div className="recent_message_title" style={{ fontSize: "1.6rem" }}>
+        <ChatSearchModal totalUsers = {totalUsers}/>
           <h2
             style={{
               textDecoration: "underline",

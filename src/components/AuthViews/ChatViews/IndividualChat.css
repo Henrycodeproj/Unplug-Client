@@ -37,6 +37,8 @@
     padding: 5px 10px;
     background-color: #edacf8d3;
     font-weight: 500;
+    overflow-wrap: break-word;
+    max-width: 80%;
 }
 .input_messages{
     caret-color: gray;

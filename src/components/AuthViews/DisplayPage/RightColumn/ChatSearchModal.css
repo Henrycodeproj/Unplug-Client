@@ -1,0 +1,20 @@
+.chat_searchbox {
+    color:black;
+    background:none;
+    border-style: none;
+    font-size:20px;
+    caret-color: black;
+    height:25px;
+    width:100%;
+}
+.chat_searchbox::placeholder{
+    color: rgb(60, 60, 60);
+}
+.users_search_container:hover {
+    background: rgba(163, 161, 161, 0.454);
+    border-radius: 5px;
+}
+.chat_message_inbox:hover {
+    background: white;
+    border-radius: 50%;
+}

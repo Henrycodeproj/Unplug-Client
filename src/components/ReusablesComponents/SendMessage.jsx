@@ -8,12 +8,12 @@ import DialogTitle from '@mui/material/DialogTitle';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Button from '@mui/material/Button';
 import "./SendMessage.css"
-import { accountContext } from "../../Contexts/appContext";
+import { accountContext } from "../Contexts/appContext";
 import axios from "axios";
-import { TextAreaEmojis } from "../../ReusablesComponents/TextAreaEmojis";
+import { TextAreaEmojis } from "./TextAreaEmojis";
 import { motion } from "framer-motion"
 
-export const SendMessage = ({post}) => {
+export const SendMessage = ({userInfo}) => {
     const {user, setRecentMessages, socket, recentMessages} = useContext(accountContext)
     const [sendMessageOpen, setSendMessageOpen] = useState(false);
     const [message, setMessage] = useState('')
@@ -25,7 +25,7 @@ export const SendMessage = ({post}) => {
     const handleClickOpen = async () => {
       setSendMessageOpen(true);
       const Url = "https://unplug-server.herokuapp.com/conversation/create"
-      const data = {user1:user.id, user2:post.posterId._id}
+      const data = {user1:user.id, user2:userInfo._id}
       const newConvoId = await axios.post(Url, data, {
         headers:{
             "authorization": localStorage.getItem("Token")
@@ -69,8 +69,8 @@ export const SendMessage = ({post}) => {
           message: message,
           senderId: user.id,
           senderUsername: user.username,
-          recipientId: post.posterId._id,
-          recipientUsername: post.posterId.username
+          recipientId: userInfo._id,
+          recipientUsername: userInfo.username
         }
         const res = await axios.post(Url, data, {
           headers:{
@@ -80,7 +80,6 @@ export const SendMessage = ({post}) => {
         setMessage("")
         saveNewMessage(data)
         socket.emit("messages", data)
-        socket.emit("sendUserId", data)
     }
 
     return (
@@ -94,7 +93,7 @@ export const SendMessage = ({post}) => {
           >
           <Tooltip 
             title = {
-            `Send ${post.posterId.username.charAt(0).toUpperCase() + post.posterId.username.slice(1)} a Message`
+            `Send ${userInfo.username.charAt(0).toUpperCase() + userInfo.username.slice(1)} a Message`
             }
           >
           <SendIcon 
@@ -105,7 +104,6 @@ export const SendMessage = ({post}) => {
               color:"rgb(68, 68, 68)",
               cursor:"pointer",
               transform:"rotate(-20deg)",
-              marginRight:"5px"
           }}
           />
           </Tooltip>
@@ -121,7 +119,7 @@ export const SendMessage = ({post}) => {
                 borderBottomStyle:"solid",
                 borderWidth:".5px"
             }}>
-                To: {post.posterId.username.charAt(0).toUpperCase() + post.posterId.username.slice(1)}
+                To: {userInfo.username.charAt(0).toUpperCase() + userInfo.username.slice(1)}
             </div>
           </DialogTitle>
           <DialogContent>
@@ -129,7 +127,7 @@ export const SendMessage = ({post}) => {
             <TextareaAutosize
               aria-label="empty textarea"
               placeholder="Write your message here"
-              style={{ maxWidth: "300px", height:"auto"}}
+              style={{ width: "100%", height:"auto"}}
               minRows = {10}
               onChange = { (e)=> setMessage(e.target.value) }
               ref = {ref}
