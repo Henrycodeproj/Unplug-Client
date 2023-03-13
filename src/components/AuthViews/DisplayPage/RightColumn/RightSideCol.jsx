@@ -99,7 +99,7 @@ export const RightSideCol = () => {
             marginBottom: "10px",
             textDecoration: "underline",
             fontSize: "1.6rem",
-            fontWeight: "900",
+            fontWeight: "800",
           }}
         >
           Biggest Events Today
@@ -177,7 +177,7 @@ export const RightSideCol = () => {
             style={{
               textDecoration: "underline",
               fontSize: "1.6rem",
-              fontWeight: "900",
+              fontWeight: "800",
             }}
           >
             Recent Messages
