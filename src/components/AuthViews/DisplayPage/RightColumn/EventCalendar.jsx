@@ -59,7 +59,7 @@ export const EventCalendar = () => {
     <>
       <div className="calendars">
         <div>
-          <h1 style = {{fontWeight:"900"}}>Today's Events</h1>
+          <h1 style = {{fontWeight:"800"}}>Today's Events</h1>
           <Calendar
             events={events}
             localizer={localizer}
