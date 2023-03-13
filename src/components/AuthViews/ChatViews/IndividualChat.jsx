@@ -15,7 +15,7 @@ import { TextAreaEmojis } from '../../ReusablesComponents/TextAreaEmojis';
 import { motion } from "framer-motion"
 
 export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
-    const {user, socket} = useContext(accountContext)
+    const {user, socket, activeUsers} = useContext(accountContext)
 
     const [chatAnchor, setChatAnchor] = useState(false);
     const [chatHistory, setChatHistory] = useState([])
@@ -184,15 +184,18 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             <> 
             <div className='chat_box_wrapper'>
                 <div style = {{display:"flex", gap:"10px", alignItems:"center"}}>
-                <Avatar 
-                src ={
-                    recievingUserInfo.profilePicture 
-                    ? `https://ucarecdn.com/${recievingUserInfo.profilePicture}/`
-                    : null
-                }
-                sx ={{width:"30px", height:"30px"}}
-                />
-                <h2 style ={{fontWeight:"600"}}>{recievingUserInfo.username.charAt(0).toUpperCase() + recievingUserInfo.username.slice(1)}</h2>
+                    <div>
+                        <Avatar 
+                        src ={
+                            recievingUserInfo.profilePicture 
+                            ? `https://ucarecdn.com/${recievingUserInfo.profilePicture}/`
+                            : null
+                        }
+                        sx ={{width:"30px", height:"30px"}}
+                        />
+                        {recievingUserInfo._id in activeUsers && <span className="chat_online"/>}
+                    </div>
+                    <h2 style ={{fontWeight:"600"}}>{recievingUserInfo.username.charAt(0).toUpperCase() + recievingUserInfo.username.slice(1)}</h2>
                 </div>
                 <div style ={{display:"flex", flexDirection:"row"}}> 
                 {

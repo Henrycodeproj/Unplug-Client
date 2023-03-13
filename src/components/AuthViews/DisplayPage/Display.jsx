@@ -296,7 +296,7 @@ export const Display = () => {
                         </div>
                         <div style={{ display: "flex" }}>
                           {post.posterId._id !== user.id ? (
-                            <SendMessage />
+                            <SendMessage userInfo={post.posterId}/>
                           ) : null}
                           <MoreOptions post={post} />
                         </div>
