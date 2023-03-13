@@ -65,11 +65,11 @@ export const EditOption = ({post, editOpen, setEditOpen}) => {
             <BorderColorIcon sx = {{fontSize:"25px"}}/>
           </div>
         </DialogTitle>
-        <DialogContent sx={{width: "300px", height: "auto"}}>
+        <DialogContent sx={{height: "auto"}}>
             <TextareaAutosize
             aria-label="empty textarea"
             placeholder="Empty"
-            style={{ width: 300 }}
+            style={{ width: "100%" }}
             onChange = {e => setPostDescription(e.target.value)}
             value = {postDescription}
             minRows = {10}
