@@ -4,15 +4,16 @@ import axios from "axios"
 import { accountContext } from "../../Contexts/appContext";
 import { useContext } from "react";
 
-export const ProfileImageUploader = ({widgetApi, viewedUser, user, setViewedUser}) => {
+export const ProfileImageUploader = ({widgetApi, viewedUser, setViewedUser}) => {
 
-    const {setUser} = useContext(accountContext)
+    const {setUser, user} = useContext(accountContext)
 
     const changeProfileImageHandler = (response) => {
-        const userInfo = JSON.parse(localStorage.getItem("User"))
-        userInfo.profilePicture = response.profilePicture
-        localStorage.setItem("User", JSON.stringify(userInfo))
-        setUser(userInfo)
+      setUser((prev) => (
+        {
+          ...prev,
+          profilePicture: response.profilePicture,
+      }))
     }
 
     const uploadHandler = async (file) => {

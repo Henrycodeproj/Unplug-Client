@@ -26,6 +26,7 @@ export const Display = () => {
     posts,
     setPosts,
     user,
+    setUser,
     activeUsers,
     setActiveUsers,
     socket,
@@ -46,6 +47,24 @@ export const Display = () => {
 
   const ref = useRef()
   ref.current = posts
+
+  useEffect(() => {
+    const getUserInformation = async () => {
+      const url = `https://unplug-server.herokuapp.com/user/profileInfo/${user.id}/`;
+      const response = await axios.get(url, {
+        headers: {
+          authorization: localStorage.getItem("Token"),
+        },
+      });
+      setUser(prevInfo => (
+        {
+          ...prevInfo,
+          profilePicture: response.data.profilePicture,
+          collegeAffiliation: response.data.collegeAffiliation
+        }))
+    }
+    getUserInformation()
+  },[])
 
   useEffect(() => {
     const getUserNotifications = async () => {

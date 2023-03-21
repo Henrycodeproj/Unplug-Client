@@ -1,6 +1,7 @@
 import {createContext, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client"
+import jwt_decode from "jwt-decode";
 export const accountContext = createContext()
 
 export const AppContext = ({children}) =>{
@@ -12,16 +13,18 @@ export const AppContext = ({children}) =>{
         socket.disconnect()
         localStorage.removeItem("userStatus")
         localStorage.removeItem("Token")
-        localStorage.removeItem("User")
         navigateTo("/")
         setOption(false)
     }
+
+    const tokenInfo = localStorage.getItem("Token") ? jwt_decode(localStorage.getItem("Token")) : null
+
     //login and signup toggle state
     const [option, setOption] = useState(true)
 
     const [userStatus, setUserStatus] = useState(localStorage.getItem("userStatus"))
 
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem("User")))
+    const [user, setUser] = useState(tokenInfo?.user)
 
     const [posts, setPosts] = useState(null)
     

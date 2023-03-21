@@ -215,7 +215,6 @@ export const Profile = ()=> {
                               widgetApi = {widgetApi}
                               viewedUser = {viewedUser}
                               setViewedUser = {setViewedUser}
-                              user = {user}
                               />
                             <div>
                                 <h1 className = "profile_username">

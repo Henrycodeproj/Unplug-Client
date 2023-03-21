@@ -27,18 +27,18 @@ import Switch from '@mui/material/Switch';
 export const LeftColumn = ()=>{
     const {user, logoutHandler} = useContext(accountContext)
     const navigateTo = useNavigate()
-    const [userInfo] = useState(JSON.parse(localStorage.getItem("User")))
+    
     return(
         <div className='side_header'>
             <div className="leftside_profile_card" style={{background:"rgba(139, 137, 137, 0.404)",borderTopLeftRadius:'5px', borderTopRightRadius:'5px'}}>
                 <Avatar 
                   sx = {{ width:50, height:50 }}
-                  src = {`https://ucarecdn.com/${userInfo.profilePicture}/`}
+                  src = {`https://ucarecdn.com/${user.profilePicture}/`}
                 />
                 <span className='leftsidebar_online'/>
                 <div className = "leftside_profile_card_name">
                     <h2 style={{textTransform:"capitalize", fontSize:"2rem"}}>{user.username}</h2>
-                    <h5 style={{wordWrap:"break-word", fontSize:"1rem", color:"rgb(168, 162, 162)", textTransform:"capitalize"}}>{"@" + userInfo.collegeAffiliation}</h5>
+                    <h5 style={{wordWrap:"break-word", fontSize:"1rem", color:"rgb(168, 162, 162)", textTransform:"capitalize"}}>{"@" + user.collegeAffiliation}</h5>
                 </div>
             </div>
           <MenuList sx ={{borderTop:"solid", borderTopColor:"rgb(255, 255, 255, .6)", borderTopWidth:"1.5px", padding:'10px'}}>
