@@ -367,7 +367,7 @@ export const Display = () => {
                             <motion.button
                               whileHover={{ scale: 1.1, rotate: -10 }}
                               whileTap={{
-                                scale: 1.5,
+                                scale: .7,
                               }}
                               style={{
                                 borderStyle: "none",
