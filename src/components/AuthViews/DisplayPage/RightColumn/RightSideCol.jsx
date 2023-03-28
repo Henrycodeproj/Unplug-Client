@@ -21,6 +21,7 @@ export const RightSideCol = () => {
   const [popularPosts, setPopularPosts] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [totalUsers, setTotalUsers] = useState([]);
+  const [messageLoad, setMessageLoad] = useState(true)
 
   useEffect(() => {
     const url = "https://unplug-server.herokuapp.com/posts/popular";
@@ -38,15 +39,18 @@ export const RightSideCol = () => {
 
   //gets recent messages
   useEffect(() => {
-    const Url = `https://unplug-server.herokuapp.com/message/recent/all/${user.id}`;
-    axios
-      .get(Url, {
-        headers: {
-          authorization: localStorage.getItem("Token"),
-        },
-      })
-      .then((res) => setRecentMessages(res.data.reverse()))
-      .catch((err) => console.log(err));
+    async function getMessages() {
+      const Url = `https://unplug-server.herokuapp.com/message/recent/all/${user.id}`;
+      const response = await axios
+        .get(Url, {
+          headers: {
+            authorization: localStorage.getItem("Token"),
+          },
+        })
+      if (response.data) setRecentMessages(response.data.reverse())
+      setMessageLoad(false)
+    }
+    getMessages()
   }, []);
 
   useEffect(() => {
@@ -184,7 +188,7 @@ export const RightSideCol = () => {
           </h2>
         </div>
         <div className="recent_message_avatars">
-          {recentMessages &&
+          {recentMessages && !messageLoad &&
             recentMessages.map((queryInfo, index) => (
               <div
                 style={{

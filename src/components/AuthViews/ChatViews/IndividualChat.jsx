@@ -105,6 +105,19 @@ export const IndividualChats = ({recievingUserInfo, convoId, isNewMessage}) => {
             },
         })
         setChatHistory(response.data)
+
+        const updateMessageUrl = `https://unplug-server.herokuapp.com/message/conversation/read/`
+        const data = {
+            convoId: convoId,
+            senderID: recievingUserInfo._id,
+            recievingUser: user.id
+        }
+        //sends additional request to change read status of chat
+        await axios.post(updateMessageUrl, data, {
+            headers:{
+                "authorization":localStorage.getItem("Token")
+            },
+        })
     };
     
     const handleChatClose = () => {
