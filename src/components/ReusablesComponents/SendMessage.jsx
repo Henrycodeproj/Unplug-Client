@@ -44,13 +44,15 @@ export const SendMessage = ({userInfo}) => {
         recieverInfo: [
             {
                 _id: data.recipientId,
-                username: data.recipientUsername
+                username: data.recipientUsername,
+                profilePicture: data.recipientProfilePicture
             }
         ],
         senderInfo: [
             {
                 _id: data.senderId,
-                username: data.senderUsername
+                username: data.senderUsername,
+                profilePicture: data.senderProfilePicture
             }
         ]
       }
@@ -69,8 +71,10 @@ export const SendMessage = ({userInfo}) => {
           message: message,
           senderId: user.id,
           senderUsername: user.username,
+          senderProfilePicture: user.profilePicture,
           recipientId: userInfo._id,
-          recipientUsername: userInfo.username
+          recipientUsername: userInfo.username,
+          recipientProfilePicture: userInformation.profilePicture
         }
         const res = await axios.post(Url, data, {
           headers:{
