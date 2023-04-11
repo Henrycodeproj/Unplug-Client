@@ -74,7 +74,7 @@ export const SendMessage = ({userInfo}) => {
           senderProfilePicture: user.profilePicture,
           recipientId: userInfo._id,
           recipientUsername: userInfo.username,
-          recipientProfilePicture: userInformation.profilePicture
+          recipientProfilePicture: userInfo.profilePicture
         }
         const res = await axios.post(Url, data, {
           headers:{
