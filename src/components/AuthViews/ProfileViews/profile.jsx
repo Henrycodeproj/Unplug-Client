@@ -211,7 +211,7 @@ export const Profile = ()=> {
                                   <div style = {{display:"flex", flexDirection:"column"}}>
                                     <h4 style = {{marginBottom:"5%"}}>You can press enter on the keyboard or hit the check to change or edit your college.
                                     </h4>
-                                    <div style = {{display:"flex"}}>
+                                    <div style = {{display:"flex", alignItems:"center"}}>
                                     <Box sx={{ minWidth: 120}}>
                                       <FormControl fullWidth>
                                         <InputLabel id="demo-simple-select-label" sx = {{background:"white"}}>College Affiliation</InputLabel>
