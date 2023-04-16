@@ -32,6 +32,11 @@ import * as React from 'react';
 import SidebarOptions from "./SidebarOptions";
 import AddSocialDialog from "./AddSocialDialog"
 
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 export const Profile = ()=> {
     const { user } = useContext(accountContext) 
     const { userId } = useParams()
@@ -74,28 +79,6 @@ export const Profile = ()=> {
       setViewedUser(response.data)
       setState(prev => prev['bottom'] = !prev['bottom'])
     }
-
-    const submitAffliliationHandler = async (event) => {
-      if (event.key === "Enter" && affiliation) {
-        const url = `https://unplug-server.herokuapp.com/user/update/college/${user.id}`
-        const data = {
-           affiliation: affiliation
-        }
-        const response = await axios.patch(url, data, {
-          headers:{
-            "authorization": localStorage.getItem("Token")
-          }
-        })
-      if (response) {
-        setViewedUser(response.data)
-        setClicked(false)
-        setAffiliation('')
-        const localUserInfo = JSON.parse(localStorage.getItem("User"))
-        localUserInfo["collegeAffiliation"] = response.data.collegeAffiliation
-        localStorage.setItem("User", JSON.stringify(localUserInfo))
-        }
-      }
-    }
     
     const submitButtonAffliliationHandler = async (e) => {
       if (affiliation) {
@@ -110,9 +93,6 @@ export const Profile = ()=> {
         setViewedUser(response.data)
         setClicked(false)
         setAffiliation('')
-        const localUserInfo = JSON.parse(localStorage.getItem("User"))
-        localUserInfo["collegeAffiliation"] = response.data.collegeAffiliation
-        localStorage.setItem("User", JSON.stringify(localUserInfo))
       }
     }
     }
@@ -232,20 +212,29 @@ export const Profile = ()=> {
                                     <h4 style = {{marginBottom:"5%"}}>You can press enter on the keyboard or hit the check to change or edit your college.
                                     </h4>
                                     <div style = {{display:"flex"}}>
-                                      <motion.div
-                                      initial={{ opacity: 0}}
-                                      animate={{ opacity: 1}}
-                                      exit={{ opacity: 0 }}
-                                      transition = {{duration: 1}}
-                                      >
-                                      <input
-                                      value={clicked ? affiliation : viewedUser.collegeAffiliation}
-                                      onChange = {e => setAffiliation(e.target.value)}
-                                      style = {{caretColor:"black"}}
-                                      autoFocus 
-                                      onKeyDown={e => submitAffliliationHandler(e)}
-                                      />
-                                      </motion.div>
+                                    <Box sx={{ minWidth: 120}}>
+                                      <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label" sx = {{background:"white"}}>College Affiliation</InputLabel>
+                                        <Select
+                                          labelId="demo-simple-select-label"
+                                          id="demo-simple-select"
+                                          value={affiliation}
+                                          label="College Affiliation"
+                                          onChange={e => setAffiliation(e.target.value)}
+                                        >
+                                          <MenuItem value={'Stevenson'}>Stevenson</MenuItem>
+                                          <MenuItem value={'Cowell'}>Cowell</MenuItem>
+                                          <MenuItem value={'College 9'}>College 9</MenuItem>
+                                          <MenuItem value={'College 10'}>College 10</MenuItem>
+                                          <MenuItem value={'Rachel Carson'}>Rachel Carson</MenuItem>
+                                          <MenuItem value={'Kresge'}>Kresge</MenuItem>
+                                          <MenuItem value={'Porter'}>Porter</MenuItem>
+                                          <MenuItem value={'Oakes'}>Oakes</MenuItem>
+                                          <MenuItem value={'Merill'}>Merill</MenuItem>
+                                          <MenuItem value={'Crown'}>Crown</MenuItem>
+                                        </Select>
+                                      </FormControl>
+                                      </Box>
                                       <CheckCircleIcon sx = {{color:"green", cursor:"pointer"}} 
                                       onClick = {e  => submitButtonAffliliationHandler(e)}/>
                                       <CancelIcon sx = {{color:"gray", cursor:"pointer"}} onClick = {()=> setClicked(prevState => !prevState)}/>
